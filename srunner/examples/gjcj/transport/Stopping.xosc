@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
+  <FileHeader taskCategory="陆域" name="运输任务-终点停车" description="运输任务-终点停车" author="lp" revMajor="1"
+    revMinor="0" date="2023-10-08T10:00:00" />
+  <ParameterDeclarations>
+    <ParameterDeclaration name="ego_start_s" parameterType="double" value="27" />
+    <ParameterDeclaration name="patrol1_s" parameterType="double" value="250" />
+    <ParameterDeclaration name="patrol1_speed" parameterType="double" value="0.5" />
+    <ParameterDeclaration name="patrol2_speed" parameterType="double" value="1" />
+  </ParameterDeclarations>
+  <CatalogLocations>
+    <VehicleCatalog>
+      <Directory path="../../catalogs" />
+    </VehicleCatalog>
+    <PedestrianCatalog>
+      <Directory path="../../catalogs" />
+    </PedestrianCatalog>
+    <MiscObjectCatalog>
+      <Directory path="../../catalogs" />
+    </MiscObjectCatalog>
+    <ControllerCatalog>
+      <Directory path="../../catalogs" />
+    </ControllerCatalog>
+  </CatalogLocations>
+  <RoadNetwork>
+    <LogicFile filepath="Afghan" />
+    <SceneGraphFile filepath="Afghan" />
+    <LandGraphFile filepath="Afghan" />
+  </RoadNetwork>
+  <Electromagnetic name="elc" electromagneticCategory="line" intensity="12">
+    <Position>
+      <WorldPosition x="32" y="12" z="12" />
+    </Position>
+  </Electromagnetic>
+  <Metrics>
+    <Metric name="coStrike_story_metric1" description="描述。。。。" metricCategory="scout-F1" />
+    <Metric name="coStrike_story_metric2" description="描述。。。。" metricCategory="scout-acc" />
+  </Metrics>
+  <TargetObjects>
+    <TargetObject name="target1">
+      <Entit value="12" rule="greaterThan" entityRef="coStrike_story_metric1" />
+    </TargetObject>
+  </TargetObjects>
+  <Entities>
+    <ScenarioObject name="Ego">
+      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.wheeled.trucknormal" />
+    </ScenarioObject>
+    <ScenarioObject name="patrol1">
+      <CatalogReference catalogName="PedestrianCatalog" entryName="walker.pedestrian.0055" />
+    </ScenarioObject>
+    <ScenarioObject name="patrol2">
+      <CatalogReference catalogName="PedestrianCatalog" entryName="walker.pedestrian.0055" />
+    </ScenarioObject>
+  </Entities>
+  <Storyboard>
+    <Init>
+      <Actions>
+        <GlobalAction>
+          <EnvironmentAction>
+            <Environment name="Environment1">
+              <TimeOfDay animation="false" dateTime="2022-04-20T17:20:40" />
+              <Weather cloudState="free">
+                <Sun azimuth="0" intensity="0.35" elevation="1.31" />
+                <Fog visualRange="10000" />
+                <Precipitation precipitationType="dry" intensity="0.0" />
+              </Weather>
+              <RoadCondition frictionScaleFactor="1.0" />
+            </Environment>
+          </EnvironmentAction>
+        </GlobalAction>
+        <Private entityRef="Ego">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="17" laneId="-1" s="$ego_start_s" offset="0.0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+          <PrivateAction>
+            <ControllerAction>
+              <AssignControllerAction>
+                <Controller name="HeroAgent">
+                  <Properties>
+                    <Property name="module" value="external_control" />
+                  </Properties>
+                </Controller>
+              </AssignControllerAction>
+              <OverrideControllerValueAction>
+                <Throttle value="0" active="false" />
+                <Brake value="0" active="false" />
+                <Clutch value="0" active="false" />
+                <ParkingBrake value="0" active="false" />
+                <SteeringWheel value="0" active="false" />
+                <Gear number="0" active="false" />
+              </OverrideControllerValueAction>
+            </ControllerAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="patrol1">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="17" laneId="1" s="$patrol1_s" offset="0.0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="patrol2">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="-77.4" y="337.1" z="0" h="0" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+      </Actions>
+    </Init>
+    <Story name="patrol-story">
+      <Act name="patrol_act">
+        <ManeuverGroup name="patrol1_mang" maximumExecutionCount="1">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="patrol1" />
+          </Actors>
+          <Maneuver name="patrol1_maneuver">
+            <Event name="patrol1_event1" priority="parallel" maximumExecutionCount="1">
+              <Action name="patrol1_assign_controller_action">
+                <PrivateAction>
+                  <ControllerAction>
+                    <AssignControllerAction>
+                      <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
+                        <ParameterAssignments>
+                          <ParameterAssignment parameterRef="Type" value="walker" />
+                          <ParameterAssignment parameterRef="Action_type"
+                            value="walker_patrol_action" />
+                          <ParameterAssignment parameterRef="Action_extra_config"
+                            value='{"waypoints": [[-102.214, -362.92], [-116.34, -350.85]]}' />
+                          <ParameterAssignment parameterRef="Model_path"
+                            value="srunner/examples/rl_models/Transport/Transport.Stopping/checkpoint" />
+                          <ParameterAssignment parameterRef="Params_path"
+                            value="srunner/examples/rl_models/Transport/Transport.Stopping/params.json" />
+                        </ParameterAssignments>
+                      </CatalogReference>
+                    </AssignControllerAction>
+                    <OverrideControllerValueAction>
+                      <Throttle value="0" active="false" />
+                      <Brake value="0" active="false" />
+                      <Clutch value="0" active="false" />
+                      <ParkingBrake value="0" active="false" />
+                      <SteeringWheel value="0" active="false" />
+                      <Gear number="0" active="false" />
+                    </OverrideControllerValueAction>
+                  </ControllerAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition name="patrol1_con1" delay="0" conditionEdge="none">
+                    <ByEntityCondition>
+                      <TriggeringEntities triggeringEntitiesRule="any">
+                        <EntityRef entityRef="Ego" />
+                      </TriggeringEntities>
+                      <EntityCondition>
+                        <ReachPositionCondition tolerance="5.0">
+                          <Position>
+                            <LanePosition roadId="17" laneId="-1" s="80" />
+                          </Position>
+                        </ReachPositionCondition>
+                      </EntityCondition>
+                    </ByEntityCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+        <ManeuverGroup name="patrol2_mang" maximumExecutionCount="1">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="patrol2" />
+          </Actors>
+          <Maneuver name="patrol2_maneuver">
+            <Event name="patrol2_event1" priority="parallel" maximumExecutionCount="1">
+              <Action name="patrol2_assign_controller_action">
+                <PrivateAction>
+                  <ControllerAction>
+                    <AssignControllerAction>
+                      <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
+                        <ParameterAssignments>
+                          <ParameterAssignment parameterRef="Type" value="walker" />
+                          <ParameterAssignment parameterRef="Action_type"
+                            value="walker_patrol_action" />
+                          <ParameterAssignment parameterRef="Action_extra_config"
+                            value='{"waypoints": [[-83.554688, -342.606232], [-100.275932, -341.75354], [-101.396103, -330.420319], [-98.255508, -328.474915], [-98.073807, -339.037292], [-82.232506, -339.662231]]}' />
+                          <ParameterAssignment parameterRef="Model_path"
+                            value="srunner/examples/rl_models/Transport/Transport.Stopping/checkpoint" />
+                          <ParameterAssignment parameterRef="Params_path"
+                            value="srunner/examples/rl_models/Transport/Transport.Stopping/params.json" />
+                        </ParameterAssignments>
+                      </CatalogReference>
+                    </AssignControllerAction>
+                    <OverrideControllerValueAction>
+                      <Throttle value="0" active="false" />
+                      <Brake value="0" active="false" />
+                      <Clutch value="0" active="false" />
+                      <ParkingBrake value="0" active="false" />
+                      <SteeringWheel value="0" active="false" />
+                      <Gear number="0" active="false" />
+                    </OverrideControllerValueAction>
+                  </ControllerAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition name="patrol2_con1" delay="0" conditionEdge="none">
+                    <ByEntityCondition>
+                      <TriggeringEntities triggeringEntitiesRule="any">
+                        <EntityRef entityRef="Ego" />
+                      </TriggeringEntities>
+                      <EntityCondition>
+                        <ReachPositionCondition tolerance="5.0">
+                          <Position>
+                            <LanePosition roadId="17" laneId="-1" s="80" />
+                          </Position>
+                        </ReachPositionCondition>
+                      </EntityCondition>
+                    </ByEntityCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+        <StartTrigger>
+          <ConditionGroup>
+            <Condition name="start-trigger" delay="0" conditionEdge="none">
+              <ByValueCondition>
+                <SimulationTimeCondition value="0" rule="greaterThan" />
+              </ByValueCondition>
+            </Condition>
+          </ConditionGroup>
+        </StartTrigger>
+        <StopTrigger />
+      </Act>
+      <Act name="iic_act">
+        <ManeuverGroup name="noStopAct" maximumExecutionCount="1">
+          <Actors selectTriggeringEntities="false" />
+        </ManeuverGroup>
+        <StartTrigger>
+          <ConditionGroup>
+            <Condition name="noStopAct-start_trigger" delay="0" conditionEdge="rising">
+              <ByValueCondition>
+                <SimulationTimeCondition value="10000" rule="greaterThan" />
+              </ByValueCondition>
+            </Condition>
+          </ConditionGroup>
+        </StartTrigger>
+        <StopTrigger />
+      </Act>
+    </Story>
+    <StopTrigger />
+  </Storyboard>
+</OpenSCENARIO>

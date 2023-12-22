@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<OpenSCENARIO>
+  <FileHeader revMajor="0" revMinor="9" date="2020-03-20T00:00:00"
+    description="CARLA:MiscObjectCatalog" author="Anja Sheppard" />
+  <Catalog name="MiscObjectCatalog">
+    <MiscObject miscObjectCategory="barrier" mass="0.0" name="Barrier1">
+      <ParameterDeclarations />
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </MiscObject>
+    <MiscObject mass="0.0" name="static.prop.bin" miscObjectCategory="obstacle">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+      <ParameterDeclarations />
+    </MiscObject>
+    <MiscObject mass="0.0" name="dynamic.prop.ammocrat" miscObjectCategory="obstacle">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+      <ParameterDeclarations />
+    </MiscObject>
+    <MiscObject mass="0.0" name="dynamic.prop.barricadehard" miscObjectCategory="obstacle">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+      <ParameterDeclarations />
+    </MiscObject>
+    <MiscObject mass="0.0" name="dynamic.prop.taft" miscObjectCategory="obstacle">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+      <ParameterDeclarations />
+    </MiscObject>
+    <MiscObject mass="0.0" name="dynamic.prop.sprinter" miscObjectCategory="obstacle">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+      <ParameterDeclarations />
+    </MiscObject>
+    <MiscObject mass="0.0" name="dynamic.prop.zjc" miscObjectCategory="obstacle">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+      <ParameterDeclarations />
+    </MiscObject>
+    <MiscObject mass="0.0" name="effect.prop.fire" miscObjectCategory="obstacle">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+      <ParameterDeclarations />
+    </MiscObject>
+    <MiscObject mass="0.0" name="effect.prop.smoke" miscObjectCategory="obstacle">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+      <ParameterDeclarations />
+    </MiscObject>
+  </Catalog>
+</OpenSCENARIO>

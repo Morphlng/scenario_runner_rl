@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSCENARIO>
+  <FileHeader revMajor="1" revMinor="0" date="2020-03-20T00:00:00"
+    description="CARLA:ControllerCatalog" author="" />
+  <Catalog name="ControllerCatalog">
+    <Controller name="RLControl">
+      <ParameterDeclarations>
+        <!-- Must given to use Semantic Observation -->
+        <ParameterDeclaration name="Type" parameterType="string" value="vehicle_4w" />
+        <ParameterDeclaration name="Collision_sensor" parameterType="string" value="on" />
+        <ParameterDeclaration name="Lane_sensor" parameterType="string" value="off" />
+        <ParameterDeclaration name="Send_measurements" parameterType="string" value="true" />
+        <ParameterDeclaration name="Action_type" parameterType="string" value="pseudo_action" />
+
+        <!-- Optional, if Model trained without RGB data. Default off -->
+        <ParameterDeclaration name="Camera_type" parameterType="string" value="" />
+        <ParameterDeclaration name="X_res" parameterType="integer" value="168" />
+        <ParameterDeclaration name="Y_res" parameterType="integer" value="168" />
+
+        <!-- Optional, will affect waypoint retrieving-->
+        <ParameterDeclaration name="Enable_planner" parameterType="string" value="false" />
+        <ParameterDeclaration name="End_pos" parameterType="string" value="" />
+
+        <!-- All Optional -->
+        <ParameterDeclaration name="Discrete_action_set" parameterType="string" value="" />
+        <ParameterDeclaration name="Action_extra_config" parameterType="string" value="" />
+        <ParameterDeclaration name="Measurement_type" parameterType="string" value="all" />
+        <ParameterDeclaration name="Focus_actors" parameterType="string" value="all" />
+        <ParameterDeclaration name="Ignore_actors" parameterType="string" value="" />
+        <ParameterDeclaration name="Add_action_mask" parameterType="string" value="false" />
+        <ParameterDeclaration name="Target_speed" parameterType="integer" value="0" />
+        <ParameterDeclaration name="Init_speed" parameterType="integer" value="0" />
+        <ParameterDeclaration name="Model_path" parameterType="string" value="" />
+        <ParameterDeclaration name="Params_path" parameterType="string" value="" />
+      </ParameterDeclarations>
+      <Properties>
+        <Property name="module" value="srunner/extension/rl_integrate/controller/rl_agent_control.py" />
+        <Property name="type" value="$Type" />
+        <Property name="action_type" value="$Action_type" />
+        <Property name="discrete_action_set" value="$Discrete_action_set" />
+        <Property name="action_extra_config" value="$Action_extra_config" />
+        <Property name="camera_type" value="$Camera_type" />
+        <Property name="x_res" value="$X_res" />
+        <Property name="y_res" value="$Y_res" />
+        <Property name="collision_sensor" value="$Collision_sensor" />
+        <Property name="lane_sensor" value="$Lane_sensor" />
+        <Property name="send_measurements" value="$Send_measurements" />
+        <Property name="measurement_type" value="$Measurement_type" />
+        <Property name="focus_actors" value="$Focus_actors" />
+        <Property name="ignore_actors" value="$Ignore_actors" />
+        <Property name="add_action_mask" value="$Add_action_mask" />
+        <Property name="enable_planner" value="$Enable_planner" />
+        <Property name="end_pos" value="$End_pos" />
+        <Property name="target_speed" value="$Target_speed" />
+        <Property name="init_speed" value="$Init_speed" />
+        <Property name="model_path" value="$Model_path" />
+        <Property name="params_path" value="$Params_path" />
+      </Properties>
+    </Controller>
+    <Controller name="ExternalControl">
+      <Properties>
+        <Property name="module" value="external_control" />
+      </Properties>
+    </Controller>
+  </Catalog>
+</OpenSCENARIO>

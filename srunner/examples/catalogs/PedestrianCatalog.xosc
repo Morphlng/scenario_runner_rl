@@ -1,0 +1,455 @@
+<?xml version="1.0"?>
+<OpenSCENARIO>
+  <FileHeader revMajor="0" revMinor="9" date="2020-03-20T00:00:00"
+    description="CARLA:PedestrianCatalog" author="Anja Sheppard" />
+  <Catalog name="PedestrianCatalog">
+    <Pedestrian model="walker.pedestrian.0001" mass="0.0" name="Pedestrian1"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0002" mass="0.0" name="walker.pedestrian.0002"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0003" mass="0.0" name="walker.pedestrian.0003"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0004" mass="0.0" name="walker.pedestrian.0004"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0005" mass="0.0" name="walker.pedestrian.0005"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0006" mass="0.0" name="walker.pedestrian.0006"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0007" mass="0.0" name="walker.pedestrian.0007"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0008" mass="0.0" name="walker.pedestrian.0008"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0009" mass="0.0" name="walker.pedestrian.0009"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0010" mass="0.0" name="walker.pedestrian.0010"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0011" mass="0.0" name="walker.pedestrian.0011"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0012" mass="0.0" name="walker.pedestrian.0012"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0013" mass="0.0" name="walker.pedestrian.0013"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0014" mass="0.0" name="walker.pedestrian.0014"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0015" mass="0.0" name="walker.pedestrian.0015"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0016" mass="0.0" name="walker.pedestrian.0016"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0017" mass="0.0" name="walker.pedestrian.0017"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0018" mass="0.0" name="walker.pedestrian.0018"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0019" mass="0.0" name="walker.pedestrian.0019"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0020" mass="0.0" name="walker.pedestrian.0020"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0021" mass="0.0" name="walker.pedestrian.0021"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0022" mass="0.0" name="walker.pedestrian.0022"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0023" mass="0.0" name="walker.pedestrian.0023"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0024" mass="0.0" name="walker.pedestrian.0024"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0025" mass="0.0" name="walker.pedestrian.0025"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0026" mass="0.0" name="walker.pedestrian.0026"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0027" mass="0.0" name="walker.pedestrian.0027"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0028" mass="0.0" name="walker.pedestrian.0028"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0029" mass="0.0" name="walker.pedestrian.0029"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0030" mass="0.0" name="walker.pedestrian.0030"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0031" mass="0.0" name="walker.pedestrian.0031"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0032" mass="0.0" name="walker.pedestrian.0032"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0033" mass="0.0" name="walker.pedestrian.0033"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0034" mass="0.0" name="walker.pedestrian.0034"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0035" mass="0.0" name="walker.pedestrian.0035"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0036" mass="0.0" name="walker.pedestrian.0036"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0037" mass="0.0" name="walker.pedestrian.0037"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0038" mass="0.0" name="walker.pedestrian.0038"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0039" mass="0.0" name="walker.pedestrian.0039"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0040" mass="0.0" name="walker.pedestrian.0040"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0041" mass="0.0" name="walker.pedestrian.0041"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0042" mass="0.0" name="walker.pedestrian.0042"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0043" mass="0.0" name="walker.pedestrian.0043"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0044" mass="0.0" name="walker.pedestrian.0044"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0045" mass="0.0" name="walker.pedestrian.0045"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0046" mass="0.0" name="walker.pedestrian.0046"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0047" mass="0.0" name="walker.pedestrian.0047"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0048" mass="0.0" name="walker.pedestrian.0048"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0049" mass="0.0" name="walker.pedestrian.0049"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0050" mass="0.0" name="walker.pedestrian.0050"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0051" mass="0.0" name="walker.pedestrian.0051"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0052" mass="0.0" name="walker.pedestrian.0052"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0053" mass="0.0" name="walker.pedestrian.0053"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0054" mass="0.0" name="walker.pedestrian.0054"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0055" mass="0.0" name="walker.pedestrian.0055"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+    <Pedestrian model="walker.pedestrian.0057" mass="0.0" name="walker.pedestrian.0057"
+      pedestrianCategory="pedestrian">
+      <BoundingBox>
+        <Center x="0.0" y="0.0" z="0.0" />
+        <Dimensions width="0.0" length="0.0" height="0.0" />
+      </BoundingBox>
+      <Properties />
+    </Pedestrian>
+  </Catalog>
+</OpenSCENARIO>

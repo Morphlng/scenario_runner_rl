@@ -1,0 +1,431 @@
+<?xml version="1.0"?>
+<OpenSCENARIO>
+  <FileHeader revMajor="1" revMinor="0" date="2020-03-24T12:00:00" description="Town05_Recce" author="Morphlng" />
+  <ParameterDeclarations>
+    <ParameterDeclaration name="ego_start_s" parameterType="double" value="48.0" />
+    <ParameterDeclaration name="car1_start_s" parameterType="double" value="15.0" />
+    <ParameterDeclaration name="car1_acc_time" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="car1_speed" parameterType="double" value="8.0" />
+    <ParameterDeclaration name="d_car1" parameterType="double" value="50.0" />
+    <ParameterDeclaration name="car2_start_s" parameterType="double" value="30.0" />
+    <ParameterDeclaration name="car2_acc_time" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="car2_speed" parameterType="double" value="6.0" />
+    <ParameterDeclaration name="d_car2" parameterType="double" value="50.0" />
+
+    <ParameterDeclaration name="walker1_start_s" parameterType="double" value="0.0" />
+    <ParameterDeclaration name="walker1_acc_time" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="walker1_speed" parameterType="double" value="1.0" />
+    <ParameterDeclaration name="d_walker1" parameterType="double" value="20.0" />
+
+    <ParameterDeclaration name="walker2_start_s" parameterType="double" value="70.0" />
+    <ParameterDeclaration name="walker2_acc_time" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="walker2_speed" parameterType="double" value="1.0" />
+    <ParameterDeclaration name="d_walker2" parameterType="double" value="20.0" />
+
+    <ParameterDeclaration name="fire_num" parameterType="double" value="10.0" />
+  </ParameterDeclarations>
+  <CatalogLocations>
+    <VehicleCatalog>
+      <Directory path="catalogs" />
+    </VehicleCatalog>
+    <PedestrianCatalog>
+      <Directory path="catalogs" />
+    </PedestrianCatalog>
+    <MiscObjectCatalog>
+      <Directory path="catalogs" />
+    </MiscObjectCatalog>
+    <EnvironmentCatalog>
+      <Directory path="catalogs" />
+    </EnvironmentCatalog>
+    <ManeuverCatalog>
+      <Directory path="catalogs" />
+    </ManeuverCatalog>
+    <ControllerCatalog>
+      <Directory path="catalogs" />
+    </ControllerCatalog>
+  </CatalogLocations>
+  <RoadNetwork>
+    <LogicFile filepath="Town05" />
+    <SceneGraphFile filepath="Town05" />
+  </RoadNetwork>
+  <Entities>
+    <ScenarioObject name="hero">
+      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.auto.electron" />
+    </ScenarioObject>
+
+    <ScenarioObject name="car1">
+      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.tesla.cybertruck" />
+    </ScenarioObject>
+    <ScenarioObject name="car2">
+      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.tesla.cybertruck" />
+    </ScenarioObject>
+
+    <ScenarioObject name="walker1">
+      <CatalogReference catalogName="PedestrianCatalog" entryName="walker.pedestrian.0057" />
+    </ScenarioObject>
+    <ScenarioObject name="walker2">
+      <CatalogReference catalogName="PedestrianCatalog" entryName="walker.pedestrian.0057" />
+    </ScenarioObject>
+
+    <ScenarioObject name="barrier1">
+      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.barricadehard" />
+    </ScenarioObject>
+    <ScenarioObject name="barrier2">
+      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.barricadehard" />
+    </ScenarioObject>
+  </Entities>
+  <Storyboard>
+    <Init>
+      <Actions>
+        <GlobalAction>
+          <EnvironmentAction>
+            <Environment name="Environment">
+              <TimeOfDay animation="true" dateTime="2023-03-09T08:33:28" />
+              <Weather cloudState="skyOff">
+                <Sun azimuth="1.57" intensity="100" elevation="0.2" />
+                <Fog visualRange="10000" />
+                <Precipitation precipitationType="rain" intensity="0" />
+              </Weather>
+              <RoadCondition frictionScaleFactor="0.6" />
+            </Environment>
+          </EnvironmentAction>
+        </GlobalAction>
+        <Private entityRef="hero">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="21" laneId="1" s="$ego_start_s" offset="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+          <PrivateAction>
+            <ControllerAction>
+              <AssignControllerAction>
+                <Controller name="HeroAgent">
+                  <Properties>
+                    <Property name="module" value="external_control" />
+                  </Properties>
+                </Controller>
+              </AssignControllerAction>
+              <OverrideControllerValueAction>
+                <Throttle value="0" active="false" />
+                <Brake value="0" active="false" />
+                <Clutch value="0" active="false" />
+                <ParkingBrake value="0" active="false" />
+                <SteeringWheel value="0" active="false" />
+                <Gear number="0" active="false" />
+              </OverrideControllerValueAction>
+            </ControllerAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="car1">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="30" laneId="1" s="$car1_start_s" offset="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="car2">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="30" laneId="-1" s="$car2_start_s" offset="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="walker1">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="21" laneId="5" s="$walker1_start_s" offset="0">
+                  <Orientation type="relative" h="1.57" p="0" r="0" />
+                </LanePosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="walker2">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="30" laneId="5" s="$walker2_start_s" offset="0">
+                  <Orientation type="relative" h="1.57" p="0" r="0" />
+                </LanePosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="barrier1">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <RoadPosition roadId="21" s="53" t="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="barrier2">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="30" y="-76.59" z="0" h="-1.57" p="0.0" r="0.0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+      </Actions>
+    </Init>
+
+    <Story name="bizhang_story">
+      <Act name="bizhang_act">
+        <ManeuverGroup name="car1_mang" maximumExecutionCount="1">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="car1" />
+          </Actors>
+          <Maneuver name="car1_man1">
+            <Event name="car1_event" priority="parallel" maximumExecutionCount="1">
+              <Action name="car1_assign_controller_action">
+                <PrivateAction>
+                  <ControllerAction>
+                    <AssignControllerAction>
+                      <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
+                        <ParameterAssignments>
+                          <ParameterAssignment parameterRef="Type" value="vehicle_4w" />
+                          <ParameterAssignment parameterRef="Target_speed" value="20" />
+                          <ParameterAssignment parameterRef="Init_speed" value="20" />
+                          <ParameterAssignment parameterRef="Action_type" value="vehicle_atomic_action" />
+                          <ParameterAssignment parameterRef="Discrete_action_set" value='[{"0": "stop", "1": "lane_follow", "2": "left_lane_change", "3": "right_lane_change"}, {"0": 0, "1": 4, "2": 8, "3": 12, "4": 16}]' />
+                          <ParameterAssignment parameterRef="Ignore_actors" value="barrier1,barrier2" />
+                          <ParameterAssignment parameterRef="Add_action_mask" value="true" />
+                          <ParameterAssignment parameterRef="Model_path" value="srunner/examples/rl_models/Town05_Test/checkpoint/checkpoint" />
+                          <ParameterAssignment parameterRef="Params_path" value="srunner/examples/rl_models/Town05_Test/params.json" />
+                        </ParameterAssignments>
+                      </CatalogReference>
+                    </AssignControllerAction>
+                    <OverrideControllerValueAction>
+                      <Throttle value="0" active="false" />
+                      <Brake value="0" active="false" />
+                      <Clutch value="0" active="false" />
+                      <ParkingBrake value="0" active="false" />
+                      <SteeringWheel value="0" active="false" />
+                      <Gear number="0" active="false" />
+                    </OverrideControllerValueAction>
+                  </ControllerAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition name="car1_con1" delay="0" conditionEdge="none">
+                    <ByEntityCondition>
+                      <TriggeringEntities triggeringEntitiesRule="any">
+                        <EntityRef entityRef="hero" />
+                      </TriggeringEntities>
+                      <EntityCondition>
+                        <ReachPositionCondition tolerance="5.0">
+                          <Position>
+                            <LanePosition roadId="21" laneId="1" s="15" />
+                          </Position>
+                        </ReachPositionCondition>
+                      </EntityCondition>
+                    </ByEntityCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+        <ManeuverGroup name="car2_mang" maximumExecutionCount="1">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="car2" />
+          </Actors>
+          <Maneuver name="car2_man1">
+            <Event name="car2_event" priority="parallel" maximumExecutionCount="1">
+              <Action name="car2_assign_controller_action">
+                <PrivateAction>
+                  <ControllerAction>
+                    <AssignControllerAction>
+                      <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
+                        <ParameterAssignments>
+                          <ParameterAssignment parameterRef="Type" value="vehicle_4w" />
+                          <ParameterAssignment parameterRef="Target_speed" value="20" />
+                          <ParameterAssignment parameterRef="Init_speed" value="20" />
+                          <ParameterAssignment parameterRef="Action_type" value="vehicle_atomic_action" />
+                          <ParameterAssignment parameterRef="Discrete_action_set" value='[{"0": "stop", "1": "lane_follow", "2": "left_lane_change", "3": "right_lane_change"}, {"0": 0, "1": 4, "2": 8, "3": 12, "4": 16}]' />
+                          <ParameterAssignment parameterRef="Ignore_actors" value="barrier1,barrier2" />
+                          <ParameterAssignment parameterRef="Add_action_mask" value="true" />
+                          <ParameterAssignment parameterRef="Model_path" value="srunner/examples/rl_models/Town05_Test/checkpoint/checkpoint" />
+                          <ParameterAssignment parameterRef="Params_path" value="srunner/examples/rl_models/Town05_Test/params.json" />
+                        </ParameterAssignments>
+                      </CatalogReference>
+                    </AssignControllerAction>
+                    <OverrideControllerValueAction>
+                      <Throttle value="0" active="false" />
+                      <Brake value="0" active="false" />
+                      <Clutch value="0" active="false" />
+                      <ParkingBrake value="0" active="false" />
+                      <SteeringWheel value="0" active="false" />
+                      <Gear number="0" active="false" />
+                    </OverrideControllerValueAction>
+                  </ControllerAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition name="car2_con1" delay="0" conditionEdge="none">
+                    <ByEntityCondition>
+                      <TriggeringEntities triggeringEntitiesRule="any">
+                        <EntityRef entityRef="hero" />
+                      </TriggeringEntities>
+                      <EntityCondition>
+                        <ReachPositionCondition tolerance="5.0">
+                          <Position>
+                            <LanePosition roadId="21" laneId="1" s="15" />
+                          </Position>
+                        </ReachPositionCondition>
+                      </EntityCondition>
+                    </ByEntityCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+        <ManeuverGroup name="walker1_mang" maximumExecutionCount="1">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="walker1" />
+          </Actors>
+          <Maneuver name="walker1_man1">
+            <Event name="walker1_event" priority="parallel" maximumExecutionCount="1">
+              <Action name="walker1_assign_controller_action">
+                <PrivateAction>
+                  <ControllerAction>
+                    <AssignControllerAction>
+                      <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
+                        <ParameterAssignments>
+                          <ParameterAssignment parameterRef="Type" value="walker" />
+                          <ParameterAssignment parameterRef="Action_type" value="walker_speed_action" />
+                          <ParameterAssignment parameterRef="Ignore_actors" value="barrier1,barrier2" />
+                          <ParameterAssignment parameterRef="Add_action_mask" value="true" />
+                          <ParameterAssignment parameterRef="Model_path" value="srunner/examples/rl_models/Town05_Test/checkpoint/checkpoint" />
+                          <ParameterAssignment parameterRef="Params_path" value="srunner/examples/rl_models/Town05_Test/params.json" />
+                        </ParameterAssignments>
+                      </CatalogReference>
+                    </AssignControllerAction>
+                    <OverrideControllerValueAction>
+                      <Throttle value="0" active="false" />
+                      <Brake value="0" active="false" />
+                      <Clutch value="0" active="false" />
+                      <ParkingBrake value="0" active="false" />
+                      <SteeringWheel value="0" active="false" />
+                      <Gear number="0" active="false" />
+                    </OverrideControllerValueAction>
+                  </ControllerAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition name="walker1_con1" delay="0" conditionEdge="none">
+                    <ByEntityCondition>
+                      <TriggeringEntities triggeringEntitiesRule="any">
+                        <EntityRef entityRef="hero" />
+                      </TriggeringEntities>
+                      <EntityCondition>
+                        <ReachPositionCondition tolerance="5.0">
+                          <Position>
+                            <LanePosition roadId="21" laneId="1" s="15" />
+                          </Position>
+                        </ReachPositionCondition>
+                      </EntityCondition>
+                    </ByEntityCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+        <ManeuverGroup name="walker2_mang" maximumExecutionCount="1">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="walker2" />
+          </Actors>
+          <Maneuver name="walker2_man1">
+            <Event name="walker2_event" priority="parallel" maximumExecutionCount="1">
+              <Action name="walker2_assign_controller_action">
+                <PrivateAction>
+                  <ControllerAction>
+                    <AssignControllerAction>
+                      <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
+                        <ParameterAssignments>
+                          <ParameterAssignment parameterRef="Type" value="walker" />
+                          <ParameterAssignment parameterRef="Action_type" value="walker_speed_action" />
+                          <ParameterAssignment parameterRef="Ignore_actors" value="barrier1,barrier2" />
+                          <ParameterAssignment parameterRef="Add_action_mask" value="true" />
+                          <ParameterAssignment parameterRef="Model_path" value="srunner/examples/rl_models/Town05_Test/checkpoint/checkpoint" />
+                          <ParameterAssignment parameterRef="Params_path" value="srunner/examples/rl_models/Town05_Test/params.json" />
+                        </ParameterAssignments>
+                      </CatalogReference>
+                    </AssignControllerAction>
+                    <OverrideControllerValueAction>
+                      <Throttle value="0" active="false" />
+                      <Brake value="0" active="false" />
+                      <Clutch value="0" active="false" />
+                      <ParkingBrake value="0" active="false" />
+                      <SteeringWheel value="0" active="false" />
+                      <Gear number="0" active="false" />
+                    </OverrideControllerValueAction>
+                  </ControllerAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition name="walker1_con1" delay="0" conditionEdge="none">
+                    <ByEntityCondition>
+                      <TriggeringEntities triggeringEntitiesRule="any">
+                        <EntityRef entityRef="hero" />
+                      </TriggeringEntities>
+                      <EntityCondition>
+                        <ReachPositionCondition tolerance="5.0">
+                          <Position>
+                            <LanePosition roadId="21" laneId="1" s="15" />
+                          </Position>
+                        </ReachPositionCondition>
+                      </EntityCondition>
+                    </ByEntityCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+        <StartTrigger>
+          <ConditionGroup>
+            <Condition name="all_start" delay="0" conditionEdge="rising">
+              <ByValueCondition>
+                <SimulationTimeCondition value="0.1" rule="greaterThan" />
+              </ByValueCondition>
+            </Condition>
+          </ConditionGroup>
+        </StartTrigger>
+        <StopTrigger />
+      </Act>
+      <Act name="iic_act">
+        <ManeuverGroup name="noStopAct" maximumExecutionCount="1">
+          <Actors selectTriggeringEntities="false" />
+        </ManeuverGroup>
+        <StartTrigger>
+          <ConditionGroup>
+            <Condition name="noStopAct-start_trigger" delay="0" conditionEdge="rising">
+              <ByValueCondition>
+                <SimulationTimeCondition value="10000" rule="greaterThan" />
+              </ByValueCondition>
+            </Condition>
+          </ConditionGroup>
+        </StartTrigger>
+        <StopTrigger />
+      </Act>
+    </Story>
+    <StopTrigger />
+  </Storyboard>
+</OpenSCENARIO>

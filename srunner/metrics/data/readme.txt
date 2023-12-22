@@ -1,0 +1,1 @@
+Metrics examples can be found in https://github.com/carla-simulator/scenario_runner/tree/master/srunner/metrics/data

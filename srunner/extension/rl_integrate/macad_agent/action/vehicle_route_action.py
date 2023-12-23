@@ -19,6 +19,7 @@ class WaypointFollower:
         actor: carla.Vehicle,
         target_speed: float = None,
         plan: "list[tuple[carla.Waypoint, RoadOption]]" = None,
+        start_from_vehicle: bool = False,
     ):
         """This is an atomic behavior to follow waypoints while maintaining a given speed.
 
@@ -27,15 +28,16 @@ class WaypointFollower:
         If no target velocity is provided, the actor will try to follow the speed limit.
 
         Args:
-            actor (carla.Actor): Actor to apply the behavior.
+            actor (carla.Vehicle): Actor to apply the behavior.
             target_speed (float, optional): Target speed in m/s. Defaults to None, meaning the speed limit of the road.
             plan (List[carla.Waypoint] | List[carla.Location] | List[Tuple[carla.Location, RoadOption]]): Plan to follow. Defaults to None.
-            duration (int, optional): Duration of the behavior in ticks. Defaults to math.inf
+            start_from_vehicle (bool, optional): Whether to start the plan from the current vehicle location. Defaults to False.
             simulator (Simulator): A reference to the simulator, used to get map info
         """
         self._actor = actor
         self._target_speed = target_speed
         self._plan = plan
+        self._start_from_vehicle = start_from_vehicle
 
         self._local_planner = None
         self._args_lateral_dict = {"K_P": 1.0, "K_D": 0.01, "K_I": 0.0, "dt": 0.05}
@@ -88,7 +90,23 @@ class WaypointFollower:
                         self._plan,
                     )
                 )
-            self._local_planner.set_global_plan(self._plan)
+            self._local_planner.set_global_plan(self._plan_from_vehicle())
+
+    def _plan_from_vehicle(self):
+        """Slice the plan to start from the current vehicle location"""
+        if not self._start_from_vehicle:
+            return self._plan
+
+        # Find the nearest waypoint to the vehicle
+        vehicle_location = self._actor.get_location()
+        min_distance = float("inf")
+        nearest_index = 0
+        for i, (waypoint, _) in enumerate(self._plan):
+            distance = waypoint.transform.location.distance(vehicle_location)
+            if distance < min_distance:
+                min_distance = distance
+                nearest_index = i
+        return self._plan[nearest_index:]
 
     def set_target_speed(self, target_speed: float):
         """set a new target speed for the behavior
@@ -99,7 +117,7 @@ class WaypointFollower:
         self._local_planner.set_speed(target_speed * 3.6)
 
     def reset_plan(self):
-        self._local_planner.set_global_plan(self._plan)
+        self._local_planner.set_global_plan(self._plan_from_vehicle())
         self.succeed = False
 
     def done(self) -> bool:
@@ -114,14 +132,14 @@ class WaypointFollower:
 
         return self.succeed
 
-    def run_step(self, actor: carla.Actor) -> "carla.VehicleControl":
+    def run_step(self, actor: carla.Vehicle) -> "carla.VehicleControl":
         """Apply one step of the behavior.
 
         Args:
-            actor (carla.Actor): Unused actor reference
+            actor (carla.Vehicle): Unused actor reference
 
         Returns:
-            carla.VehicleControl | carla.WalkerControl: The control to apply to the actor
+            carla.VehicleControl: The control to apply to the actor
         """
         self._actor = actor
 
@@ -143,21 +161,26 @@ class FollowAction(AbstractAction):
         self,
         action,
         duration: int = 20,
-        waypoints=None,
+        waypoints: list = None,
         loop: bool = False,
+        start_from_vehicle: bool = False,
     ):
         super().__init__(action, duration)
         self.waypoints = waypoints
         self.target_speed = self.action
         self.loop = loop
+        self.start_from_vehicle = start_from_vehicle
         self.follower = None
 
-    def run_step(self, actor: carla.Actor):
+    def run_step(self, actor: carla.Vehicle):
         self.duration -= 1
 
         if self.follower is None:
             self.follower = WaypointFollower(
-                actor, target_speed=self.target_speed, plan=self.waypoints
+                actor,
+                target_speed=self.target_speed,
+                plan=self.waypoints,
+                start_from_vehicle=self.start_from_vehicle,
             )
         elif self.loop and self.follower.done():
             self.reset_follower()
@@ -186,12 +209,11 @@ class FollowAction(AbstractAction):
 class VehicleRouteAction(ActionInterface):
     def __init__(self, action_config: dict):
         super().__init__(action_config)
-        self.current_episode = -1
         self.follow_action = FollowAction(
             0,
-            env=action_config["env"],
             waypoints=action_config["waypoints"],
             loop=action_config.get("loop", False),
+            start_from_vehicle=action_config.get("start_from_vehicle", False),
         )
 
     def convert_single_action(
@@ -204,7 +226,7 @@ class VehicleRouteAction(ActionInterface):
             self.follow_action.update_action(action)
             return self.follow_action
 
-    def get_action_mask(self, actor: carla.Actor, action_space: dict):
+    def get_action_mask(self, actor: carla.Vehicle, action_space: dict):
         return True
 
     def stop_action(self, env_action: bool = True, use_discrete: bool = False):

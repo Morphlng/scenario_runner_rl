@@ -3,7 +3,9 @@ from __future__ import annotations
 import math
 
 import carla
+from shapely.geometry import Point, Polygon
 
+from srunner.extension.rl_integrate.data.simulator import Simulator
 from srunner.extension.rl_integrate.macad_agent.action.action_interface import (
     AbstractAction,
     ActionInterface,
@@ -11,9 +13,19 @@ from srunner.extension.rl_integrate.macad_agent.action.action_interface import (
 
 
 class DirectAction(AbstractAction):
-    def __init__(self, action: dict, duration: int = 20):
+    def __init__(
+        self,
+        action: dict,
+        duration: int = 60,
+        grid_size: int = 10,
+        pitch_correction: float = 0,
+        z_correction: float = 0,
+    ):
         super().__init__(action, duration)
         self.max_duration = duration
+        self.grid_size = grid_size
+        self.pitch_correction = pitch_correction
+        self.z_correction = z_correction
 
     def run_step(self, actor: carla.Actor):
         """Return a carla control signal based on the actor type and the action
@@ -22,85 +34,77 @@ class DirectAction(AbstractAction):
             actor (carla.Actor): The actor to run the action
 
         Returns:
-            carla.VehicleControl: The control signal
+            None
         """
         self.duration -= 1
         x, y = self.action["x"], self.action["y"]
 
-        # (9, 0) points to self
-        if (actor.ammo_left <= 0) or (x == 9 and y == 0):
-            if self.duration == 0:
-                self.duration = self.max_duration
+        # (0, 0) points to self
+        if x == 0 and y == 0:
             return None
 
         if self.duration == self.max_duration - 1:
             actor_transform = actor.get_transform()
-            rotation = actor_transform.rotation
-            location = actor_transform.location
-
             target_location = self.get_grid_center_location(
-                location, rotation, grid_coord=(x, y)
+                Simulator.get_world(),
+                actor_transform,
+                grid_coord=(x, y),
+                grid_size=self.grid_size,
             )
-            yaw, pitch = self.fire_strike(location, target_location)
+            yaw, pitch = self.fire_strike(
+                actor_transform.location,
+                target_location,
+                self.pitch_correction,
+                self.z_correction,
+            )
             actor.set_fire_angle(yaw, pitch)
-        elif self.duration == 0:
+        elif self.max_duration - self.duration == 20:
             actor.open_fire()
-            self.duration = self.max_duration
 
         return None
 
     @staticmethod
     def get_grid_center_location(
-        cannon_location: carla.Location,
-        cannon_rotation: carla.Rotation,
+        world: carla.World,
+        cannon_transform: carla.Transform,
         grid_coord: "tuple[int, int]",
-    ):
-        grid_size = 10
+        grid_size: int = 10,
+    ) -> carla.Location:
+        cannon_location = cannon_transform.location
+        forward_vector = cannon_transform.get_forward_vector()
+        right_vector = cannon_transform.get_right_vector()
 
-        cannon_x, cannon_y, cannon_z = (
-            cannon_location.x,
-            cannon_location.y,
-            cannon_location.z,
-        )
-        # correct facing deviation
-        cannon_yaw = math.radians(cannon_rotation.yaw + 102.54)
+        forward_offset = forward_vector * grid_size * grid_coord[1]
+        right_offset = right_vector * grid_size * grid_coord[0]
+        target_location = cannon_location + forward_offset + right_offset
 
-        # offset of grid center to cannon
-        grid_offset_x = grid_size * (grid_coord[0] - 9)
-        grid_offset_y = grid_size * (grid_coord[1] - 0)
-
-        # world location in Carla
-        grid_center_x = (
-            cannon_x
-            + grid_offset_x * math.cos(cannon_yaw)
-            - grid_offset_y * math.sin(cannon_yaw)
-        )
-        grid_center_y = (
-            cannon_y
-            + grid_offset_x * math.sin(cannon_yaw)
-            + grid_offset_y * math.cos(cannon_yaw)
-        )
-        grid_center_z = cannon_z
-
-        return carla.Location(x=grid_center_x, y=grid_center_y, z=grid_center_z)
+        proj = world.ground_projection(target_location + carla.Location(z=10), 100)
+        return target_location if proj is None else proj.location
 
     @staticmethod
-    def fire_strike(actor_location: carla.Location, target_location: carla.Location):
+    def fire_strike(
+        actor_location: carla.Location,
+        target_location: carla.Location,
+        pitch_correction: float = 0.0,
+        z_correction: float = 0.0,
+    ):
         dx = target_location.x - actor_location.x
         dy = target_location.y - actor_location.y
-        dz = target_location.z - actor_location.z
+        dz = target_location.z - (actor_location.z + z_correction)
 
         distance = math.sqrt(dx * dx + dy * dy + dz * dz)
         if distance <= 1e-6:
             return None, None
 
-        pitch = math.degrees(math.asin(dz / distance))
+        pitch = math.degrees(math.asin(dz / distance)) + pitch_correction
         yaw = math.degrees(math.atan2(dy, dx))
 
         return yaw, pitch
 
     def update_action(self, action):
-        self.action = action
+        if self.duration <= 0:
+            self.action = action
+            self.duration = self.max_duration
 
 
 class FireAction(ActionInterface):
@@ -111,7 +115,20 @@ class FireAction(ActionInterface):
             action_config (dict): A dictionary of action config
         """
         super().__init__(action_config)
-        self.direct_action = DirectAction({"x": 9, "y": 0})
+        self.duration = action_config.get("duration", 60)
+        self.grid_size = action_config.get("grid_size", 10)
+        self.target_name = action_config.get("target", "Ego")
+        self.pitch_correction = action_config.get("pitch_correction", 0)
+        self.z_correction = action_config.get("z_correction", 0)
+        self.target = None
+
+        self.direct_action = DirectAction(
+            {"x": 0, "y": 0},
+            self.duration,
+            self.grid_size,
+            self.pitch_correction,
+            self.z_correction,
+        )
 
     def convert_single_action(
         self, action: "tuple[list, float]", done_state: bool = False
@@ -131,12 +148,38 @@ class FireAction(ActionInterface):
             self.direct_action.update_action({"x": action[0], "y": action[1]})
             return self.direct_action
 
-    def get_action_mask(self, actor, action_space):
+    def get_action_mask(self, actor: carla.Actor, action_space: "tuple[dict, dict]"):
         """Fire action is always applicable
 
         Note:
-            Ammo out will cause the actor to be done
+            Ammo out should cause the actor to be done
         """
+        self._find_target_actor()
+
+        # Check if last action is done
+        prev_x, prev_y = self.direct_action.action["x"], self.direct_action.action["y"]
+        if prev_x != 9 and prev_y != 0 and self.direct_action.duration > 0:
+            mask = (
+                {action: 0 for action in action_space[0].values()},
+                {action: 0 for action in action_space[1].values()},
+            )
+            mask[0][prev_x] = 1
+            mask[1][prev_y] = 1
+            return mask
+
+        # Check whether ego is within the fire range
+        if self.target is not None:
+            if not self._is_target_within_range(
+                actor, self.target, action_space, self.grid_size
+            ):
+                mask = (
+                    {action: 0 for action in action_space[0].values()},
+                    {action: 0 for action in action_space[1].values()},
+                )
+                mask[0][0] = 1
+                mask[1][0] = 1
+                return mask
+
         return True
 
     def stop_action(self, env_action: bool = True, use_discrete: bool = False):
@@ -152,6 +195,60 @@ class FireAction(ActionInterface):
         """
 
         if not env_action:
-            return DirectAction({"x": 9, "y": 0})
+            return DirectAction({"x": 0, "y": 0})
 
-        return (9, 0)
+        return (10, 0)
+
+    def _find_target_actor(self):
+        if self.target is None or not self.target.is_alive or not self.target.is_active:
+            self.target = Simulator.get_actor_by_rolename(self.target_name)
+
+    def _is_target_within_range(
+        self,
+        cannon: carla.Actor,
+        target: carla.Actor,
+        action_space: "tuple[dict, dict]",
+        grid_size: int = 10,
+    ) -> bool:
+        target_location = target.get_location()
+        cannon_transform = cannon.get_transform()
+        horizontal_range = list(action_space[0].values())
+        vertical_range = list(action_space[1].values())
+
+        cannon_location = cannon_transform.location
+        forward_vector = cannon_transform.get_forward_vector()
+        right_vector = cannon_transform.get_right_vector()
+
+        # Calculate the corners of the grid
+        bottom_left = (
+            cannon_location
+            + (forward_vector * grid_size * vertical_range[0])
+            + (right_vector * grid_size * horizontal_range[0])
+        )
+        bottom_right = (
+            cannon_location
+            + (forward_vector * grid_size * vertical_range[0])
+            + (right_vector * grid_size * horizontal_range[-1])
+        )
+        top_left = (
+            cannon_location
+            + (forward_vector * grid_size * vertical_range[-1])
+            + (right_vector * grid_size * horizontal_range[0])
+        )
+        top_right = (
+            cannon_location
+            + (forward_vector * grid_size * vertical_range[-1])
+            + (right_vector * grid_size * horizontal_range[-1])
+        )
+
+        point = Point(target_location.x, target_location.y)
+        polygon = Polygon(
+            [
+                (bottom_left.x, bottom_left.y),
+                (top_left.x, top_left.y),
+                (top_right.x, top_right.y),
+                (bottom_right.x, bottom_right.y),
+            ]
+        )
+
+        return polygon.contains(point)

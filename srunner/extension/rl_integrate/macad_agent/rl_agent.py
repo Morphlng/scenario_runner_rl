@@ -96,6 +96,10 @@ class RlAgent(MacadAgent):
             blackboard.set("rl_actor_configs", rl_actor_configs)
         rl_actor_configs.update({self.actor_id: self.actor_config})
 
+        step_ticks = self.actor_config.get("step_ticks", "")
+        if step_ticks != "":
+            ENV_ASSETS.step_ticks = int(step_ticks)
+
         discrte_action_set = self.actor_config.get("discrete_action_set", "")
         if discrte_action_set != "":
             discrte_action_set = json.loads(discrte_action_set)

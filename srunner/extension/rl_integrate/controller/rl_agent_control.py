@@ -17,7 +17,7 @@ class RlAgentControl(BasicControl):
     the MACAD framework.
     """
 
-    def __init__(self, actor, configs):
+    def __init__(self, actor, configs: dict):
         """
         Args:
             actor (carla.Actor): Vehicle actor that should be controlled.
@@ -36,58 +36,52 @@ class RlAgentControl(BasicControl):
             if "config_file_path" in configs:
                 with open(configs["config_file_path"], "r") as f:
                     configs = json.load(f)
+
+            actor_loc = actor.get_location()
+            start_pos = [actor_loc.x, actor_loc.y, actor_loc.z]
+            end_pos = configs.get("end_pos", "")
+            if end_pos != "":
+                end_pos = str2list(end_pos, convert_to=float)
             else:
-                actor_loc = actor.get_location()
-                start_pos = [actor_loc.x, actor_loc.y, actor_loc.z]
-                end_pos = configs.get("end_pos", "")
-                if end_pos != "":
-                    end_pos = str2list(end_pos, convert_to=float)
-                else:
-                    end_pos = start_pos
+                end_pos = start_pos
 
-                self._target_speed = float(configs.get("target_speed", 0)) / 3.6
-                self._init_speed = float(configs.get("init_speed", 0)) / 3.6
+            self._target_speed = float(configs.get("target_speed", 0)) / 3.6
+            self._init_speed = float(configs.get("init_speed", 0)) / 3.6
 
-                update_dict = {
-                    "actor_id": configs.get(
-                        "actor_id",
-                        actor.attributes.get(
-                            "role_name", f"agent_{len(blackboard.get('rl_actors'))}"
-                        ).lower(),
-                    ),
-                    "type": configs.get(
-                        "type",
-                        "vehicle_4w"
-                        if actor.type_id.startswith("vehicle")
-                        else "walker"
-                        if actor.type_id.startswith("walker")
-                        else "static_obstacle",
-                    ),
-                    "action_type": configs.get("action_type", "pseudo_action"),
-                    "enable_planner": str2bool(configs.get("enable_planner", "false")),
-                    "send_measurements": str2bool(
-                        configs.get("send_measurements", "true")
-                    ),
-                    "measurement_type": str2list(
-                        configs.get("measurement_type", "all")
-                    ),
-                    "focus_actors": str2list(configs.get("focus_actors", "all")),
-                    "ignore_actors": str2list(configs.get("ignore_actors", "")),
-                    "add_action_mask": str2bool(
-                        configs.get("add_action_mask", "false")
-                    ),
-                    "target_speed": self._target_speed,
-                    "init_speed": self._init_speed,
-                    "start_pos": start_pos,
-                    "end_pos": end_pos,
-                    "model_config": {
-                        "model_path": configs.get("model_path", None),
-                        "params_path": configs.get("params_path", None),
-                    }
-                    if (configs.get("model_path", "") != "")
-                    else None,
+            update_dict = {
+                "actor_id": configs.get(
+                    "actor_id",
+                    actor.attributes.get(
+                        "role_name", f"agent_{len(blackboard.get('rl_actors'))}"
+                    ).lower(),
+                ),
+                "type": configs.get(
+                    "type",
+                    "vehicle_4w"
+                    if actor.type_id.startswith("vehicle")
+                    else "walker"
+                    if actor.type_id.startswith("walker")
+                    else "static_obstacle",
+                ),
+                "action_type": configs.get("action_type", "pseudo_action"),
+                "enable_planner": str2bool(configs.get("enable_planner", "false")),
+                "send_measurements": str2bool(configs.get("send_measurements", "true")),
+                "measurement_type": str2list(configs.get("measurement_type", "all")),
+                "focus_actors": str2list(configs.get("focus_actors", "all")),
+                "ignore_actors": str2list(configs.get("ignore_actors", "")),
+                "add_action_mask": str2bool(configs.get("add_action_mask", "false")),
+                "target_speed": self._target_speed,
+                "init_speed": self._init_speed,
+                "start_pos": start_pos,
+                "end_pos": end_pos,
+                "model_config": {
+                    "model_path": configs.get("model_path", None),
+                    "params_path": configs.get("params_path", None),
                 }
-                configs.update(update_dict)
+                if (configs.get("model_path", "") != "")
+                else None,
+            }
+            configs.update(update_dict)
 
             from srunner.autoagents.agent_wrapper import AgentWrapper
 
@@ -99,8 +93,7 @@ class RlAgentControl(BasicControl):
         Reset the controller
         """
         self._wrapped_agent.cleanup()
-        if self._actor and self._actor.is_alive:
-            self._actor = None
+        self._actor = None
 
     def run_step(self):
         """

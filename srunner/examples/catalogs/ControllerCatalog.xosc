@@ -24,6 +24,7 @@
         <!-- All Optional -->
         <ParameterDeclaration name="Discrete_action_set" parameterType="string" value="" />
         <ParameterDeclaration name="Action_extra_config" parameterType="string" value="" />
+        <ParameterDeclaration name="Step_ticks" parameterType="integer" value="" />
         <ParameterDeclaration name="Measurement_type" parameterType="string" value="all" />
         <ParameterDeclaration name="Focus_actors" parameterType="string" value="all" />
         <ParameterDeclaration name="Ignore_actors" parameterType="string" value="" />
@@ -39,6 +40,7 @@
         <Property name="action_type" value="$Action_type" />
         <Property name="discrete_action_set" value="$Discrete_action_set" />
         <Property name="action_extra_config" value="$Action_extra_config" />
+        <Property name="step_ticks" value="$Step_ticks" />
         <Property name="camera_type" value="$Camera_type" />
         <Property name="x_res" value="$X_res" />
         <Property name="y_res" value="$Y_res" />

@@ -1,39 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
-  <FileHeader taskCategory="陆域" name="运输-动态避障2" description="运输任务动态避障2" author="lp" revMajor="1"
-    revMinor="0" date="2023-10-08T10:00:00" />
+  <FileHeader taskCategory="陆域" name="运输-动态避障2" description="运输任务动态避障2" author="lp" revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
   <ParameterDeclarations>
-    <ParameterDeclaration name="ego_start_s" parameterType="double" value="1170.0" />
+    <ParameterDeclaration name="ego_start_s" parameterType="double" value="480" />
 
-    <ParameterDeclaration name="car1_start_s" parameterType="double" value="310.0" />
-    <ParameterDeclaration name="car1_acc_distance1" parameterType="double" value="50" />
-    <ParameterDeclaration name="car1_acc_speed1" parameterType="double" value="13" />
-    <ParameterDeclaration name="car1_decelerate_distance3" parameterType="double" value="30" />
-    <ParameterDeclaration name="car1_decelerate_speed3" parameterType="double" value="6" />
-    <ParameterDeclaration name="car1_acc_distance4" parameterType="double" value="50" />
-    <ParameterDeclaration name="car1_acc_speed4" parameterType="double" value="15" />
-    <ParameterDeclaration name="car1_stop_distance5" parameterType="double" value="50" />
-    <ParameterDeclaration name="d_car1" parameterType="double" value="50" />
+    <ParameterDeclaration name="npc1_start_s" parameterType="double" value="400" />
+    <ParameterDeclaration name="npc1_acc_distance1" parameterType="double" value="50" />
+    <ParameterDeclaration name="npc1_acc_speed1" parameterType="double" value="13" />
+    <ParameterDeclaration name="npc1_decelerate_distance3" parameterType="double" value="30" />
+    <ParameterDeclaration name="npc1_decelerate_speed3" parameterType="double" value="6" />
+    <ParameterDeclaration name="npc1_acc_distance4" parameterType="double" value="50" />
+    <ParameterDeclaration name="npc1_acc_speed4" parameterType="double" value="15" />
+    <ParameterDeclaration name="npc1_stop_distance5" parameterType="double" value="50" />
+    <ParameterDeclaration name="d_npc1" parameterType="double" value="50" />
 
+    <ParameterDeclaration name="npc2_start_s" parameterType="double" value="170" />
+    <ParameterDeclaration name="npc2_acc_distance1" parameterType="double" value="50" />
+    <ParameterDeclaration name="npc2_acc_speed1" parameterType="double" value="12" />
+    <ParameterDeclaration name="npc2_stop_distance5" parameterType="double" value="30" />
+    <ParameterDeclaration name="d_npc2" parameterType="double" value="160" />
 
-    <ParameterDeclaration name="car2_start_s" parameterType="double" value="480" />
-    <ParameterDeclaration name="car2_acc_distance1" parameterType="double" value="50" />
-    <ParameterDeclaration name="car2_acc_speed1" parameterType="double" value="12" />
-    <ParameterDeclaration name="car2_stop_distance5" parameterType="double" value="30" />
-    <ParameterDeclaration name="d_car2" parameterType="double" value="160" />
-
-
-    <ParameterDeclaration name="car3_start_s" parameterType="double" value="739.0" />
-    <ParameterDeclaration name="car3_acc_distance1" parameterType="double" value="50" />
-    <ParameterDeclaration name="car3_acc_speed1" parameterType="double" value="16" />
-    <ParameterDeclaration name="car3_decelerate_distance3" parameterType="double" value="30" />
-    <ParameterDeclaration name="car3_decelerate_speed3" parameterType="double" value="10" />
-    <ParameterDeclaration name="car3_acc_distance4" parameterType="double" value="50" />
-    <ParameterDeclaration name="car3_acc_speed4" parameterType="double" value="15" />
-    <ParameterDeclaration name="car3_stop_distance5" parameterType="double" value="30" />
-    <ParameterDeclaration name="d_car3" parameterType="double" value="50" />
-
-    <ParameterDeclaration name="car4_start_s" parameterType="double" value="1030.0" />
+    <ParameterDeclaration name="npc3_start_s" parameterType="double" value="260" />
+    <ParameterDeclaration name="npc3_acc_distance1" parameterType="double" value="50" />
+    <ParameterDeclaration name="npc3_acc_speed1" parameterType="double" value="16" />
+    <ParameterDeclaration name="npc3_decelerate_distance3" parameterType="double" value="30" />
+    <ParameterDeclaration name="npc3_decelerate_speed3" parameterType="double" value="10" />
+    <ParameterDeclaration name="npc3_acc_distance4" parameterType="double" value="50" />
+    <ParameterDeclaration name="npc3_acc_speed4" parameterType="double" value="15" />
+    <ParameterDeclaration name="npc3_stop_distance5" parameterType="double" value="30" />
+    <ParameterDeclaration name="d_npc3" parameterType="double" value="50" />
+    <ParameterDeclaration name="npc5_start_s" parameterType="double" value="450" />
 
     <ParameterDeclaration name="zjc1_start_x" parameterType="double" value="433" />
     <ParameterDeclaration name="zjc1_start_y" parameterType="double" value="-12" />
@@ -43,7 +39,6 @@
 
     <ParameterDeclaration name="zjc3_start_x" parameterType="double" value="-270.9" />
     <ParameterDeclaration name="zjc3_start_y" parameterType="double" value="-46.4" />
-
   </ParameterDeclarations>
   <CatalogLocations>
     <VehicleCatalog>
@@ -82,16 +77,16 @@
     <ScenarioObject name="Ego">
       <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.wheeled.trucknormal" />
     </ScenarioObject>
-    <ScenarioObject name="car1">
+    <ScenarioObject name="npc1">
       <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.tesla.cybertruck" />
     </ScenarioObject>
-    <ScenarioObject name="car2">
+    <ScenarioObject name="npc2">
       <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.tesla.cybertruck" />
     </ScenarioObject>
-    <ScenarioObject name="car3">
+    <ScenarioObject name="npc3">
       <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.tesla.cybertruck" />
     </ScenarioObject>
-    <ScenarioObject name="car4">
+    <ScenarioObject name="npc5">
       <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.sprinter" />
     </ScenarioObject>
     <ScenarioObject name="zjc1">
@@ -152,7 +147,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$zjc1_start_x" y="$zjc1_start_y" z="2.0" h="1.27" />
+                <WorldPosition x="$zjc1_start_x" y="$zjc1_start_y" z="1.7" h="1.27" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -170,43 +165,43 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$zjc3_start_x" y="$zjc3_start_y" z="2.0" h="1.57" />
+                <WorldPosition x="$zjc3_start_x" y="$zjc3_start_y" z="1.7" h="1.57" />
               </Position>
             </TeleportAction>
           </PrivateAction>
         </Private>
-        <Private entityRef="car1">
+        <Private entityRef="npc1">
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <LanePosition roadId="28" laneId="1" s="$car1_start_s" offset="0.0" />
+                <LanePosition roadId="28" laneId="1" s="$npc1_start_s" offset="0.0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
         </Private>
-        <Private entityRef="car2">
+        <Private entityRef="npc2">
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <LanePosition roadId="28" laneId="-1" s="$car2_start_s" offset="0.0" />
+                <LanePosition roadId="28" laneId="-1" s="$npc2_start_s" offset="0.0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
         </Private>
-        <Private entityRef="car3">
+        <Private entityRef="npc3">
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <LanePosition roadId="28" laneId="-1" s="$car3_start_s" offset="0.0" />
+                <LanePosition roadId="28" laneId="-1" s="$npc3_start_s" offset="0.0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
         </Private>
-        <Private entityRef="car4">
+        <Private entityRef="npc5">
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <LanePosition roadId="28" laneId="1" s="$car4_start_s" offset="0.0" />
+                <LanePosition roadId="28" laneId="1" s="$npc5_start_s" offset="0.0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -214,16 +209,16 @@
       </Actions>
     </Init>
 
-    <Story name="car1_story_transport">
+    <Story name="npc1_story_transport">
       <ParameterDeclarations />
       <Act name="iic1_act">
-        <ManeuverGroup name="car1_mang1" maximumExecutionCount="1">
+        <ManeuverGroup name="npc1_mang1" maximumExecutionCount="1">
           <Actors selectTriggeringEntities="false">
-            <EntityRef entityRef="car1" />
+            <EntityRef entityRef="npc1" />
           </Actors>
-          <Maneuver name="car1_man1">
-            <Event name="car1_event" priority="parallel" maximumExecutionCount="1">
-              <Action name="car1_assign_controller_action">
+          <Maneuver name="npc1_man1">
+            <Event name="npc1_event" priority="parallel" maximumExecutionCount="1">
+              <Action name="npc1_assign_controller_action">
                 <PrivateAction>
                   <ControllerAction>
                     <AssignControllerAction>
@@ -257,7 +252,7 @@
               </Action>
               <StartTrigger>
                 <ConditionGroup>
-                  <Condition name="car1_con1" delay="0" conditionEdge="none">
+                  <Condition name="npc1_con1" delay="0" conditionEdge="none">
                     <ByEntityCondition>
                       <TriggeringEntities triggeringEntitiesRule="any">
                         <EntityRef entityRef="Ego" />
@@ -304,16 +299,16 @@
       </Act>
     </Story>
 
-    <Story name="car2_story_transport">
+    <Story name="npc2_story_transport">
       <ParameterDeclarations />
       <Act name="iic2_act">
-        <ManeuverGroup name="car2_mang1" maximumExecutionCount="1">
+        <ManeuverGroup name="npc2_mang1" maximumExecutionCount="1">
           <Actors selectTriggeringEntities="false">
-            <EntityRef entityRef="car2" />
+            <EntityRef entityRef="npc2" />
           </Actors>
-          <Maneuver name="car2_man1">
-            <Event name="car2_event" priority="parallel" maximumExecutionCount="1">
-              <Action name="car2_assign_controller_action">
+          <Maneuver name="npc2_man1">
+            <Event name="npc2_event" priority="parallel" maximumExecutionCount="1">
+              <Action name="npc2_assign_controller_action">
                 <PrivateAction>
                   <ControllerAction>
                     <AssignControllerAction>
@@ -347,7 +342,7 @@
               </Action>
               <StartTrigger>
                 <ConditionGroup>
-                  <Condition name="car2_con1" delay="0" conditionEdge="none">
+                  <Condition name="npc2_con1" delay="0" conditionEdge="none">
                     <ByEntityCondition>
                       <TriggeringEntities triggeringEntitiesRule="any">
                         <EntityRef entityRef="Ego" />
@@ -394,16 +389,16 @@
       </Act>
     </Story>
 
-    <Story name="car3_story_transport">
+    <Story name="npc3_story_transport">
       <ParameterDeclarations />
       <Act name="iic3_act">
-        <ManeuverGroup name="car3_mang1" maximumExecutionCount="1">
+        <ManeuverGroup name="npc3_mang1" maximumExecutionCount="1">
           <Actors selectTriggeringEntities="false">
-            <EntityRef entityRef="car3" />
+            <EntityRef entityRef="npc3" />
           </Actors>
-          <Maneuver name="car3_man1">
-            <Event name="car3_event" priority="parallel" maximumExecutionCount="1">
-              <Action name="car1_assign_controller_action">
+          <Maneuver name="npc3_man1">
+            <Event name="npc3_event" priority="parallel" maximumExecutionCount="1">
+              <Action name="npc1_assign_controller_action">
                 <PrivateAction>
                   <ControllerAction>
                     <AssignControllerAction>
@@ -437,7 +432,7 @@
               </Action>
               <StartTrigger>
                 <ConditionGroup>
-                  <Condition name="car3_con1" delay="0" conditionEdge="none">
+                  <Condition name="npc3_con1" delay="0" conditionEdge="none">
                     <ByEntityCondition>
                       <TriggeringEntities triggeringEntitiesRule="any">
                         <EntityRef entityRef="Ego" />

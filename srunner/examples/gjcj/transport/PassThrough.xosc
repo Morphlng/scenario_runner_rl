@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
-  <FileHeader taskCategory="陆域" name="运输任务-起伏路面通行" description="运输任务-起伏路面通行" author="lp"
-    revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
+  <FileHeader taskCategory="陆域" name="运输任务-起伏路面通行" description="运输任务-起伏路面通行" author="lp" revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
   <ParameterDeclarations>
     <ParameterDeclaration name="ego_start_s" parameterType="double" value="35.0" />
 
-    <ParameterDeclaration name="car1_s" parameterType="double" value="84" />
-    <ParameterDeclaration name="car1_acc_distance1" parameterType="double" value="30" />
-    <ParameterDeclaration name="car1_acc_speed1" parameterType="double" value="15" />
-    <ParameterDeclaration name="car1_egoreach_region" parameterType="double" value="270" />
+    <ParameterDeclaration name="npc1_s" parameterType="double" value="84" />
+    <ParameterDeclaration name="npc1_acc_distance1" parameterType="double" value="30" />
+    <ParameterDeclaration name="npc1_acc_speed1" parameterType="double" value="15" />
+    <ParameterDeclaration name="npc1_egoreach_region" parameterType="double" value="270" />
 
-    <ParameterDeclaration name="car2_s" parameterType="double" value="100" />
-    <ParameterDeclaration name="car2_acc_distance1" parameterType="double" value="30" />
-    <ParameterDeclaration name="car2_acc_speed1" parameterType="double" value="5" />
-    <ParameterDeclaration name="car2_egoreach_region2" parameterType="double" value="350" />
+    <ParameterDeclaration name="npc2_s" parameterType="double" value="100" />
+    <ParameterDeclaration name="npc2_acc_distance1" parameterType="double" value="30" />
+    <ParameterDeclaration name="npc2_acc_speed1" parameterType="double" value="5" />
+    <ParameterDeclaration name="npc2_egoreach_region2" parameterType="double" value="350" />
 
     <ParameterDeclaration name="tudui1_s" parameterType="double" value="70" />
     <ParameterDeclaration name="tudui2_s" parameterType="double" value="132" />
@@ -60,10 +59,10 @@
     <ScenarioObject name="Ego">
       <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.wheeled.trucknormal" />
     </ScenarioObject>
-    <ScenarioObject name="car1">
+    <ScenarioObject name="npc1">
       <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.apc.puma" />
     </ScenarioObject>
-    <ScenarioObject name="car2">
+    <ScenarioObject name="npc2">
       <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.apc.puma" />
     </ScenarioObject>
     <ScenarioObject name="tudui1">
@@ -133,20 +132,20 @@
             </ControllerAction>
           </PrivateAction>
         </Private>
-        <Private entityRef="car1">
+        <Private entityRef="npc1">
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <LanePosition roadId="14" laneId="1" s="$car1_s" offset="0.0" />
+                <LanePosition roadId="14" laneId="1" s="$npc1_s" offset="0.0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
         </Private>
-        <Private entityRef="car2">
+        <Private entityRef="npc2">
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <LanePosition roadId="13" laneId="-1" s="$car2_s" offset="1.57" />
+                <LanePosition roadId="13" laneId="-1" s="$npc2_s" offset="1.57" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -216,16 +215,16 @@
         </Private>
       </Actions>
     </Init>
-    <Story name="car1_story_transport">
+    <Story name="npc1_story_transport">
       <ParameterDeclarations />
       <Act name="iic1_act">
-        <ManeuverGroup name="car1_mang1" maximumExecutionCount="1">
+        <ManeuverGroup name="npc1_mang1" maximumExecutionCount="1">
           <Actors selectTriggeringEntities="false">
-            <EntityRef entityRef="car1" />
+            <EntityRef entityRef="npc1" />
           </Actors>
-          <Maneuver name="car1_man1">
-            <Event name="car1_event" priority="parallel" maximumExecutionCount="1">
-              <Action name="car1_assign_controller_action">
+          <Maneuver name="npc1_man1">
+            <Event name="npc1_event" priority="parallel" maximumExecutionCount="1">
+              <Action name="npc1_assign_controller_action">
                 <PrivateAction>
                   <ControllerAction>
                     <AssignControllerAction>
@@ -235,13 +234,13 @@
                           <ParameterAssignment parameterRef="Target_speed" value="20" />
                           <ParameterAssignment parameterRef="Init_speed" value="20" />
                           <ParameterAssignment parameterRef="Focus_actors"
-                            value="Ego,car1,car2,soldier" />
+                            value="Ego,npc1,npc2,soldier" />
                           <ParameterAssignment parameterRef="Action_type"
                             value="vehicle_atomic_action" />
                           <ParameterAssignment parameterRef="Discrete_action_set"
                             value='[{"0": "stop", "1": "lane_follow", "2": "left_lane_change", "3": "right_lane_change"}, {"0": 0, "1": 4, "2": 8, "3": 12, "4": 16}]' />
                           <ParameterAssignment parameterRef="Foucs_actors"
-                            value="Ego,car1,car2,soldier" />
+                            value="Ego,npc1,npc2,soldier" />
                           <ParameterAssignment parameterRef="Add_action_mask" value="true" />
                           <ParameterAssignment parameterRef="Model_path"
                             value="srunner/examples/rl_models/Transport/Transport.Passthrough/checkpoint" />
@@ -263,7 +262,7 @@
               </Action>
               <StartTrigger>
                 <ConditionGroup>
-                  <Condition name="car1_con1" delay="0" conditionEdge="none">
+                  <Condition name="npc1_con1" delay="0" conditionEdge="none">
                     <ByEntityCondition>
                       <TriggeringEntities triggeringEntitiesRule="any">
                         <EntityRef entityRef="Ego" />
@@ -310,16 +309,16 @@
       </Act>
     </Story>
 
-    <Story name="car2_story_transport">
+    <Story name="npc2_story_transport">
       <ParameterDeclarations />
       <Act name="iic2_act">
-        <ManeuverGroup name="car2_mang1" maximumExecutionCount="1">
+        <ManeuverGroup name="npc2_mang1" maximumExecutionCount="1">
           <Actors selectTriggeringEntities="false">
-            <EntityRef entityRef="car2" />
+            <EntityRef entityRef="npc2" />
           </Actors>
-          <Maneuver name="car2_man1">
-            <Event name="car2_event" priority="parallel" maximumExecutionCount="1">
-              <Action name="car2_assign_controller_action">
+          <Maneuver name="npc2_man1">
+            <Event name="npc2_event" priority="parallel" maximumExecutionCount="1">
+              <Action name="npc2_assign_controller_action">
                 <PrivateAction>
                   <ControllerAction>
                     <AssignControllerAction>
@@ -329,13 +328,13 @@
                           <ParameterAssignment parameterRef="Target_speed" value="20" />
                           <ParameterAssignment parameterRef="Init_speed" value="20" />
                           <ParameterAssignment parameterRef="Focus_actors"
-                            value="Ego,car1,car2,soldier" />
+                            value="Ego,npc1,npc2,soldier" />
                           <ParameterAssignment parameterRef="Action_type"
                             value="vehicle_atomic_action" />
                           <ParameterAssignment parameterRef="Discrete_action_set"
                             value='[{"0": "stop", "1": "lane_follow", "2": "left_lane_change", "3": "right_lane_change"}, {"0": 0, "1": 4, "2": 8, "3": 12, "4": 16}]' />
                           <ParameterAssignment parameterRef="Foucs_actors"
-                            value="Ego,car1,car2,soldier" />
+                            value="Ego,npc1,npc2,soldier" />
                           <ParameterAssignment parameterRef="Add_action_mask" value="true" />
                           <ParameterAssignment parameterRef="Model_path"
                             value="srunner/examples/rl_models/Transport/Transport.Passthrough/checkpoint" />
@@ -357,7 +356,7 @@
               </Action>
               <StartTrigger>
                 <ConditionGroup>
-                  <Condition name="car2_con1" delay="0" conditionEdge="none">
+                  <Condition name="npc2_con1" delay="0" conditionEdge="none">
                     <ByEntityCondition>
                       <TriggeringEntities triggeringEntitiesRule="any">
                         <EntityRef entityRef="Ego" />

@@ -1,17 +1,16 @@
 <?xml version="1.0"?>
 <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenSCENARIO.xsd">
-  <FileHeader taskCategory="陆域" name="侦察任务-动态避障" description="侦察任务-动态避障" author="rhp" revMajor="1"
-    revMinor="0" date="2023-10-08T10:00:00" />
+  <FileHeader taskCategory="陆域" name="侦察任务-动态避障" description="侦察任务-动态避障" author="rhp" revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
   <ParameterDeclarations>
     <ParameterDeclaration name="ego_start_s" parameterType="double" value="48.0" />
-    <ParameterDeclaration name="car1_start_s" parameterType="double" value="15.0" />
-    <ParameterDeclaration name="car1_acc_time" parameterType="double" value="3.0" />
-    <ParameterDeclaration name="car1_speed" parameterType="double" value="8.0" />
-    <ParameterDeclaration name="d_car1" parameterType="double" value="50.0" />
-    <ParameterDeclaration name="car2_start_s" parameterType="double" value="30.0" />
-    <ParameterDeclaration name="car2_acc_time" parameterType="double" value="3.0" />
-    <ParameterDeclaration name="car2_speed" parameterType="double" value="6.0" />
-    <ParameterDeclaration name="d_car2" parameterType="double" value="50.0" />
+    <ParameterDeclaration name="npc1_start_s" parameterType="double" value="15.0" />
+    <ParameterDeclaration name="npc1_acc_time" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="npc1_speed" parameterType="double" value="8.0" />
+    <ParameterDeclaration name="d_npc1" parameterType="double" value="50.0" />
+    <ParameterDeclaration name="npc2_start_s" parameterType="double" value="30.0" />
+    <ParameterDeclaration name="npc2_acc_time" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="npc2_speed" parameterType="double" value="6.0" />
+    <ParameterDeclaration name="d_npc2" parameterType="double" value="50.0" />
 
     <ParameterDeclaration name="walker1_start_s" parameterType="double" value="0.0" />
     <ParameterDeclaration name="walker1_acc_time" parameterType="double" value="3.0" />
@@ -63,10 +62,10 @@
       <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.auto.electron" />
     </ScenarioObject>
 
-    <ScenarioObject name="car1">
+    <ScenarioObject name="npc1">
       <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.tesla.cybertruck" />
     </ScenarioObject>
-    <ScenarioObject name="car2">
+    <ScenarioObject name="npc2">
       <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.tesla.cybertruck" />
     </ScenarioObject>
 
@@ -128,20 +127,20 @@
             </ControllerAction>
           </PrivateAction>
         </Private>
-        <Private entityRef="car1">
+        <Private entityRef="npc1">
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <LanePosition roadId="30" laneId="1" s="$car1_start_s" offset="0" />
+                <LanePosition roadId="30" laneId="1" s="$npc1_start_s" offset="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
         </Private>
-        <Private entityRef="car2">
+        <Private entityRef="npc2">
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <LanePosition roadId="30" laneId="-1" s="$car2_start_s" offset="0" />
+                <LanePosition roadId="30" laneId="-1" s="$npc2_start_s" offset="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -186,18 +185,19 @@
             </TeleportAction>
           </PrivateAction>
         </Private>
+
       </Actions>
     </Init>
 
     <Story name="bizhang_story">
       <Act name="bizhang_act">
-        <ManeuverGroup name="car1_mang" maximumExecutionCount="1">
+        <ManeuverGroup name="npc1_mang" maximumExecutionCount="1">
           <Actors selectTriggeringEntities="false">
-            <EntityRef entityRef="car1" />
+            <EntityRef entityRef="npc1" />
           </Actors>
-          <Maneuver name="car1_man1">
-            <Event name="car1_event" priority="parallel" maximumExecutionCount="1">
-              <Action name="car1_assign_controller_action">
+          <Maneuver name="npc1_man1">
+            <Event name="npc1_event" priority="parallel" maximumExecutionCount="1">
+              <Action name="npc1_assign_controller_action">
                 <PrivateAction>
                   <ControllerAction>
                     <AssignControllerAction>
@@ -233,7 +233,7 @@
               </Action>
               <StartTrigger>
                 <ConditionGroup>
-                  <Condition name="car1_con1" delay="0" conditionEdge="none">
+                  <Condition name="npc1_con1" delay="0" conditionEdge="none">
                     <ByEntityCondition>
                       <TriggeringEntities triggeringEntitiesRule="any">
                         <EntityRef entityRef="Ego" />
@@ -252,13 +252,13 @@
             </Event>
           </Maneuver>
         </ManeuverGroup>
-        <ManeuverGroup name="car2_mang" maximumExecutionCount="1">
+        <ManeuverGroup name="npc2_mang" maximumExecutionCount="1">
           <Actors selectTriggeringEntities="false">
-            <EntityRef entityRef="car2" />
+            <EntityRef entityRef="npc2" />
           </Actors>
-          <Maneuver name="car2_man1">
-            <Event name="car2_event" priority="parallel" maximumExecutionCount="1">
-              <Action name="car2_assign_controller_action">
+          <Maneuver name="npc2_man1">
+            <Event name="npc2_event" priority="parallel" maximumExecutionCount="1">
+              <Action name="npc2_assign_controller_action">
                 <PrivateAction>
                   <ControllerAction>
                     <AssignControllerAction>
@@ -294,7 +294,7 @@
               </Action>
               <StartTrigger>
                 <ConditionGroup>
-                  <Condition name="car2_con1" delay="0" conditionEdge="none">
+                  <Condition name="npc2_con1" delay="0" conditionEdge="none">
                     <ByEntityCondition>
                       <TriggeringEntities triggeringEntitiesRule="any">
                         <EntityRef entityRef="Ego" />

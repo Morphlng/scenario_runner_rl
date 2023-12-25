@@ -3,6 +3,7 @@ from __future__ import annotations
 import math
 
 import carla
+import numpy as np
 from shapely.geometry import Point, Polygon
 
 from srunner.extension.rl_integrate.data.simulator import Simulator
@@ -52,7 +53,7 @@ class DirectAction(AbstractAction):
                 grid_size=self.grid_size,
             )
             yaw, pitch = self.fire_strike(
-                actor_transform.location,
+                actor_transform,
                 target_location,
                 self.pitch_correction,
                 self.z_correction,
@@ -83,23 +84,40 @@ class DirectAction(AbstractAction):
 
     @staticmethod
     def fire_strike(
-        actor_location: carla.Location,
+        actor_transform: carla.Transform,
         target_location: carla.Location,
         pitch_correction: float = 0.0,
         z_correction: float = 0.0,
     ):
-        dx = target_location.x - actor_location.x
-        dy = target_location.y - actor_location.y
-        dz = target_location.z - (actor_location.z + z_correction)
+        """Calculate the yaw and pitch angle for the actor to fire at the target
 
-        distance = math.sqrt(dx * dx + dy * dy + dz * dz)
-        if distance <= 1e-6:
-            return None, None
+        Args:
+            actor_transform (carla.Transform): The transform of the actor
+            target_location (carla.Location): The location of the target
+            pitch_correction (float, optional): Correct the model's pitch angle to start from the horizontal plane. Defaults to 0.0.
+            z_correction (float, optional): Correct the model's z axis to start from the muzzle. Defaults to 0.0.
 
-        pitch = math.degrees(math.asin(dz / distance)) + pitch_correction
-        yaw = math.degrees(math.atan2(dy, dx))
+        Returns:
+            yaw, pitch (float, float): The yaw and pitch angle for the actor to fire at the target (in degrees)
+        """
+        # Adjust actor transform for z correction
+        transform = carla.Transform(
+            actor_transform.location + carla.Location(z=z_correction),
+            actor_transform.rotation,
+        )
 
-        return yaw, pitch
+        # Convert to actor-relative coordinates
+        world_to_actor = np.array(transform.get_inverse_matrix())
+        target_location = np.array(
+            [target_location.x, target_location.y, target_location.z, 1.0]
+        )
+        relative_location = np.dot(world_to_actor, target_location)
+
+        # Yaw and pitch calculations
+        x, y, z = relative_location[:3]
+        yaw = math.degrees(math.atan2(y, x))
+        pitch = math.degrees(math.asin(z / math.sqrt(x**2 + y**2 + z**2)))
+        return yaw, pitch + pitch_correction
 
     def update_action(self, action):
         if self.duration <= 0:

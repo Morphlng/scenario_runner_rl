@@ -188,6 +188,15 @@ class Observation:
                 measurement_type,
             )
 
+            # TODO: a hack to get extra info (e.g. Ammo)
+            for info in measurement_type:
+                if ":" in info:
+                    actor_id, key = map(lambda x: x.strip(), info.split(":"))
+                    if actor_id == "self":
+                        info[key] = py_measurements[target_id].get(key)
+                    else:
+                        info[key] = py_measurements[actor_id].get(key)
+
             # Update dict
             if actor_id == target_id:
                 semantic_info["self"] = info
@@ -308,7 +317,7 @@ class Observation:
             return vector
 
     @staticmethod
-    def filter_semantic_info(semantic_info: dict, filter_set: set):
+    def filter_semantic_info(semantic_info: dict, filter_set: "set[str]"):
         """Filter out the semantic information that is not needed.
 
         Args:

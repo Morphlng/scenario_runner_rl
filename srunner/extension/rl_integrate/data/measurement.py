@@ -219,3 +219,21 @@ class Measurement:
 
     def as_dict(self):
         return asdict(self)
+
+    def get(self, key: str):
+        """Get the value of a specific key in the measurement
+
+        Args:
+            key (str): The key to be accessed
+
+        Returns:
+            Any: The value of the key
+        """
+        if hasattr(self, key):
+            return getattr(self, key)
+        elif hasattr(self.exp_info, key):
+            return getattr(self.exp_info, key)
+        elif hasattr(self.extra_info, key):
+            return getattr(self.extra_info, key)
+        else:
+            raise KeyError(f"Key {key} not found in measurement")

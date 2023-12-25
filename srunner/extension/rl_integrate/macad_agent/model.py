@@ -5,6 +5,7 @@ import io
 import json
 import logging
 import os
+from typing import Callable
 
 import ray
 from marllib import marl
@@ -18,6 +19,14 @@ class dotdict(dict):
 
     __getattr__ = dict.get
     __setattr__ = dict.__setitem__
+
+
+class Checkpoint:
+    def __init__(self, env_name: str, map_name: str, trainer: Trainer, pmap: Callable):
+        self.env_name = env_name
+        self.map_name = map_name
+        self.trainer = trainer
+        self.pmap = pmap
 
 
 class NullLogger:
@@ -43,7 +52,7 @@ class NullLogger:
         pass
 
 
-def find_key(dictionary, target_key):
+def find_key(dictionary: dict, target_key: str):
     if target_key in dictionary:
         return dictionary[target_key]
 
@@ -91,16 +100,18 @@ def form_algo_dict() -> "dict[str, tuple[str, Trainer]]":
 
 def update_config(config: dict):
     # Extract config
-    map_name = find_key(config, "map_name")
+    env_name = config["env"].split("_")[0]
+    map_name = config["env"][len(env_name) + 1 :]
     model_name = find_key(config, "custom_model")
     model_arch_args = find_key(config, "model_arch_args")
     algo_name = find_key(config, "algorithm")
     share_policy = find_key(config, "share_policy")
+    agent_level_batch_update = find_key(config, "agent_level_batch_update")
 
     ######################
     ### environment info ###
     ######################
-    env = marl.make_env("macad", map_name)
+    env = marl.make_env(env_name, map_name)
     env_instance, env_info = env
     algorithm = dotdict({"name": algo_name, "algo_type": ALGO_DICT[algo_name][0]})
     model_instance, model_info = marl.build_model(env, algorithm, model_arch_args)
@@ -123,6 +134,11 @@ def update_config(config: dict):
     else:
         policy_mapping_info = policy_mapping_info[map_name]
 
+    # whether to agent level batch update when shared model parameter:
+    # True -> default_policy | False -> shared_policy
+    shared_policy_name = (
+        "default_policy" if agent_level_batch_update else "shared_policy"
+    )
     if share_policy == "all":
         if not policy_mapping_info["all_agents_one_policy"]:
             raise ValueError(
@@ -131,8 +147,8 @@ def update_config(config: dict):
                 )
             )
 
-        policies = {"av"}
-        policy_mapping_fn = lambda agent_id, episode, **kwargs: "av"
+        policies = {shared_policy_name}
+        policy_mapping_fn = lambda agent_id, episode, **kwargs: shared_policy_name
 
     elif share_policy == "group":
         groups = policy_mapping_info["team_prefix"]
@@ -145,8 +161,8 @@ def update_config(config: dict):
                     )
                 )
 
-            policies = {"shared_policy"}
-            policy_mapping_fn = lambda agent_id, episode, **kwargs: "shared_policy"
+            policies = {shared_policy_name}
+            policy_mapping_fn = lambda agent_id, episode, **kwargs: shared_policy_name
 
         else:
             policies = {
@@ -216,9 +232,7 @@ def update_config(config: dict):
     )
 
 
-def load_model(
-    model_path: str, params_path: str, algo: str = None
-) -> "tuple[Trainer, function]":
+def load_model(model_path: str, params_path: str, algo: str = None) -> Checkpoint:
     """load model from given path
 
     Args:
@@ -227,8 +241,7 @@ def load_model(
         algo (str, optional): algorithm name, e.g. mappo. Defaults to None.
 
     Returns:
-        agent (Trainer): agent object
-        policy_mapping_fn (function): policy mapping function (only for multi-agent)
+        Checkpoint: checkpoint object
     """
     try:
         with open(params_path, "r") as f:
@@ -248,14 +261,18 @@ def load_model(
             )
 
         update_config(params)
-        trainer: Trainer = ALGO_DICT[algo or find_key(params, "algorithm")][1](
+        algo = algo or find_key(params, "algorithm")
+        trainer: Trainer = ALGO_DICT[algo][1](
             params, logger_creator=lambda config: NullLogger(config)
         )
         trainer.restore(model_path)
 
     pmap = find_key(trainer.config, "policy_mapping_fn")
 
-    return trainer, pmap
+    env_name = params["env"].split("_")[0]
+    map_name = params["env"][len(env_name) + 1 :]
+
+    return Checkpoint(env_name, map_name, trainer, pmap)
 
 
 ALGO_DICT = form_algo_dict()
@@ -263,10 +280,11 @@ ALGO_DICT = form_algo_dict()
 
 if __name__ == "__main__":
     # Example of getting model
-    agent, pmap = load_model(
+    checkpoint = load_model(
         model_path="/home/morphlng/ray_results/Town01_no_type/checkpoint_000645/checkpoint-645",
         params_path="/home/morphlng/ray_results/Town01_no_type/params.json",
     )
+    agent, pmap = checkpoint.trainer, checkpoint.pmap
 
     # RNN-based model have state
     agent_id = "car1"

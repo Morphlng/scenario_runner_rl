@@ -56,8 +56,8 @@ class RlManager:
             blackboard.set("rl_models", rl_models)
 
         if model_path not in rl_models:
-            model, pmap = load_model(model_path, params_path)
-            rl_models[model_path] = (model, pmap)
+            ckpt = load_model(model_path, params_path)
+            rl_models[model_path] = (ckpt.trainer, ckpt.pmap)
         else:
             model, pmap = rl_models[model_path]
 

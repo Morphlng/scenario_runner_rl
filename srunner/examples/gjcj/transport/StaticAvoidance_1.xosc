@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
-  <FileHeader taskCategory="陆域" name="运输任务-静态避障1" description="运输任务-静态避障1" author="lp" revMajor="1"
-    revMinor="0" date="2023-10-08T10:00:00" />
+  <FileHeader taskCategory="陆域" name="运输任务-静态避障1" description="运输任务-静态避障1" author="lp" revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
   <ParameterDeclarations>
     <ParameterDeclaration name="ego_start_s" parameterType="double" value="30" />
 
-    <ParameterDeclaration name="static2_s" parameterType="double" value="100" />
+    <ParameterDeclaration name="static2_y" parameterType="double" value="-420.21" />
     <ParameterDeclaration name="static3_s" parameterType="double" value="217" />
     <ParameterDeclaration name="static4_y" parameterType="double" value="-205" />
     <ParameterDeclaration name="static5_s" parameterType="double" value="395" />
 
     <ParameterDeclaration name="rb1_acc_time" parameterType="double" value="3" />
     <ParameterDeclaration name="rb1_speed" parameterType="double" value="2" />
-    <ParameterDeclaration name="d_rb1" parameterType="double" value="50" />
+    <ParameterDeclaration name="d_rb1" parameterType="double" value="15" />
     <ParameterDeclaration name="rb1_s" parameterType="double" value="225" />
-
 
     <ParameterDeclaration name="rb2_acc_time" parameterType="double" value="3" />
     <ParameterDeclaration name="rb2_speed" parameterType="double" value="2" />
-    <ParameterDeclaration name="d_rb2" parameterType="double" value="50" />
+    <ParameterDeclaration name="d_rb2" parameterType="double" value="15" />
     <ParameterDeclaration name="rb2_y" parameterType="double" value="-196" />
     <ParameterDeclaration name="rb2_s" parameterType="double" value="325" />
-
   </ParameterDeclarations>
   <CatalogLocations>
     <VehicleCatalog>

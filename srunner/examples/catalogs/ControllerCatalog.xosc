@@ -24,7 +24,6 @@
         <!-- All Optional -->
         <ParameterDeclaration name="Discrete_action_set" parameterType="string" value="" />
         <ParameterDeclaration name="Action_extra_config" parameterType="string" value="" />
-        <ParameterDeclaration name="Step_ticks" parameterType="integer" value="" />
         <ParameterDeclaration name="Measurement_type" parameterType="string" value="all" />
         <ParameterDeclaration name="Focus_actors" parameterType="string" value="all" />
         <ParameterDeclaration name="Ignore_actors" parameterType="string" value="" />
@@ -33,6 +32,10 @@
         <ParameterDeclaration name="Init_speed" parameterType="integer" value="0" />
         <ParameterDeclaration name="Model_path" parameterType="string" value="" />
         <ParameterDeclaration name="Params_path" parameterType="string" value="" />
+
+        <!-- Global Changes-->
+        <ParameterDeclaration name="Step_ticks" parameterType="integer" value="" />
+        <ParameterDeclaration name="Force_padding" parameterType="boolean" value="false" />
       </ParameterDeclarations>
       <Properties>
         <Property name="module" value="srunner/extension/rl_integrate/controller/rl_agent_control.py" />
@@ -41,6 +44,7 @@
         <Property name="discrete_action_set" value="$Discrete_action_set" />
         <Property name="action_extra_config" value="$Action_extra_config" />
         <Property name="step_ticks" value="$Step_ticks" />
+        <Property name="force_padding" value="$Force_padding" />
         <Property name="camera_type" value="$Camera_type" />
         <Property name="x_res" value="$X_res" />
         <Property name="y_res" value="$Y_res" />

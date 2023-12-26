@@ -1,38 +1,61 @@
-<?xml version="1.0"?>
-<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenSCENARIO.xsd">
-  <FileHeader taskCategory="陆域" name="侦察任务-雾天侦察" description="侦察任务-雾天侦察" author="rhp" revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
+  <FileHeader taskCategory="陆域" name="打击任务-战场区域通行" description="打击任务-战场区域通行" author="lp"
+    revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
   <ParameterDeclarations>
-    <ParameterDeclaration name="ego_start_s" parameterType="double" value="16.0" />
+    <ParameterDeclaration name="barrier1_x" parameterType="double" value="-148" />
+    <ParameterDeclaration name="barrier1_y" parameterType="double" value="-2899.8" />
+    <ParameterDeclaration name="barrier2_x" parameterType="double" value="-150.3" />
+    <ParameterDeclaration name="barrier2_y" parameterType="double" value="-2858.8" />
 
-    <ParameterDeclaration name="rb1_start_s" parameterType="double" value="0.4" />
-    <ParameterDeclaration name="rb1_route_s" parameterType="double" value="30.1" />
-    <ParameterDeclaration name="rb1_end_s" parameterType="double" value="13.4" />
-    <ParameterDeclaration name="rb1_acc_time" parameterType="double" value="7.0" />
-    <ParameterDeclaration name="rb1_speed" parameterType="double" value="3.0" />
-    <ParameterDeclaration name="d_rb1" parameterType="double" value="44.0" />
+    <ParameterDeclaration name="barrier3_x" parameterType="double" value="-123.2" />
+    <ParameterDeclaration name="barrier3_y" parameterType="double" value="-2608.8" />
 
-    <ParameterDeclaration name="rb2_start_s" parameterType="double" value="3.4" />
-    <ParameterDeclaration name="rb2_route_s" parameterType="double" value="4.9" />
-    <ParameterDeclaration name="rb2_end_s" parameterType="double" value="2.1" />
+    <ParameterDeclaration name="barrier4_x" parameterType="double" value="-108.4" />
+    <ParameterDeclaration name="barrier4_y" parameterType="double" value="-2510.2" />
+
+    <ParameterDeclaration name="zjc1_x" parameterType="double" value="-136.1" />
+    <ParameterDeclaration name="zjc1_y" parameterType="double" value="-2809.2" />
+
+    <ParameterDeclaration name="zjc2_x" parameterType="double" value="-106.9" />
+    <ParameterDeclaration name="zjc2_y" parameterType="double" value="-2764.7" />
+
+    <ParameterDeclaration name="zjc3_x" parameterType="double" value="-125.5" />
+    <ParameterDeclaration name="zjc3_y" parameterType="double" value="-2711.9" />
+
+    <ParameterDeclaration name="zjc4_x" parameterType="double" value="-105.6" />
+    <ParameterDeclaration name="zjc4_y" parameterType="double" value="-2667.7" />
+
+    <ParameterDeclaration name="zjc5_x" parameterType="double" value="-119.1" />
+    <ParameterDeclaration name="zjc5_y" parameterType="double" value="-2556.8" />
+
+    <ParameterDeclaration name="rb1_x" parameterType="double" value="-135" />
+    <ParameterDeclaration name="rb1_y" parameterType="double" value="-2798.9" />
+    <ParameterDeclaration name="rb1_acc_time" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="rb1_speed" parameterType="double" value="2.0" />
+    <ParameterDeclaration name="d_rb1" parameterType="double" value="15" />
+
+    <ParameterDeclaration name="rb2_x" parameterType="double" value="-105.2" />
+    <ParameterDeclaration name="rb2_y" parameterType="double" value="-2752.8" />
     <ParameterDeclaration name="rb2_acc_time" parameterType="double" value="3.0" />
-    <ParameterDeclaration name="rb2_speed" parameterType="double" value="1.6" />
-    <ParameterDeclaration name="d_rb2" parameterType="double" value="51.0" />
+    <ParameterDeclaration name="rb2_speed" parameterType="double" value="2.0" />
+    <ParameterDeclaration name="d_rb2" parameterType="double" value="15" />
 
-    <ParameterDeclaration name="rb3_start_s" parameterType="double" value="2.0" />
-    <ParameterDeclaration name="rb3_route_s" parameterType="double" value="22.6" />
-    <ParameterDeclaration name="rb3_end_s" parameterType="double" value="3.7" />
-    <ParameterDeclaration name="rb3_acc_time" parameterType="double" value="4.0" />
-    <ParameterDeclaration name="rb3_speed" parameterType="double" value="1.0" />
-    <ParameterDeclaration name="d_rb3" parameterType="double" value="40.0" />
+    <ParameterDeclaration name="rb3_x" parameterType="double" value="-104.4" />
+    <ParameterDeclaration name="rb3_y" parameterType="double" value="-2656.6" />
+    <ParameterDeclaration name="rb3_acc_time" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="rb3_speed" parameterType="double" value="2.0" />
+    <ParameterDeclaration name="d_rb3" parameterType="double" value="15" />
 
-    <ParameterDeclaration name="rb4_start_s" parameterType="double" value="11" />
-    <ParameterDeclaration name="rb4_route_s" parameterType="double" value="1.7" />
-    <ParameterDeclaration name="rb4_end_s" parameterType="double" value="10.8" />
-    <ParameterDeclaration name="rb4_acc_time" parameterType="double" value="4.0" />
-    <ParameterDeclaration name="rb4_speed" parameterType="double" value="3.0" />
-    <ParameterDeclaration name="d_rb4" parameterType="double" value="33.0" />
+    <ParameterDeclaration name="rb4_x" parameterType="double" value="-121.9" />
+    <ParameterDeclaration name="rb4_y" parameterType="double" value="-2594.1" />
+    <ParameterDeclaration name="rb4_acc_time" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="rb4_speed" parameterType="double" value="2.0" />
+    <ParameterDeclaration name="d_rb4" parameterType="double" value="15" />
 
-    <ParameterDeclaration name="smoke_num" parameterType="double" value="6.0" />
+    <ParameterDeclaration name="smoke_num" parameterType="double" value="5" />
+
   </ParameterDeclarations>
   <CatalogLocations>
     <VehicleCatalog>
@@ -49,9 +72,9 @@
     </ControllerCatalog>
   </CatalogLocations>
   <RoadNetwork>
-    <LogicFile filepath="Town05" />
-    <SceneGraphFile filepath="Town05" />
-    <LandGraphFile filepath="Town05" />
+    <LogicFile filepath="CE_A2" />
+    <SceneGraphFile filepath="CE_A2" />
+    <LandGraphFile filepath="CE_A2" />
   </RoadNetwork>
   <Electromagnetic name="elc" electromagneticCategory="line" intensity="12">
     <Position>
@@ -68,21 +91,9 @@
     </TargetObject>
   </TargetObjects>
   <Entities>
-    <ScenarioObject name="Ego">
-      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.auto.electron" />
-    </ScenarioObject>
 
-    <ScenarioObject name="rb1">
-      <CatalogReference catalogName="PedestrianCatalog" entryName="walker.pedestrian.0054" />
-    </ScenarioObject>
-    <ScenarioObject name="rb2">
-      <CatalogReference catalogName="PedestrianCatalog" entryName="walker.pedestrian.0054" />
-    </ScenarioObject>
-    <ScenarioObject name="rb3">
-      <CatalogReference catalogName="PedestrianCatalog" entryName="walker.pedestrian.0054" />
-    </ScenarioObject>
-    <ScenarioObject name="rb4">
-      <CatalogReference catalogName="PedestrianCatalog" entryName="walker.pedestrian.0054" />
+    <ScenarioObject name="Ego">
+      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.imv.bigrb" />
     </ScenarioObject>
 
     <ScenarioObject name="barrier1">
@@ -91,14 +102,46 @@
     <ScenarioObject name="barrier2">
       <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.barricadehard" />
     </ScenarioObject>
-
-    <ScenarioObject name="post1">
+    <ScenarioObject name="barrier3">
       <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.barricadehard" />
     </ScenarioObject>
+    <ScenarioObject name="barrier4">
+      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.barricadehard" />
+    </ScenarioObject>
+
+    <ScenarioObject name="zjc1">
+      <CatalogReference catalogName="VehicleCatalog" entryName="dynamic.prop.apc_80_wreck" />
+    </ScenarioObject>
+    <ScenarioObject name="zjc2">
+      <CatalogReference catalogName="VehicleCatalog" entryName="dynamic.prop.apc_80_wreck" />
+    </ScenarioObject>
+    <ScenarioObject name="zjc3">
+      <CatalogReference catalogName="VehicleCatalog" entryName="dynamic.prop.apc_80_wreck" />
+    </ScenarioObject>
+    <ScenarioObject name="zjc4">
+      <CatalogReference catalogName="VehicleCatalog" entryName="dynamic.prop.apc_80_wreck" />
+    </ScenarioObject>
+    <ScenarioObject name="zjc5">
+      <CatalogReference catalogName="VehicleCatalog" entryName="dynamic.prop.apc_80_wreck" />
+    </ScenarioObject>
+
+    <ScenarioObject name="robot1">
+      <CatalogReference catalogName="PedestrianCatalog" entryName="walker.pedestrian.0054" />
+    </ScenarioObject>
+    <ScenarioObject name="robot2">
+      <CatalogReference catalogName="PedestrianCatalog" entryName="walker.pedestrian.0054" />
+    </ScenarioObject>
+    <ScenarioObject name="robot3">
+      <CatalogReference catalogName="PedestrianCatalog" entryName="walker.pedestrian.0054" />
+    </ScenarioObject>
+    <ScenarioObject name="robot4">
+      <CatalogReference catalogName="PedestrianCatalog" entryName="walker.pedestrian.0054" />
+    </ScenarioObject>
+
     <!-- <ScenarioObject name="smoke">
       <VehicleClusters vehicleClusterCategory="npc-c" range="120">
         <VehicleCluster name="smoke" size="$smoke_num">
-            <CatalogReference catalogName="MiscObjectCatalog" entryName="effect.prop.smoke"/>
+          <CatalogReference catalogName="MiscObjectCatalog" entryName="effect.prop.smoke" />
         </VehicleCluster>
       </VehicleClusters>
     </ScenarioObject> -->
@@ -109,10 +152,10 @@
         <GlobalAction>
           <EnvironmentAction>
             <Environment name="Environment">
-              <TimeOfDay animation="true" dateTime="2023-03-09T08:33:28" />
-              <Weather cloudState="cloudy">
-                <Sun azimuth="0.1" intensity="0.1" elevation="0.02" />
-                <Fog visualRange="50" />
+              <TimeOfDay animation="false" dateTime="2023-03-09T08:33:28" />
+              <Weather cloudState="free">
+                <Sun azimuth="0" intensity="100" elevation="1" />
+                <Fog visualRange="100" />
                 <Precipitation precipitationType="rain" intensity="0" />
               </Weather>
               <RoadCondition frictionScaleFactor="0.6" />
@@ -123,7 +166,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <LanePosition roadId="18" laneId="-1" s="$ego_start_s" offset="0" />
+                <WorldPosition x="-179.2" y="-2934" z="84.5" h="0" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -147,57 +190,11 @@
             </ControllerAction>
           </PrivateAction>
         </Private>
-        <Private entityRef="rb1">
-          <PrivateAction>
-            <TeleportAction>
-              <Position>
-                <LanePosition roadId="637" laneId="1" s="$rb1_start_s" offset="0">
-                  <Orientation type="relative" h="-1.57" p="0" r="0" />
-                </LanePosition>
-              </Position>
-            </TeleportAction>
-          </PrivateAction>
-        </Private>
-        <Private entityRef="rb2">
-          <PrivateAction>
-            <TeleportAction>
-              <Position>
-                <LanePosition roadId="563" laneId="1" s="$rb2_start_s" offset="0">
-                  <Orientation type="relative" h="-1.57" p="0" r="0" />
-                </LanePosition>
-              </Position>
-            </TeleportAction>
-          </PrivateAction>
-        </Private>
-        <Private entityRef="rb3">
-          <PrivateAction>
-            <TeleportAction>
-              <Position>
-                <LanePosition roadId="284" laneId="1" s="$rb3_start_s" offset="0">
-                  <Orientation type="relative" h="-1.57" p="0" r="0" />
-                </LanePosition>
-              </Position>
-            </TeleportAction>
-          </PrivateAction>
-        </Private>
-        <Private entityRef="rb4">
-          <PrivateAction>
-            <TeleportAction>
-              <Position>
-                <LanePosition roadId="276" laneId="1" s="$rb4_start_s" offset="0">
-                  <Orientation type="relative" h="-1.57" p="0" r="0" />
-                </LanePosition>
-              </Position>
-            </TeleportAction>
-          </PrivateAction>
-        </Private>
         <Private entityRef="barrier1">
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <RoadPosition roadId="24" s="0" t="0">
-                  <Orientation type="relative" h="3.14" p="0" r="0" />
-                </RoadPosition>
+                <WorldPosition x="$barrier1_x" y="$barrier1_y" z="84" h="1" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -206,29 +203,119 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <RoadPosition roadId="50" s="5" t="0" />
+                <WorldPosition x="$barrier2_x" y="$barrier2_y" z="84" h="1.57" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
         </Private>
-        <Private entityRef="post1">
+        <Private entityRef="barrier3">
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="-125.76" y="-77.61" z="0.0" h="-1.57" />
+                <WorldPosition x="$barrier3_x" y="$barrier3_y" z="85" h="1.57" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="barrier4">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$barrier4_x" y="$barrier4_y" z="87" h="1.57" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="zjc1">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$zjc1_x" y="$zjc1_y" z="83.5" h="0" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="zjc2">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$zjc2_x" y="$zjc2_y" z="84" h="0" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="zjc3">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$zjc3_x" y="$zjc3_y" z="84" h="1.57" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="zjc4">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$zjc4_x" y="$zjc4_y" z="84" h="0" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="zjc5">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$zjc5_x" y="$zjc5_y" z="84" h="1.57" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="robot1">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$rb1_x" y="$rb1_y" z="85" h="0" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="robot2">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$rb2_x" y="$rb2_y" z="85" h="0" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="robot3">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$rb3_x" y="$rb3_y" z="85" h="0" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="robot4">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$rb4_x" y="$rb4_y" z="85" h="0" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
         </Private>
       </Actions>
     </Init>
-    <Story name="smokezhencha_story">
-      <Act name="smokezhencha_act">
+    <Story name="zc_story">
+      <Act name="zc_story-act">
         <ManeuverGroup name="rb1_mang" maximumExecutionCount="1">
           <Actors selectTriggeringEntities="false">
-            <EntityRef entityRef="rb1" />
+            <EntityRef entityRef="robot1" />
           </Actors>
-          <Maneuver name="rb1_man1">
+          <Maneuver name="rb1_maneuver">
             <Event name="rb1_event" priority="parallel" maximumExecutionCount="1">
               <Action name="rb1_assign_controller_action">
                 <PrivateAction>
@@ -239,11 +326,10 @@
                           <ParameterAssignment parameterRef="Type" value="walker" />
                           <ParameterAssignment parameterRef="Action_type"
                             value="walker_speed_action" />
-                          <ParameterAssignment parameterRef="Focus_actors" value="Ego,rb1,rb2" />
                           <ParameterAssignment parameterRef="Model_path"
-                            value="srunner/examples/rl_models/Recce/Recce.Foggy/checkpoint" />
+                            value="srunner/examples/rl_models/Strike/Strike.Passthrough/checkpoint" />
                           <ParameterAssignment parameterRef="Params_path"
-                            value="srunner/examples/rl_models/Recce/Recce.Foggy/params.json" />
+                            value="srunner/examples/rl_models/Strike/Strike.Passthrough/params.json" />
                         </ParameterAssignments>
                       </CatalogReference>
                     </AssignControllerAction>
@@ -263,11 +349,11 @@
                   <Condition name="rb1_con1" delay="0" conditionEdge="none">
                     <ByEntityCondition>
                       <TriggeringEntities triggeringEntitiesRule="any">
-                        <EntityRef entityRef="rb1" />
+                        <EntityRef entityRef="robot1" />
                       </TriggeringEntities>
                       <EntityCondition>
                         <RelativeDistanceCondition entityRef="Ego"
-                          relativeDistanceType="cartesianDistance" value="50" freespace="true"
+                          relativeDistanceType="cartesianDistance" value="100" freespace="true"
                           rule="lessThan" />
                       </EntityCondition>
                     </ByEntityCondition>
@@ -286,7 +372,7 @@
                   <Condition name="rb1_explosion_con" delay="0" conditionEdge="none">
                     <ByEntityCondition>
                       <TriggeringEntities triggeringEntitiesRule="any">
-                        <EntityRef entityRef="rb1" />
+                        <EntityRef entityRef="robot1" />
                       </TriggeringEntities>
                       <EntityCondition>
                         <RelativeDistanceCondition entityRef="Ego"
@@ -302,9 +388,9 @@
         </ManeuverGroup>
         <ManeuverGroup name="rb2_mang" maximumExecutionCount="1">
           <Actors selectTriggeringEntities="false">
-            <EntityRef entityRef="rb2" />
+            <EntityRef entityRef="robot2" />
           </Actors>
-          <Maneuver name="rb2_man1">
+          <Maneuver name="rb2_maneuver">
             <Event name="rb2_event" priority="parallel" maximumExecutionCount="1">
               <Action name="rb2_assign_controller_action">
                 <PrivateAction>
@@ -315,11 +401,10 @@
                           <ParameterAssignment parameterRef="Type" value="walker" />
                           <ParameterAssignment parameterRef="Action_type"
                             value="walker_speed_action" />
-                          <ParameterAssignment parameterRef="Focus_actors" value="Ego,rb1,rb2" />
                           <ParameterAssignment parameterRef="Model_path"
-                            value="srunner/examples/rl_models/Recce/Recce.Foggy/checkpoint" />
+                            value="srunner/examples/rl_models/Strike/Strike.Passthrough/checkpoint" />
                           <ParameterAssignment parameterRef="Params_path"
-                            value="srunner/examples/rl_models/Recce/Recce.Foggy/params.json" />
+                            value="srunner/examples/rl_models/Strike/Strike.Passthrough/params.json" />
                         </ParameterAssignments>
                       </CatalogReference>
                     </AssignControllerAction>
@@ -339,11 +424,11 @@
                   <Condition name="rb2_con1" delay="0" conditionEdge="none">
                     <ByEntityCondition>
                       <TriggeringEntities triggeringEntitiesRule="any">
-                        <EntityRef entityRef="rb2" />
+                        <EntityRef entityRef="robot2" />
                       </TriggeringEntities>
                       <EntityCondition>
                         <RelativeDistanceCondition entityRef="Ego"
-                          relativeDistanceType="cartesianDistance" value="50" freespace="true"
+                          relativeDistanceType="cartesianDistance" value="100" freespace="true"
                           rule="lessThan" />
                       </EntityCondition>
                     </ByEntityCondition>
@@ -362,7 +447,7 @@
                   <Condition name="rb2_explosion_con" delay="0" conditionEdge="none">
                     <ByEntityCondition>
                       <TriggeringEntities triggeringEntitiesRule="any">
-                        <EntityRef entityRef="rb2" />
+                        <EntityRef entityRef="robot2" />
                       </TriggeringEntities>
                       <EntityCondition>
                         <RelativeDistanceCondition entityRef="Ego"
@@ -378,9 +463,9 @@
         </ManeuverGroup>
         <ManeuverGroup name="rb3_mang" maximumExecutionCount="1">
           <Actors selectTriggeringEntities="false">
-            <EntityRef entityRef="rb3" />
+            <EntityRef entityRef="robot3" />
           </Actors>
-          <Maneuver name="rb3_man1">
+          <Maneuver name="rb3_maneuver">
             <Event name="rb3_event" priority="parallel" maximumExecutionCount="1">
               <Action name="rb3_assign_controller_action">
                 <PrivateAction>
@@ -391,11 +476,10 @@
                           <ParameterAssignment parameterRef="Type" value="walker" />
                           <ParameterAssignment parameterRef="Action_type"
                             value="walker_speed_action" />
-                          <ParameterAssignment parameterRef="Focus_actors" value="Ego,rb3,rb4" />
                           <ParameterAssignment parameterRef="Model_path"
-                            value="srunner/examples/rl_models/Recce/Recce.Foggy/checkpoint" />
+                            value="srunner/examples/rl_models/Strike/Strike.Passthrough/checkpoint" />
                           <ParameterAssignment parameterRef="Params_path"
-                            value="srunner/examples/rl_models/Recce/Recce.Foggy/params.json" />
+                            value="srunner/examples/rl_models/Strike/Strike.Passthrough/params.json" />
                         </ParameterAssignments>
                       </CatalogReference>
                     </AssignControllerAction>
@@ -415,11 +499,11 @@
                   <Condition name="rb3_con1" delay="0" conditionEdge="none">
                     <ByEntityCondition>
                       <TriggeringEntities triggeringEntitiesRule="any">
-                        <EntityRef entityRef="rb3" />
+                        <EntityRef entityRef="robot3" />
                       </TriggeringEntities>
                       <EntityCondition>
                         <RelativeDistanceCondition entityRef="Ego"
-                          relativeDistanceType="cartesianDistance" value="50" freespace="true"
+                          relativeDistanceType="cartesianDistance" value="100" freespace="true"
                           rule="lessThan" />
                       </EntityCondition>
                     </ByEntityCondition>
@@ -438,11 +522,11 @@
                   <Condition name="rb3_explosion_con" delay="0" conditionEdge="none">
                     <ByEntityCondition>
                       <TriggeringEntities triggeringEntitiesRule="any">
-                        <EntityRef entityRef="rb3" />
+                        <EntityRef entityRef="robot3" />
                       </TriggeringEntities>
                       <EntityCondition>
                         <RelativeDistanceCondition entityRef="Ego"
-                          relativeDistanceType="cartesianDistance" value="3" freespace="true"
+                          relativeDistanceType="cartesianDistance" value="4" freespace="true"
                           rule="lessThan" />
                       </EntityCondition>
                     </ByEntityCondition>
@@ -454,9 +538,9 @@
         </ManeuverGroup>
         <ManeuverGroup name="rb4_mang" maximumExecutionCount="1">
           <Actors selectTriggeringEntities="false">
-            <EntityRef entityRef="rb4" />
+            <EntityRef entityRef="robot4" />
           </Actors>
-          <Maneuver name="rb4_man1">
+          <Maneuver name="rb4_maneuver">
             <Event name="rb4_event" priority="parallel" maximumExecutionCount="1">
               <Action name="rb4_assign_controller_action">
                 <PrivateAction>
@@ -467,11 +551,10 @@
                           <ParameterAssignment parameterRef="Type" value="walker" />
                           <ParameterAssignment parameterRef="Action_type"
                             value="walker_speed_action" />
-                          <ParameterAssignment parameterRef="Focus_actors" value="Ego,rb3,rb4" />
                           <ParameterAssignment parameterRef="Model_path"
-                            value="srunner/examples/rl_models/Recce/Recce.Foggy/checkpoint" />
+                            value="srunner/examples/rl_models/Strike/Strike.Passthrough/checkpoint" />
                           <ParameterAssignment parameterRef="Params_path"
-                            value="srunner/examples/rl_models/Recce/Recce.Foggy/params.json" />
+                            value="srunner/examples/rl_models/Strike/Strike.Passthrough/params.json" />
                         </ParameterAssignments>
                       </CatalogReference>
                     </AssignControllerAction>
@@ -491,11 +574,11 @@
                   <Condition name="rb4_con1" delay="0" conditionEdge="none">
                     <ByEntityCondition>
                       <TriggeringEntities triggeringEntitiesRule="any">
-                        <EntityRef entityRef="rb4" />
+                        <EntityRef entityRef="robot4" />
                       </TriggeringEntities>
                       <EntityCondition>
                         <RelativeDistanceCondition entityRef="Ego"
-                          relativeDistanceType="cartesianDistance" value="50" freespace="true"
+                          relativeDistanceType="cartesianDistance" value="100" freespace="true"
                           rule="lessThan" />
                       </EntityCondition>
                     </ByEntityCondition>
@@ -514,11 +597,11 @@
                   <Condition name="rb4_explosion_con" delay="0" conditionEdge="none">
                     <ByEntityCondition>
                       <TriggeringEntities triggeringEntitiesRule="any">
-                        <EntityRef entityRef="rb4" />
+                        <EntityRef entityRef="robot4" />
                       </TriggeringEntities>
                       <EntityCondition>
                         <RelativeDistanceCondition entityRef="Ego"
-                          relativeDistanceType="cartesianDistance" value="3" freespace="true"
+                          relativeDistanceType="cartesianDistance" value="4" freespace="true"
                           rule="lessThan" />
                       </EntityCondition>
                     </ByEntityCondition>
@@ -530,7 +613,7 @@
         </ManeuverGroup>
         <StartTrigger>
           <ConditionGroup>
-            <Condition name="all_start" delay="0" conditionEdge="rising">
+            <Condition name="all_start2" delay="0" conditionEdge="none">
               <ByValueCondition>
                 <SimulationTimeCondition value="0.1" rule="greaterThan" />
               </ByValueCondition>
@@ -547,14 +630,26 @@
           <ConditionGroup>
             <Condition name="noStopAct-start_trigger" delay="0" conditionEdge="rising">
               <ByValueCondition>
-                <SimulationTimeCondition value="10000" rule="greaterThan" />
+                <SimulationTimeCondition value="0" rule="greaterThan" />
               </ByValueCondition>
             </Condition>
           </ConditionGroup>
         </StartTrigger>
         <StopTrigger />
       </Act>
+      <MetricsRef name="coStrike_story_metrics">
+        <MetricRef name="coStrike_story_metric1" />
+        <MetricRef name="coStrike_story_metric2" />
+      </MetricsRef>
     </Story>
-    <StopTrigger />
+    <StopTrigger>
+      <ConditionGroup>
+        <Condition name="criteria_stop" delay="0" conditionEdge="none">
+          <ByValueCondition>
+            <SimulationTimeCondition value="10000" rule="greaterThan" />
+          </ByValueCondition>
+        </Condition>
+      </ConditionGroup>
+    </StopTrigger>
   </Storyboard>
 </OpenSCENARIO>

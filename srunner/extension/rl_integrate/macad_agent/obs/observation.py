@@ -189,9 +189,9 @@ class Observation:
             )
 
             # TODO: a hack to get extra info (e.g. Ammo)
-            for info in measurement_type:
-                if ":" in info:
-                    actor_id, key = map(lambda x: x.strip(), info.split(":"))
+            for info_type in measurement_type:
+                if ":" in info_type:
+                    actor_id, key = map(lambda x: x.strip(), info_type.split(":"))
                     if actor_id == "self":
                         info[key] = py_measurements[target_id].get(key)
                     else:
@@ -200,10 +200,7 @@ class Observation:
             # Update dict
             if actor_id == target_id:
                 semantic_info["self"] = info
-            elif actor_id.lower() in [
-                "ego",
-                "hero",
-            ]:
+            elif actor_id.lower() in ["ego", "hero"]:
                 semantic_info["ego"] = info
             else:
                 semantic_info["others"][actor_id] = info

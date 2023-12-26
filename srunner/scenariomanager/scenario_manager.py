@@ -126,7 +126,8 @@ class ScenarioManager(object):
             for actor in self.ego_vehicles + self.other_actors:
                 RlAgent.register_agent(actor)
 
-            if self._check_rl_heterogenous():
+            force_pad = py_trees.blackboard.Blackboard().get("rl_action_padding")
+            if force_pad or self._check_rl_heterogenous():
                 self._enable_rl_action_padding()
 
         # To print the scenario tree uncomment the next line

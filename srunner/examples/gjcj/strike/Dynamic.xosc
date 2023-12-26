@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
+  <FileHeader taskCategory="陆域" name="打击任务-对抗打击" description="打击任务-对抗打击" author="lp" revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
+  <ParameterDeclarations>
+
+    <ParameterDeclaration name="barrier1_x" parameterType="double" value="-38" />
+    <ParameterDeclaration name="barrier1_y" parameterType="double" value="-2057.3" />
+
+    <ParameterDeclaration name="barrier2_x" parameterType="double" value="18.5" />
+    <ParameterDeclaration name="barrier2_y" parameterType="double" value="-1891" />
+
+    <ParameterDeclaration name="barrier3_x" parameterType="double" value="101" />
+    <ParameterDeclaration name="barrier3_y" parameterType="double" value="-1825.5" />
+
+    <ParameterDeclaration name="zjc1_x" parameterType="double" value="-26.4" />
+    <ParameterDeclaration name="zjc1_y" parameterType="double" value="-2014.1" />
+
+    <ParameterDeclaration name="zjc2_x" parameterType="double" value="54" />
+    <ParameterDeclaration name="zjc2_y" parameterType="double" value="-1843" />
+
+    <ParameterDeclaration name="zjc3_x" parameterType="double" value="114.9" />
+    <ParameterDeclaration name="zjc3_y" parameterType="double" value="-1781.4" />
+
+
+    <ParameterDeclaration name="dynpc1_x" parameterType="double" value="23.9" />
+    <ParameterDeclaration name="dynpc1_y" parameterType="double" value="-1951" />
+    <ParameterDeclaration name="dynpc1_fire_distance" parameterType="double" value="50" />
+
+    <ParameterDeclaration name="dynpc2_x" parameterType="double" value="-1.2" />
+    <ParameterDeclaration name="dynpc2_y" parameterType="double" value="-1854.6" />
+    <ParameterDeclaration name="dynpc2_fire_distance" parameterType="double" value="50" />
+
+    <ParameterDeclaration name="depot1_x" parameterType="double" value="60" />
+    <ParameterDeclaration name="depot1_y" parameterType="double" value="-1914" />
+
+    <ParameterDeclaration name="depot2_x" parameterType="double" value="24.9" />
+    <ParameterDeclaration name="depot2_y" parameterType="double" value="-1809.7" />
+
+  </ParameterDeclarations>
+  <CatalogLocations>
+    <VehicleCatalog>
+      <Directory path="../../Catalogs/Vehicles" />
+    </VehicleCatalog>
+    <PedestrianCatalog>
+      <Directory path="../../Catalogs/Pedestrians" />
+    </PedestrianCatalog>
+    <MiscObjectCatalog>
+      <Directory path="../../Catalogs/MiscObjects" />
+    </MiscObjectCatalog>
+    <ControllerCatalog>
+      <Directory path="../../Catalogs/Controllers" />
+    </ControllerCatalog>
+  </CatalogLocations>
+  <RoadNetwork>
+    <LogicFile filepath="CE_A2" />
+    <SceneGraphFile filepath="CE_A2" />
+    <LandGraphFile filepath="CE_A2" />
+  </RoadNetwork>
+  <Electromagnetic name="elc" electromagneticCategory="line" intensity="12">
+    <Position>
+      <WorldPosition x="32" y="12" z="12" />
+    </Position>
+  </Electromagnetic>
+  <Metrics>
+    <Metric name="coStrike_story_metric1" description="描述。。。。" metricCategory="scout-F1" />
+    <Metric name="coStrike_story_metric2" description="描述。。。。" metricCategory="scout-acc" />
+  </Metrics>
+  <TargetObjects>
+    <TargetObject name="target1">
+      <Entit value="12" rule="greaterThan" entityRef="coStrike_story_metric1" />
+    </TargetObject>
+  </TargetObjects>
+  <Entities>
+    <!-- 主车  -->
+    <ScenarioObject name="Ego">
+      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.imv.rb" />
+    </ScenarioObject>
+    <!-- 障碍物  -->
+    <ScenarioObject name="barrier1">
+      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.barricadehard" />
+    </ScenarioObject>
+    <ScenarioObject name="barrier2">
+      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.barricadehard" />
+    </ScenarioObject>
+    <ScenarioObject name="barrier3">
+      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.barricadehard" />
+    </ScenarioObject>
+    <!-- 静态车辆  -->
+    <ScenarioObject name="zjc1">
+      <CatalogReference catalogName="VehicleCatalog" entryName="dynamic.prop.apc_80_wreck" />
+    </ScenarioObject>
+    <ScenarioObject name="zjc2">
+      <CatalogReference catalogName="VehicleCatalog" entryName="dynamic.prop.apc_80_wreck" />
+    </ScenarioObject>
+    <ScenarioObject name="zjc3">
+      <CatalogReference catalogName="VehicleCatalog" entryName="dynamic.prop.apc_80_wreck" />
+    </ScenarioObject>
+    <!-- 打击车辆  -->
+    <ScenarioObject name="dynpc1">
+      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.armored.blue" />
+    </ScenarioObject>
+    <ScenarioObject name="dynpc2">
+      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.armored.blue" />
+    </ScenarioObject>
+    <!-- 弹药库  -->
+    <ScenarioObject name="depot1">
+      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.ammunitiondepot" />
+    </ScenarioObject>
+    <ScenarioObject name="depot2">
+      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.ammunitiondepot" />
+    </ScenarioObject>
+
+    <!-- <ScenarioObject name="scar1">
+        <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.m1.tank"/>
+      </ScenarioObject> -->
+  </Entities>
+  <Storyboard>
+    <Init>
+      <Actions>
+        <GlobalAction>
+          <EnvironmentAction>
+            <Environment name="Environment">
+              <TimeOfDay animation="false" dateTime="2023-03-09T08:33:28" />
+              <Weather cloudState="free">
+                <Sun azimuth="0" intensity="100" elevation="1" />
+                <Fog visualRange="100" />
+                <Precipitation precipitationType="rain" intensity="0" />
+              </Weather>
+              <RoadCondition frictionScaleFactor="0.6" />
+            </Environment>
+          </EnvironmentAction>
+        </GlobalAction>
+        <Private entityRef="Ego">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="-46.9" y="-2087.5" z="83" h="0" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+          <!-- s -->
+        </Private>
+        <Private entityRef="barrier1">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$barrier1_x" y="$barrier1_y" z="85" h="1" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="barrier2">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$barrier2_x" y="$barrier2_y" z="85" h="1" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="barrier3">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$barrier3_x" y="$barrier3_y" z="86" h="0" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="zjc1">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$zjc1_x" y="$zjc1_y" z="86" h="0" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="zjc2">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$zjc2_x" y="$zjc2_y" z="85" h="-1" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="zjc3">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$zjc3_x" y="$zjc3_y" z="86.5" h="0" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="dynpc1">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$dynpc1_x" y="$dynpc1_y" z="85" h="3.14" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="dynpc2">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$dynpc2_x" y="$dynpc2_y" z="85" h="0" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="depot1">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$depot1_x" y="$depot1_y" z="99" h="-0.5" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="depot2">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$depot2_x" y="$depot2_y" z="99" h="1.57" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+      </Actions>
+    </Init>
+    <Story name="dtnpcdaji1_story">
+      <ParameterDeclarations />
+      <Act name="dtnpcdaji1_story">
+        <ManeuverGroup maximumExecutionCount="1" name="zjc1-mg">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="dynpc1" />
+          </Actors>
+          <Maneuver name="dtnpcdaji1-man">
+            <Event name="dtnpcdaji1_fire" priority="parallel" maximumExecutionCount="1">
+              <Action name="dynpc1_assign_controller_action">
+                <PrivateAction>
+                  <ControllerAction>
+                    <AssignControllerAction>
+                      <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
+                        <ParameterAssignments>
+                          <ParameterAssignment parameterRef="Type" value="weapon" />
+                          <ParameterAssignment parameterRef="Action_type" value="fire_action" />
+                          <ParameterAssignment parameterRef="Step_ticks" value="60" />
+                          <ParameterAssignment parameterRef="Focus_actors" value="Ego" />
+                          <ParameterAssignment parameterRef="Add_action_mask" value="true" />
+                          <ParameterAssignment parameterRef="Discrete_action_set"
+                            value='[{"0": -5, "1": -4, "2": -3, "3": -2, "4": -1, "5": 0, "6": 1, "7": 2, "8": 3, "9": 4, "10": 5}, {"0": 0, "1": 1, "2": 2}]' />
+                          <ParameterAssignment parameterRef="Measurement_type"
+                            value="x,y,vx,vy,heading,self:ammo_left" />
+                          <ParameterAssignment parameterRef="Model_path"
+                            value="srunner/examples/rl_models/Strike/Strike.Dynamic/checkpoint" />
+                          <ParameterAssignment parameterRef="Params_path"
+                            value="srunner/examples/rl_models/Strike/Strike.Dynamic/params.json" />
+                        </ParameterAssignments>
+                      </CatalogReference>
+                    </AssignControllerAction>
+                    <OverrideControllerValueAction>
+                      <Throttle value="0" active="false" />
+                      <Brake value="0" active="false" />
+                      <Clutch value="0" active="false" />
+                      <ParkingBrake value="0" active="false" />
+                      <SteeringWheel value="0" active="false" />
+                      <Gear number="0" active="false" />
+                    </OverrideControllerValueAction>
+                  </ControllerAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition name="dynpc1_con1" delay="0" conditionEdge="none">
+                    <ByValueCondition>
+                      <SimulationTimeCondition value="1" rule="greaterThan" />
+                    </ByValueCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+        <ManeuverGroup maximumExecutionCount="1" name="zjc2-mg">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="dynpc2" />
+          </Actors>
+          <Maneuver name="dtnpcdaji2-man">
+            <Event name="dtnpcdaji2_fire" priority="parallel" maximumExecutionCount="10">
+              <Action name="dynpc2_assign_controller_action">
+                <PrivateAction>
+                  <ControllerAction>
+                    <AssignControllerAction>
+                      <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
+                        <ParameterAssignments>
+                          <ParameterAssignment parameterRef="Type" value="weapon" />
+                          <ParameterAssignment parameterRef="Action_type" value="fire_action" />
+                          <ParameterAssignment parameterRef="Step_ticks" value="60" />
+                          <ParameterAssignment parameterRef="Focus_actors" value="Ego" />
+                          <ParameterAssignment parameterRef="Add_action_mask" value="true" />
+                          <ParameterAssignment parameterRef="Discrete_action_set"
+                            value='[{"0": -5, "1": -4, "2": -3, "3": -2, "4": -1, "5": 0, "6": 1, "7": 2, "8": 3, "9": 4, "10": 5}, {"0": 0, "1": 1, "2": 2}]' />
+                          <ParameterAssignment parameterRef="Measurement_type"
+                            value="x,y,vx,vy,heading,self:ammo_left" />
+                          <ParameterAssignment parameterRef="Model_path"
+                            value="srunner/examples/rl_models/Strike/Strike.Dynamic/checkpoint" />
+                          <ParameterAssignment parameterRef="Params_path"
+                            value="srunner/examples/rl_models/Strike/Strike.Dynamic/params.json" />
+                        </ParameterAssignments>
+                      </CatalogReference>
+                    </AssignControllerAction>
+                    <OverrideControllerValueAction>
+                      <Throttle value="0" active="false" />
+                      <Brake value="0" active="false" />
+                      <Clutch value="0" active="false" />
+                      <ParkingBrake value="0" active="false" />
+                      <SteeringWheel value="0" active="false" />
+                      <Gear number="0" active="false" />
+                    </OverrideControllerValueAction>
+                  </ControllerAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition name="dynpc2_con1" delay="0" conditionEdge="none">
+                    <ByValueCondition>
+                      <SimulationTimeCondition value="1" rule="greaterThan" />
+                    </ByValueCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+        <StartTrigger>
+          <ConditionGroup>
+            <Condition name="dtnpcdaji2_start_trigger" delay="0" conditionEdge="none">
+              <ByValueCondition>
+                <SimulationTimeCondition value="0" rule="greaterThan" />
+              </ByValueCondition>
+            </Condition>
+          </ConditionGroup>
+        </StartTrigger>
+        <StopTrigger />
+      </Act>
+      <MetricsRef name="coStrike_story_metrics">
+        <MetricRef name="coStrike_story_metric1" />
+        <MetricRef name="coStrike_story_metric2" />
+      </MetricsRef>
+    </Story>
+    <StopTrigger>
+      <ConditionGroup>
+        <Condition name="criteria_stop" delay="0" conditionEdge="none">
+          <ByValueCondition>
+            <SimulationTimeCondition value="10000" rule="greaterThan" />
+          </ByValueCondition>
+        </Condition>
+      </ConditionGroup>
+    </StopTrigger>
+  </Storyboard>
+</OpenSCENARIO>

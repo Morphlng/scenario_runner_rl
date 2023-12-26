@@ -24,16 +24,16 @@
   </ParameterDeclarations>
   <CatalogLocations>
     <VehicleCatalog>
-      <Directory path="../../catalogs" />
+      <Directory path="../../Catalogs/Vehicles"/>
     </VehicleCatalog>
     <PedestrianCatalog>
-      <Directory path="../../catalogs" />
+      <Directory path="../../Catalogs/Pedestrians"/>
     </PedestrianCatalog>
     <MiscObjectCatalog>
-      <Directory path="../../catalogs" />
+      <Directory path="../../Catalogs/MiscObjects"/>
     </MiscObjectCatalog>
     <ControllerCatalog>
-      <Directory path="../../catalogs" />
+      <Directory path="../../Catalogs/Controllers"/>
     </ControllerCatalog>
   </CatalogLocations>
   <RoadNetwork>
@@ -263,18 +263,9 @@
               <StartTrigger>
                 <ConditionGroup>
                   <Condition name="npc1_con1" delay="0" conditionEdge="none">
-                    <ByEntityCondition>
-                      <TriggeringEntities triggeringEntitiesRule="any">
-                        <EntityRef entityRef="Ego" />
-                      </TriggeringEntities>
-                      <EntityCondition>
-                        <ReachPositionCondition tolerance="20.0">
-                          <Position>
-                            <LanePosition roadId="0" laneId="-1" s="370" />
-                          </Position>
-                        </ReachPositionCondition>
-                      </EntityCondition>
-                    </ByEntityCondition>
+                    <ByValueCondition>
+                      <SimulationTimeCondition value="10" rule="greaterThan" />
+                    </ByValueCondition>
                   </Condition>
                 </ConditionGroup>
               </StartTrigger>
@@ -357,18 +348,9 @@
               <StartTrigger>
                 <ConditionGroup>
                   <Condition name="npc2_con1" delay="0" conditionEdge="none">
-                    <ByEntityCondition>
-                      <TriggeringEntities triggeringEntitiesRule="any">
-                        <EntityRef entityRef="Ego" />
-                      </TriggeringEntities>
-                      <EntityCondition>
-                        <ReachPositionCondition tolerance="20.0">
-                          <Position>
-                            <LanePosition roadId="0" laneId="-1" s="370" />
-                          </Position>
-                        </ReachPositionCondition>
-                      </EntityCondition>
-                    </ByEntityCondition>
+                    <ByValueCondition>
+                      <SimulationTimeCondition value="10" rule="greaterThan" />
+                    </ByValueCondition>
                   </Condition>
                 </ConditionGroup>
               </StartTrigger>

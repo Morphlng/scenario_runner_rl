@@ -30,6 +30,7 @@ class RlManager:
         blackboard.set("rl_path_trackers", {}, True)
         blackboard.set("rl_models", {}, True)
         blackboard.set("rl_global_sensor", None, True)
+        blackboard.set("rl_action_padding", False, True)
 
     @staticmethod
     def remove_by_name(actor_id):
@@ -57,7 +58,8 @@ class RlManager:
 
         if model_path not in rl_models:
             ckpt = load_model(model_path, params_path)
-            rl_models[model_path] = (ckpt.trainer, ckpt.pmap)
+            model, pmap = ckpt.trainer, ckpt.pmap
+            rl_models[model_path] = (model, pmap)
         else:
             model, pmap = rl_models[model_path]
 
@@ -69,16 +71,17 @@ class RlAgent(MacadAgent):
     Reinforcement Learning Agent to control the ego via input actions
     """
 
-    def setup(self, config: str | dict):
+    def setup(self, config: str | dict, vehicle_config: dict = None):
         """
         Setup the agent parameters
         """
         super().setup(config)
-
         self.actor_id = self.actor_config["actor_id"]
-        focus_actors = set(self.actor_config.get("focus_actors", ["all"]))
-        ignore_actors = set(self.actor_config.get("ignore_actors", []))
-        measurement_type = set(self.actor_config.get("measurement_type", ["all"]))
+
+        lower = lambda x: x.lower()
+        focus_actors = set(map(lower, self.actor_config.get("focus_actors", ["all"])))
+        ignore_actors = set(map(lower, self.actor_config.get("ignore_actors", [])))
+        measurement_type = set(map(lower, self.actor_config.get("measurement_type", ["all"])))
         self.actor_config.update(
             {
                 "focus_actors": focus_actors,
@@ -99,6 +102,10 @@ class RlAgent(MacadAgent):
         step_ticks = self.actor_config.get("step_ticks", "")
         if step_ticks != "":
             ENV_ASSETS.step_ticks = int(step_ticks)
+
+        force_padding = self.actor_config.get("force_padding", False)
+        if force_padding:
+            blackboard.set("rl_action_padding", True, True)
 
         discrte_action_set = self.actor_config.get("discrete_action_set", "")
         if discrte_action_set != "":
@@ -185,7 +192,7 @@ class RlAgent(MacadAgent):
 
         return self.abstract_action.run_step(self.actor)
 
-    def __call__(self):
+    def __call__(self, vehicle = None, sensor_data = None):
         """
         Execute the agent call, e.g. agent()
         Returns the next vehicle controls

@@ -70,6 +70,7 @@ class RlAgentControl(BasicControl):
                 "focus_actors": str2list(configs.get("focus_actors", "all")),
                 "ignore_actors": str2list(configs.get("ignore_actors", "")),
                 "add_action_mask": str2bool(configs.get("add_action_mask", "false")),
+                "force_padding": str2bool(configs.get("force_padding", "false")),
                 "target_speed": self._target_speed,
                 "init_speed": self._init_speed,
                 "start_pos": start_pos,

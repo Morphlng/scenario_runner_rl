@@ -37,21 +37,21 @@
     <ParameterDeclaration name="zjc2_start_x" parameterType="double" value="143" />
     <ParameterDeclaration name="zjc2_start_y" parameterType="double" value="-15" />
 
-    <ParameterDeclaration name="zjc3_start_x" parameterType="double" value="-270.9" />
-    <ParameterDeclaration name="zjc3_start_y" parameterType="double" value="-46.4" />
+    <ParameterDeclaration name="zjc3_start_x" parameterType="double" value="-257.9"/>
+    <ParameterDeclaration name="zjc3_start_y" parameterType="double" value="-43.4"/>
   </ParameterDeclarations>
   <CatalogLocations>
     <VehicleCatalog>
-      <Directory path="../../catalogs" />
+      <Directory path="../../Catalogs/Vehicles"/>
     </VehicleCatalog>
     <PedestrianCatalog>
-      <Directory path="../../catalogs" />
+      <Directory path="../../Catalogs/Pedestrians"/>
     </PedestrianCatalog>
     <MiscObjectCatalog>
-      <Directory path="../../catalogs" />
+      <Directory path="../../Catalogs/MiscObjects"/>
     </MiscObjectCatalog>
     <ControllerCatalog>
-      <Directory path="../../catalogs" />
+      <Directory path="../../Catalogs/Controllers"/>
     </ControllerCatalog>
   </CatalogLocations>
   <RoadNetwork>
@@ -253,18 +253,9 @@
               <StartTrigger>
                 <ConditionGroup>
                   <Condition name="npc1_con1" delay="0" conditionEdge="none">
-                    <ByEntityCondition>
-                      <TriggeringEntities triggeringEntitiesRule="any">
-                        <EntityRef entityRef="Ego" />
-                      </TriggeringEntities>
-                      <EntityCondition>
-                        <ReachPositionCondition tolerance="5.0">
-                          <Position>
-                            <LanePosition roadId="28" laneId="1" s="1130" />
-                          </Position>
-                        </ReachPositionCondition>
-                      </EntityCondition>
-                    </ByEntityCondition>
+                    <ByValueCondition>
+                      <SimulationTimeCondition value="3" rule="greaterThan" />
+                    </ByValueCondition>
                   </Condition>
                 </ConditionGroup>
               </StartTrigger>
@@ -343,18 +334,9 @@
               <StartTrigger>
                 <ConditionGroup>
                   <Condition name="npc2_con1" delay="0" conditionEdge="none">
-                    <ByEntityCondition>
-                      <TriggeringEntities triggeringEntitiesRule="any">
-                        <EntityRef entityRef="Ego" />
-                      </TriggeringEntities>
-                      <EntityCondition>
-                        <ReachPositionCondition tolerance="5.0">
-                          <Position>
-                            <LanePosition roadId="28" laneId="1" s="1130" />
-                          </Position>
-                        </ReachPositionCondition>
-                      </EntityCondition>
-                    </ByEntityCondition>
+                    <ByValueCondition>
+                      <SimulationTimeCondition value="3" rule="greaterThan" />
+                    </ByValueCondition>
                   </Condition>
                 </ConditionGroup>
               </StartTrigger>
@@ -433,18 +415,9 @@
               <StartTrigger>
                 <ConditionGroup>
                   <Condition name="npc3_con1" delay="0" conditionEdge="none">
-                    <ByEntityCondition>
-                      <TriggeringEntities triggeringEntitiesRule="any">
-                        <EntityRef entityRef="Ego" />
-                      </TriggeringEntities>
-                      <EntityCondition>
-                        <ReachPositionCondition tolerance="5.0">
-                          <Position>
-                            <LanePosition roadId="28" laneId="1" s="1130" />
-                          </Position>
-                        </ReachPositionCondition>
-                      </EntityCondition>
-                    </ByEntityCondition>
+                    <ByValueCondition>
+                      <SimulationTimeCondition value="3" rule="greaterThan" />
+                    </ByValueCondition>
                   </Condition>
                 </ConditionGroup>
               </StartTrigger>

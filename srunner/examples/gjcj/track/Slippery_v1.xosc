@@ -1,0 +1,632 @@
+<?xml version="1.0"?>
+<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="OpenSCENARIO.xsd">
+  <FileHeader taskCategory="陆域" name="跟踪任务-湿滑路段通行" description="跟踪任务-湿滑路段通行" author="rhp"
+    revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
+  <ParameterDeclarations>
+    <ParameterDeclaration name="ego_start_s" parameterType="double" value="4.0" />
+
+    <ParameterDeclaration name="suspicious_start_s" parameterType="double" value="28.0" />
+    <ParameterDeclaration name="suspicious_acc_time" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="suspicious_speed" parameterType="double" value="5.0" />
+
+    <ParameterDeclaration name="static0_start_s" parameterType="double" value="35" />
+    <ParameterDeclaration name="static1_start_s" parameterType="double" value="30" />
+    <ParameterDeclaration name="static2_start_s" parameterType="double" value="100" />
+    <ParameterDeclaration name="static3_start_s" parameterType="double" value="150" />
+    <ParameterDeclaration name="static4_start_s" parameterType="double" value="200" />
+
+    <ParameterDeclaration name="walker0_start_s" parameterType="double" value="44" />
+    <ParameterDeclaration name="walker0_acc_time" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="walker0_speed" parameterType="double" value="2.0" />
+    <ParameterDeclaration name="d_walker0" parameterType="double" value="44.0" />
+
+    <ParameterDeclaration name="walker1_start_s" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="walker1_acc_time" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="walker1_speed" parameterType="double" value="2.0" />
+    <ParameterDeclaration name="d_walker1" parameterType="double" value="10.0" />
+
+    <ParameterDeclaration name="walker3_start_s" parameterType="double" value="192.0" />
+    <ParameterDeclaration name="walker3_acc_time" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="walker3_speed" parameterType="double" value="2.0" />
+    <ParameterDeclaration name="d_walker3" parameterType="double" value="160.0" />
+
+    <ParameterDeclaration name="walker4_start_s" parameterType="double" value="210.0" />
+    <ParameterDeclaration name="walker4_acc_time" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="walker4_speed" parameterType="double" value="2.0" />
+    <ParameterDeclaration name="d_walker4" parameterType="double" value="210.0" />
+
+  </ParameterDeclarations>
+  <CatalogLocations>
+    <VehicleCatalog>
+      <Directory path="../../Catalogs/Vehicles" />
+    </VehicleCatalog>
+    <PedestrianCatalog>
+      <Directory path="../../Catalogs/Pedestrians" />
+    </PedestrianCatalog>
+    <MiscObjectCatalog>
+      <Directory path="../../Catalogs/MiscObjects" />
+    </MiscObjectCatalog>
+    <ControllerCatalog>
+      <Directory path="../../Catalogs/Controllers" />
+    </ControllerCatalog>
+  </CatalogLocations>
+  <RoadNetwork>
+    <LogicFile filepath="Town01" />
+    <SceneGraphFile filepath="Town01" />
+    <LandGraphFile filepath="Town01" />
+  </RoadNetwork>
+  <Electromagnetic name="elc" electromagneticCategory="line" intensity="12">
+    <Position>
+      <WorldPosition x="32" y="12" z="12" />
+    </Position>
+  </Electromagnetic>
+  <Metrics>
+    <Metric name="coStrike_story_metric1" description="描述。。。。" metricCategory="scout-F1" />
+    <Metric name="coStrike_story_metric2" description="描述。。。。" metricCategory="scout-acc" />
+  </Metrics>
+  <TargetObjects>
+    <TargetObject name="target1">
+      <Entit value="12" rule="greaterThan" entityRef="coStrike_story_metric1" />
+    </TargetObject>
+  </TargetObjects>
+  <Entities>
+    <!-- 被侧车辆 -->
+    <ScenarioObject name="Ego">
+      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.auto.electron" />
+    </ScenarioObject>
+    <!-- 可疑车辆 -->
+    <ScenarioObject name="suspicious">
+      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.lsv.rhino" />
+    </ScenarioObject>
+    <!-- 静态障碍 -->
+    <ScenarioObject name="static0">
+      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.nissan.patrol" />
+    </ScenarioObject>
+    <ScenarioObject name="static1">
+      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.nissan.patrol" />
+    </ScenarioObject>
+    <ScenarioObject name="static2">
+      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.nissan.patrol" />
+    </ScenarioObject>
+    <ScenarioObject name="static3">
+      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.nissan.patrol" />
+    </ScenarioObject>
+    <ScenarioObject name="static4">
+      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.nissan.patrol" />
+    </ScenarioObject>
+    <!-- 行人 -->
+    <ScenarioObject name="walker0">
+      <CatalogReference catalogName="PedestrianCatalog" entryName="walker.pedestrian.0016" />
+    </ScenarioObject>
+    <ScenarioObject name="walker1">
+      <CatalogReference catalogName="PedestrianCatalog" entryName="walker.pedestrian.0016" />
+    </ScenarioObject>
+    <ScenarioObject name="walker3">
+      <CatalogReference catalogName="PedestrianCatalog" entryName="walker.pedestrian.0016" />
+    </ScenarioObject>
+    <ScenarioObject name="walker4">
+      <CatalogReference catalogName="PedestrianCatalog" entryName="walker.pedestrian.0016" />
+    </ScenarioObject>
+  </Entities>
+  <Storyboard>
+    <Init>
+      <Actions>
+        <GlobalAction>
+          <EnvironmentAction>
+            <Environment name="Environment">
+              <TimeOfDay animation="false" dateTime="2023-03-10T10:33:28" />
+              <Weather cloudState="cloudy">
+                <Sun azimuth="1.57" intensity="0.96" elevation="0.8" />
+                <Fog visualRange="1000" />
+                <Precipitation precipitationType="dry" intensity="0" />
+              </Weather>
+              <RoadCondition frictionScaleFactor="0.6" />
+            </Environment>
+          </EnvironmentAction>
+        </GlobalAction>
+        <Private entityRef="Ego">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="22" laneId="-1" s="$ego_start_s" offset="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+          <PrivateAction>
+            <ControllerAction>
+              <AssignControllerAction>
+                <Controller name="HeroAgent">
+                  <Properties>
+                    <Property name="module" value="external_control" />
+                  </Properties>
+                </Controller>
+              </AssignControllerAction>
+              <OverrideControllerValueAction>
+                <Throttle value="0" active="false" />
+                <Brake value="0" active="false" />
+                <Clutch value="0" active="false" />
+                <ParkingBrake value="0" active="false" />
+                <SteeringWheel value="0" active="false" />
+                <Gear number="0" active="false" />
+              </OverrideControllerValueAction>
+            </ControllerAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="suspicious">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="22" laneId="1" s="$suspicious_start_s" offset="0">
+                  <Orientation h="3.14" p="0.0" r="0.0" type="relative" />
+                </LanePosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="static0">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="22" laneId="-1" s="$static0_start_s" offset="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="static1">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="4" laneId="-1" s="$static1_start_s" offset="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="static2">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="4" laneId="1" s="$static2_start_s" offset="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="static3">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="4" laneId="-1" s="$static3_start_s" offset="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="static4">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="4" laneId="1" s="$static4_start_s" offset="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="walker0">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="22" laneId="-3" s="$walker0_start_s" offset="0">
+                  <Orientation type="relative" h="1.57" p="0" r="0" />
+                </LanePosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="walker1">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="4" laneId="-3" s="$walker1_start_s" offset="0">
+                  <Orientation type="relative" h="1.57" p="0" r="0" />
+                </LanePosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="walker3">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="4" laneId="-3" s="$walker3_start_s" offset="0">
+                  <Orientation type="relative" h="1.57" p="0" r="0" />
+                </LanePosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="walker4">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="4" laneId="3" s="$walker4_start_s" offset="0">
+                  <Orientation type="relative" h="1.57" p="0" r="0" />
+                </LanePosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+      </Actions>
+    </Init>
+    <Story name="smokezhencha_story">
+      <Act name="smokezhencha_act">
+        <ManeuverGroup name="suspicious_mang" maximumExecutionCount="1">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="suspicious" />
+          </Actors>
+          <Maneuver name="suspicious_man1">
+            <Event name="sus_acc_event1" priority="parallel" maximumExecutionCount="1">
+              <Action name="sus_acc_action1">
+                <PrivateAction>
+                  <LongitudinalAction>
+                    <SpeedAction>
+                      <SpeedActionDynamics dynamicsShape="linear" value="$suspicious_acc_time"
+                        dynamicsDimension="time" />
+                      <SpeedActionTarget>
+                        <AbsoluteTargetSpeed value="$suspicious_speed" />
+                      </SpeedActionTarget>
+                    </SpeedAction>
+                  </LongitudinalAction>
+                </PrivateAction>
+              </Action>
+              <Action name="followtraj">
+                <PrivateAction>
+                  <RoutingAction>
+                    <AssignRouteAction>
+                      <Route name="bicycle_route" closed="false">
+                        <ParameterDeclarations />
+                        <Waypoint routeStrategy="shortest">
+                          <Position>
+                            <LanePosition roadId="22" laneId="1" s="32.0" offset="0.0">
+                              <Orientation h="3.14" p="0.0" r="0.0" type="relative" />
+                            </LanePosition>
+                          </Position>
+                        </Waypoint>
+                        <Waypoint routeStrategy="shortest">
+                          <Position>
+                            <LanePosition roadId="22" laneId="1" s="44.0" offset="0.0">
+                              <Orientation h="3.14" p="0.0" r="0.0" type="relative" />
+                            </LanePosition>
+                          </Position>
+                        </Waypoint>
+                        <Waypoint routeStrategy="shortest">
+                          <Position>
+                            <LanePosition roadId="312" laneId="1" s="3.0" offset="0.0">
+                              <Orientation h="3.14" p="0.0" r="0.0" type="relative" />
+                            </LanePosition>
+                          </Position>
+                        </Waypoint>
+                        <Waypoint routeStrategy="shortest">
+                          <Position>
+                            <LanePosition roadId="312" laneId="1" s="12.0" offset="0.0">
+                              <Orientation h="3.14" p="0.0" r="0.0" type="relative" />
+                            </LanePosition>
+                          </Position>
+                        </Waypoint>
+                        <Waypoint routeStrategy="shortest">
+                          <Position>
+                            <LanePosition roadId="4" laneId="1" s="5.0" offset="0.0">
+                              <Orientation h="3.14" p="0.0" r="0.0" type="relative" />
+                            </LanePosition>
+                          </Position>
+                        </Waypoint>
+                        <Waypoint routeStrategy="shortest">
+                          <Position>
+                            <LanePosition roadId="4" laneId="1" s="32.0" offset="0.0">
+                              <Orientation h="3.14" p="0.0" r="0.0" type="relative" />
+                            </LanePosition>
+                          </Position>
+                        </Waypoint>
+                        <Waypoint routeStrategy="shortest">
+                          <Position>
+                            <LanePosition roadId="4" laneId="-1" s="45.0" offset="0.0">
+                              <Orientation h="0.0" p="0.0" r="0.0" type="relative" />
+                            </LanePosition>
+                          </Position>
+                        </Waypoint>
+                        <Waypoint routeStrategy="shortest">
+                          <Position>
+                            <LanePosition roadId="4" laneId="-1" s="110.0" offset="0.0">
+                              <Orientation h="0.0" p="0.0" r="0.0" type="relative" />
+                            </LanePosition>
+                          </Position>
+                        </Waypoint>
+                        <Waypoint routeStrategy="shortest">
+                          <Position>
+                            <LanePosition roadId="4" laneId="1" s="125.0" offset="0.0">
+                              <Orientation h="3.14" p="0.0" r="0.0" type="relative" />
+                            </LanePosition>
+                          </Position>
+                        </Waypoint>
+                        <Waypoint routeStrategy="shortest">
+                          <Position>
+                            <LanePosition roadId="4" laneId="1" s="170.0" offset="0.0">
+                              <Orientation h="3.14" p="0.0" r="0.0" type="relative" />
+                            </LanePosition>
+                          </Position>
+                        </Waypoint>
+                        <Waypoint routeStrategy="shortest">
+                          <Position>
+                            <LanePosition roadId="4" laneId="-1" s="180.0" offset="0.0">
+                              <Orientation h="0.0" p="0.0" r="0.0" type="relative" />
+                            </LanePosition>
+                          </Position>
+                        </Waypoint>
+                        <Waypoint routeStrategy="shortest">
+                          <Position>
+                            <LanePosition roadId="4" laneId="-1" s="220.0" offset="0.0">
+                              <Orientation h="0.0" p="0.0" r="0.0" type="relative" />
+                            </LanePosition>
+                          </Position>
+                        </Waypoint>
+                      </Route>
+                    </AssignRouteAction>
+                  </RoutingAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition name="sus_acc_trigger" delay="0" conditionEdge="none">
+                    <ByEntityCondition>
+                      <TriggeringEntities triggeringEntitiesRule="any">
+                        <EntityRef entityRef="Ego" />
+                      </TriggeringEntities>
+                      <EntityCondition>
+                        <SpeedCondition value="0.1" rule="greaterThan" />
+                      </EntityCondition>
+                    </ByEntityCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+
+        <ManeuverGroup name="walker0_mang" maximumExecutionCount="1">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="walker0" />
+          </Actors>
+          <Maneuver name="walker0_man1">
+            <Event name="walker0_event" priority="parallel" maximumExecutionCount="1">
+              <Action name="walker0_assign_controller_action">
+                <PrivateAction>
+                  <ControllerAction>
+                    <AssignControllerAction>
+                      <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
+                        <ParameterAssignments>
+                          <ParameterAssignment parameterRef="Type" value="walker" />
+                          <ParameterAssignment parameterRef="Action_type"
+                            value="walker_speed_action" />
+                          <ParameterAssignment parameterRef="Force_padding" value="true" />
+                          <ParameterAssignment parameterRef="Focus_actors"
+                            value="walker0,walker1,Ego,suspicious,static0,static1" />
+                          <ParameterAssignment parameterRef="Add_action_mask" value="true" />
+                          <ParameterAssignment parameterRef="Model_path"
+                            value="srunner/examples/rl_models/Track/Track.Slippery/checkpoint" />
+                          <ParameterAssignment parameterRef="Params_path"
+                            value="srunner/examples/rl_models/Track/Track.Slippery/params.json" />
+                        </ParameterAssignments>
+                      </CatalogReference>
+                    </AssignControllerAction>
+                    <OverrideControllerValueAction>
+                      <Throttle value="0" active="false" />
+                      <Brake value="0" active="false" />
+                      <Clutch value="0" active="false" />
+                      <ParkingBrake value="0" active="false" />
+                      <SteeringWheel value="0" active="false" />
+                      <Gear number="0" active="false" />
+                    </OverrideControllerValueAction>
+                  </ControllerAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition name="walker0_con1" delay="0" conditionEdge="none">
+                    <ByValueCondition>
+                      <SimulationTimeCondition value="1" rule="greaterThan" />
+                    </ByValueCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+        <ManeuverGroup name="walker1_mang" maximumExecutionCount="1">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="walker1" />
+          </Actors>
+          <Maneuver name="walker1_man1">
+            <Event name="walker1_event" priority="parallel" maximumExecutionCount="1">
+              <Action name="walker1_direct">
+                <PrivateAction>
+                  <ControllerAction>
+                    <AssignControllerAction>
+                      <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
+                        <ParameterAssignments>
+                          <ParameterAssignment parameterRef="Type" value="walker" />
+                          <ParameterAssignment parameterRef="Action_type"
+                            value="walker_speed_action" />
+                          <ParameterAssignment parameterRef="Focus_actors"
+                            value="walker0,walker1,Ego,suspicious,static0,static1" />
+                          <ParameterAssignment parameterRef="Add_action_mask" value="true" />
+                          <ParameterAssignment parameterRef="Model_path"
+                            value="srunner/examples/rl_models/Track/Track.Slippery/checkpoint" />
+                          <ParameterAssignment parameterRef="Params_path"
+                            value="srunner/examples/rl_models/Track/Track.Slippery/params.json" />
+                        </ParameterAssignments>
+                      </CatalogReference>
+                    </AssignControllerAction>
+                    <OverrideControllerValueAction>
+                      <Throttle value="0" active="false" />
+                      <Brake value="0" active="false" />
+                      <Clutch value="0" active="false" />
+                      <ParkingBrake value="0" active="false" />
+                      <SteeringWheel value="0" active="false" />
+                      <Gear number="0" active="false" />
+                    </OverrideControllerValueAction>
+                  </ControllerAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition name="walker1_con1" delay="0" conditionEdge="none">
+                    <ByValueCondition>
+                      <SimulationTimeCondition value="1" rule="greaterThan" />
+                    </ByValueCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+        <ManeuverGroup name="walker3_mang" maximumExecutionCount="1">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="walker3" />
+          </Actors>
+          <Maneuver name="walker3_man1">
+            <Event name="walker3_event" priority="parallel" maximumExecutionCount="1">
+              <Action name="walker3_direct">
+                <PrivateAction>
+                  <ControllerAction>
+                    <AssignControllerAction>
+                      <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
+                        <ParameterAssignments>
+                          <ParameterAssignment parameterRef="Type" value="walker" />
+                          <ParameterAssignment parameterRef="Action_type"
+                            value="walker_speed_action" />
+                          <ParameterAssignment parameterRef="Focus_actors"
+                            value="walker3,walker4,Ego,suspicious,static3,static4" />
+                          <ParameterAssignment parameterRef="Add_action_mask" value="true" />
+                          <ParameterAssignment parameterRef="Model_path"
+                            value="srunner/examples/rl_models/Track/Track.Slippery/checkpoint" />
+                          <ParameterAssignment parameterRef="Params_path"
+                            value="srunner/examples/rl_models/Track/Track.Slippery/params.json" />
+                        </ParameterAssignments>
+                      </CatalogReference>
+                    </AssignControllerAction>
+                    <OverrideControllerValueAction>
+                      <Throttle value="0" active="false" />
+                      <Brake value="0" active="false" />
+                      <Clutch value="0" active="false" />
+                      <ParkingBrake value="0" active="false" />
+                      <SteeringWheel value="0" active="false" />
+                      <Gear number="0" active="false" />
+                    </OverrideControllerValueAction>
+                  </ControllerAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition name="walker3_con1" delay="0" conditionEdge="none">
+                    <ByEntityCondition>
+                      <TriggeringEntities triggeringEntitiesRule="any">
+                        <EntityRef entityRef="walker3" />
+                      </TriggeringEntities>
+                      <EntityCondition>
+                        <RelativeDistanceCondition entityRef="Ego"
+                          relativeDistanceType="cartesianDistance" value="50" freespace="true"
+                          rule="lessThan" />
+                      </EntityCondition>
+                    </ByEntityCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+        <ManeuverGroup name="walker4_mang" maximumExecutionCount="1">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="walker4" />
+          </Actors>
+          <Maneuver name="walker4_man1">
+            <Event name="walker4_event" priority="parallel" maximumExecutionCount="1">
+              <Action name="walker4_direct">
+                <PrivateAction>
+                  <ControllerAction>
+                    <AssignControllerAction>
+                      <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
+                        <ParameterAssignments>
+                          <ParameterAssignment parameterRef="Type" value="walker" />
+                          <ParameterAssignment parameterRef="Action_type"
+                            value="walker_speed_action" />
+                          <ParameterAssignment parameterRef="Focus_actors"
+                            value="walker3,walker4,Ego,suspicious,static3,static4" />
+                          <ParameterAssignment parameterRef="Add_action_mask" value="true" />
+                          <ParameterAssignment parameterRef="Model_path"
+                            value="srunner/examples/rl_models/Track/Track.Slippery/checkpoint" />
+                          <ParameterAssignment parameterRef="Params_path"
+                            value="srunner/examples/rl_models/Track/Track.Slippery/params.json" />
+                        </ParameterAssignments>
+                      </CatalogReference>
+                    </AssignControllerAction>
+                    <OverrideControllerValueAction>
+                      <Throttle value="0" active="false" />
+                      <Brake value="0" active="false" />
+                      <Clutch value="0" active="false" />
+                      <ParkingBrake value="0" active="false" />
+                      <SteeringWheel value="0" active="false" />
+                      <Gear number="0" active="false" />
+                    </OverrideControllerValueAction>
+                  </ControllerAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition name="walker4_con1" delay="0" conditionEdge="none">
+                    <ByEntityCondition>
+                      <TriggeringEntities triggeringEntitiesRule="any">
+                        <EntityRef entityRef="walker4" />
+                      </TriggeringEntities>
+                      <EntityCondition>
+                        <RelativeDistanceCondition entityRef="Ego"
+                          relativeDistanceType="cartesianDistance" value="50" freespace="true"
+                          rule="lessThan" />
+                      </EntityCondition>
+                    </ByEntityCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+        <StartTrigger>
+          <ConditionGroup>
+            <Condition name="all_start" delay="0" conditionEdge="rising">
+              <ByValueCondition>
+                <SimulationTimeCondition value="0.1" rule="greaterThan" />
+              </ByValueCondition>
+            </Condition>
+          </ConditionGroup>
+        </StartTrigger>
+        <StopTrigger />
+      </Act>
+      <Act name="iic_act">
+        <ManeuverGroup name="noStopAct" maximumExecutionCount="1">
+          <Actors selectTriggeringEntities="false" />
+        </ManeuverGroup>
+        <StartTrigger>
+          <ConditionGroup>
+            <Condition name="noStopAct-start_trigger" delay="0" conditionEdge="rising">
+              <ByValueCondition>
+                <SimulationTimeCondition value="10000" rule="greaterThan" />
+              </ByValueCondition>
+            </Condition>
+          </ConditionGroup>
+        </StartTrigger>
+        <StopTrigger />
+      </Act>
+      <MetricsRef name="coStrike_story_metrics">
+        <MetricRef name="coStrike_story_metric1" />
+        <MetricRef name="coStrike_story_metric2" />
+      </MetricsRef>
+    </Story>
+    <StopTrigger />
+  </Storyboard>
+</OpenSCENARIO>

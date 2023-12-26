@@ -23,16 +23,16 @@
   </ParameterDeclarations>
   <CatalogLocations>
     <VehicleCatalog>
-      <Directory path="../../catalogs" />
+      <Directory path="../../Catalogs/Vehicles"/>
     </VehicleCatalog>
     <PedestrianCatalog>
-      <Directory path="../../catalogs" />
+      <Directory path="../../Catalogs/Pedestrians"/>
     </PedestrianCatalog>
     <MiscObjectCatalog>
-      <Directory path="../../catalogs" />
+      <Directory path="../../Catalogs/MiscObjects"/>
     </MiscObjectCatalog>
     <ControllerCatalog>
-      <Directory path="../../catalogs" />
+      <Directory path="../../Catalogs/Controllers"/>
     </ControllerCatalog>
   </CatalogLocations>
   <RoadNetwork>
@@ -131,78 +131,78 @@
           </PrivateAction>
         </Private>
         <Private entityRef="static1">
-          <PrivateAction>
-            <TeleportAction>
-              <Position>
-                <LanePosition roadId="27" laneId="2" s="$static1_s" offset="0.0" />
-              </Position>
-            </TeleportAction>
-          </PrivateAction>
+            <PrivateAction>
+              <TeleportAction>
+                  <Position>
+                    <LanePosition roadId="27" laneId="2" s="$static1_s" offset="0.0"/>
+                  </Position>
+              </TeleportAction>
+            </PrivateAction>
         </Private>
         <Private entityRef="static2">
-          <PrivateAction>
-            <TeleportAction>
-              <Position>
-                <LanePosition roadId="27" laneId="-2" s="$static2_s" offset="0.0" />
-              </Position>
-            </TeleportAction>
-          </PrivateAction>
+            <PrivateAction>
+              <TeleportAction>
+                  <Position>
+                    <LanePosition roadId="27" laneId="-2" s="$static2_s" offset="0.0"/>
+                  </Position>
+              </TeleportAction>
+            </PrivateAction>
         </Private>
         <Private entityRef="static3">
-          <PrivateAction>
-            <TeleportAction>
-              <Position>
-                <WorldPosition x="-765.0" y="$static3_y" z="3.0" h="1.57" r="0" p="0" />
-              </Position>
-            </TeleportAction>
-          </PrivateAction>
+            <PrivateAction>
+              <TeleportAction>
+                  <Position>
+                    <WorldPosition x="-765.0" y="$static3_y" z="3.0" h="1.57" r="0" p="0" />
+                  </Position>
+              </TeleportAction>
+            </PrivateAction>
         </Private>
         <Private entityRef="static4">
-          <PrivateAction>
-            <TeleportAction>
-              <Position>
-                <LanePosition roadId="27" laneId="-2" s="$static4_s" offset="0.0" />
-              </Position>
-            </TeleportAction>
-          </PrivateAction>
+            <PrivateAction>
+              <TeleportAction>
+                  <Position>
+                    <LanePosition roadId="27" laneId="-2" s="$static4_s" offset="0.0"/>
+                  </Position>
+              </TeleportAction>
+            </PrivateAction>
         </Private>
         <Private entityRef="rb1">
-          <PrivateAction>
-            <TeleportAction>
-              <Position>
-                <LanePosition roadId="27" laneId="-2" s="$rb1_s" offset="0.0">
-                  <Orientation h="1.57" r="0" p="0" />
-                </LanePosition>
-              </Position>
-            </TeleportAction>
-          </PrivateAction>
+            <PrivateAction>
+              <TeleportAction>
+                  <Position>
+                    <LanePosition roadId="27" laneId="-2" s="$rb1_s" offset="0.0">
+                        <Orientation h="3.14" r="0" p="0" />
+                    </LanePosition>
+                  </Position>
+              </TeleportAction>
+            </PrivateAction>
         </Private>
         <Private entityRef="rb2">
-          <PrivateAction>
-            <TeleportAction>
-              <Position>
-                <WorldPosition x="-765.0" y="$rb2_y" z="3.0" h="0" r="0" p="0" />
-              </Position>
-            </TeleportAction>
-          </PrivateAction>
+            <PrivateAction>
+              <TeleportAction>
+                  <Position>
+                    <WorldPosition x="-765.0" y="$rb2_y" z="3.0" h="0" r="0" p="0" />
+                  </Position>
+              </TeleportAction>
+            </PrivateAction>
         </Private>
         <Private entityRef="NPC1">
-          <PrivateAction>
-            <TeleportAction>
-              <Position>
-                <WorldPosition x="-735" y="-455" z="1.8" h="0" r="0" p="0" />
-              </Position>
-            </TeleportAction>
-          </PrivateAction>
+            <PrivateAction>
+              <TeleportAction>
+                  <Position>
+                    <WorldPosition x="-735" y="-455" z="1.8" h="0" r="0" p="0" />
+                  </Position>
+              </TeleportAction>
+            </PrivateAction>
         </Private>
         <Private entityRef="NPC2">
-          <PrivateAction>
-            <TeleportAction>
-              <Position>
-                <WorldPosition x="-760.9" y="-300.0" z="1.8" h="0" r="0" p="0" />
-              </Position>
-            </TeleportAction>
-          </PrivateAction>
+            <PrivateAction>
+              <TeleportAction>
+                  <Position>
+                    <WorldPosition x="-760.9" y="-300.0" z="1.8" h="0" r="0" p="0" />
+                  </Position>
+              </TeleportAction>
+            </PrivateAction>
         </Private>
       </Actions>
     </Init>
@@ -244,16 +244,9 @@
               <StartTrigger>
                 <ConditionGroup>
                   <Condition name="rb1_run_con" delay="0" conditionEdge="none">
-                    <ByEntityCondition>
-                      <TriggeringEntities triggeringEntitiesRule="any">
-                        <EntityRef entityRef="rb1" />
-                      </TriggeringEntities>
-                      <EntityCondition>
-                        <RelativeDistanceCondition entityRef="Ego"
-                          relativeDistanceType="cartesianDistance" value="$d_rb1" freespace="true"
-                          rule="lessThan" />
-                      </EntityCondition>
-                    </ByEntityCondition>
+                    <ByValueCondition>
+                      <SimulationTimeCondition value="3" rule="greaterThan" />
+                    </ByValueCondition>
                   </Condition>
                 </ConditionGroup>
               </StartTrigger>
@@ -319,16 +312,9 @@
               <StartTrigger>
                 <ConditionGroup>
                   <Condition name="rb2_run_con" delay="0" conditionEdge="none">
-                    <ByEntityCondition>
-                      <TriggeringEntities triggeringEntitiesRule="any">
-                        <EntityRef entityRef="rb2" />
-                      </TriggeringEntities>
-                      <EntityCondition>
-                        <RelativeDistanceCondition entityRef="Ego"
-                          relativeDistanceType="cartesianDistance" value="$d_rb2" freespace="true"
-                          rule="lessThan" />
-                      </EntityCondition>
-                    </ByEntityCondition>
+                    <ByValueCondition>
+                      <SimulationTimeCondition value="3" rule="greaterThan" />
+                    </ByValueCondition>
                   </Condition>
                 </ConditionGroup>
               </StartTrigger>

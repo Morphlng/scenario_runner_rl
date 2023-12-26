@@ -44,16 +44,16 @@
   </ParameterDeclarations>
   <CatalogLocations>
     <VehicleCatalog>
-      <Directory path="../../catalogs" />
+      <Directory path="../../Catalogs/Vehicles"/>
     </VehicleCatalog>
     <PedestrianCatalog>
-      <Directory path="../../catalogs" />
+      <Directory path="../../Catalogs/Pedestrians"/>
     </PedestrianCatalog>
     <MiscObjectCatalog>
-      <Directory path="../../catalogs" />
+      <Directory path="../../Catalogs/MiscObjects"/>
     </MiscObjectCatalog>
     <ControllerCatalog>
-      <Directory path="../../catalogs" />
+      <Directory path="../../Catalogs/Controllers"/>
     </ControllerCatalog>
   </CatalogLocations>
   <RoadNetwork>
@@ -228,8 +228,8 @@
                       <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
                         <ParameterAssignments>
                           <ParameterAssignment parameterRef="Type" value="vehicle_4w" />
-                          <ParameterAssignment parameterRef="Target_speed" value="20" />
-                          <ParameterAssignment parameterRef="Init_speed" value="20" />
+                          <ParameterAssignment parameterRef="Target_speed" value="40" />
+                          <ParameterAssignment parameterRef="Init_speed" value="30" />
                           <ParameterAssignment parameterRef="Action_type"
                             value="vehicle_atomic_action" />
                           <ParameterAssignment parameterRef="Discrete_action_set"
@@ -256,18 +256,9 @@
               <StartTrigger>
                 <ConditionGroup>
                   <Condition name="npc1_con1" delay="0" conditionEdge="none">
-                    <ByEntityCondition>
-                      <TriggeringEntities triggeringEntitiesRule="any">
-                        <EntityRef entityRef="Ego" />
-                      </TriggeringEntities>
-                      <EntityCondition>
-                        <ReachPositionCondition tolerance="5.0">
-                          <Position>
-                            <LanePosition roadId="23" laneId="-1" s="380" />
-                          </Position>
-                        </ReachPositionCondition>
-                      </EntityCondition>
-                    </ByEntityCondition>
+                    <ByValueCondition>
+                      <SimulationTimeCondition value="3" rule="greaterThan" />
+                    </ByValueCondition>
                   </Condition>
                 </ConditionGroup>
               </StartTrigger>
@@ -318,8 +309,8 @@
                       <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
                         <ParameterAssignments>
                           <ParameterAssignment parameterRef="Type" value="vehicle_4w" />
-                          <ParameterAssignment parameterRef="Target_speed" value="20" />
-                          <ParameterAssignment parameterRef="Init_speed" value="20" />
+                          <ParameterAssignment parameterRef="Target_speed" value="40" />
+                          <ParameterAssignment parameterRef="Init_speed" value="30" />
                           <ParameterAssignment parameterRef="Action_type"
                             value="vehicle_atomic_action" />
                           <ParameterAssignment parameterRef="Discrete_action_set"
@@ -346,18 +337,9 @@
               <StartTrigger>
                 <ConditionGroup>
                   <Condition name="npc2_con1" delay="0" conditionEdge="none">
-                    <ByEntityCondition>
-                      <TriggeringEntities triggeringEntitiesRule="any">
-                        <EntityRef entityRef="Ego" />
-                      </TriggeringEntities>
-                      <EntityCondition>
-                        <ReachPositionCondition tolerance="5.0">
-                          <Position>
-                            <LanePosition roadId="23" laneId="-1" s="380" />
-                          </Position>
-                        </ReachPositionCondition>
-                      </EntityCondition>
-                    </ByEntityCondition>
+                    <ByValueCondition>
+                      <SimulationTimeCondition value="3" rule="greaterThan" />
+                    </ByValueCondition>
                   </Condition>
                 </ConditionGroup>
               </StartTrigger>
@@ -408,8 +390,8 @@
                       <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
                         <ParameterAssignments>
                           <ParameterAssignment parameterRef="Type" value="vehicle_4w" />
-                          <ParameterAssignment parameterRef="Target_speed" value="20" />
-                          <ParameterAssignment parameterRef="Init_speed" value="20" />
+                          <ParameterAssignment parameterRef="Target_speed" value="40" />
+                          <ParameterAssignment parameterRef="Init_speed" value="30" />
                           <ParameterAssignment parameterRef="Action_type"
                             value="vehicle_atomic_action" />
                           <ParameterAssignment parameterRef="Discrete_action_set"
@@ -436,18 +418,9 @@
               <StartTrigger>
                 <ConditionGroup>
                   <Condition name="npc3_con1" delay="0" conditionEdge="none">
-                    <ByEntityCondition>
-                      <TriggeringEntities triggeringEntitiesRule="any">
-                        <EntityRef entityRef="Ego" />
-                      </TriggeringEntities>
-                      <EntityCondition>
-                        <ReachPositionCondition tolerance="5.0">
-                          <Position>
-                            <LanePosition roadId="23" laneId="-1" s="380" />
-                          </Position>
-                        </ReachPositionCondition>
-                      </EntityCondition>
-                    </ByEntityCondition>
+                    <ByValueCondition>
+                      <SimulationTimeCondition value="3" rule="greaterThan" />
+                    </ByValueCondition>
                   </Condition>
                 </ConditionGroup>
               </StartTrigger>

@@ -4,21 +4,22 @@
   <ParameterDeclarations>
     <ParameterDeclaration name="ego_start_s" parameterType="double" value="30" />
 
-    <ParameterDeclaration name="static2_y" parameterType="double" value="-420.21" />
-    <ParameterDeclaration name="static3_s" parameterType="double" value="217" />
-    <ParameterDeclaration name="static4_y" parameterType="double" value="-205" />
-    <ParameterDeclaration name="static5_s" parameterType="double" value="395" />
+    <ParameterDeclaration name="static2_s" parameterType="double" value="100" />
 
+    <ParameterDeclaration name="static3_s" parameterType="double" value="217" />
+    <ParameterDeclaration name="rb1_s" parameterType="double" value="225" />
     <ParameterDeclaration name="rb1_acc_time" parameterType="double" value="3" />
     <ParameterDeclaration name="rb1_speed" parameterType="double" value="2" />
     <ParameterDeclaration name="d_rb1" parameterType="double" value="15" />
-    <ParameterDeclaration name="rb1_s" parameterType="double" value="225" />
+    <ParameterDeclaration name="d_rb1_explosion" parameterType="double" value="2" />
 
+    <ParameterDeclaration name="static4_s" parameterType="double" value="300" />
+    <ParameterDeclaration name="rb2_s" parameterType="double" value="325" />
     <ParameterDeclaration name="rb2_acc_time" parameterType="double" value="3" />
     <ParameterDeclaration name="rb2_speed" parameterType="double" value="2" />
     <ParameterDeclaration name="d_rb2" parameterType="double" value="15" />
-    <ParameterDeclaration name="rb2_y" parameterType="double" value="-196" />
-    <ParameterDeclaration name="rb2_s" parameterType="double" value="325" />
+
+    <ParameterDeclaration name="static5_s" parameterType="double" value="420" />
   </ParameterDeclarations>
   <CatalogLocations>
     <VehicleCatalog>
@@ -127,81 +128,89 @@
           </PrivateAction>
         </Private>
         <Private entityRef="static2">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <WorldPosition x="891.28" y="$static2_y" z="3.0" h="1.07" r="0" p="0" />
-                    <!-- <LanePosition roadId="2" laneId="-2" s="$static2_s" offset="0.0">
-                        <Orientation type="relative" h="1.57" p="0" r="0" />
-                    </LanePosition> -->
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <!-- <WorldPosition x="891.28" y="$static2_y" z="3.0" h="1.07" r="0" p="0" /> -->
+                <LanePosition roadId="2" laneId="-2" s="$static2_s" offset="0.0">
+                  <Orientation type="relative" h="0" p="0" r="0" />
+                </LanePosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
         <Private entityRef="static3">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <LanePosition roadId="2" laneId="2" s="$static3_s" offset="0.0"/>
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="2" laneId="2" s="$static3_s" offset="0.0">
+                  <Orientation type="relative" h="3.14" p="0" r="0" />
+                </LanePosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
         <Private entityRef="static4">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <WorldPosition x="855" y="$static4_y" z="3.0" h="1.57" r="0" p="0" />
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <!-- <WorldPosition x="855" y="$static4_y" z="3.0" h="1.57" r="0" p="0" /> -->
+                <LanePosition roadId="2" laneId="-2" s="$static4_s" offset="0.0">
+                  <Orientation type="relative" h="0" p="0" r="0" />
+                </LanePosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
         <Private entityRef="static5">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <LanePosition roadId="2" laneId="2" s="$static5_s" offset="0.0"/>
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="2" laneId="2" s="$static5_s" offset="0.0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
         <Private entityRef="rb1">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <LanePosition roadId="2" laneId="2" s="$rb1_s" offset="0.0">
-                        <Orientation h="0" r="0" p="0" />
-                    </LanePosition>
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="2" laneId="2" s="$rb1_s" offset="0.0">
+                  <Orientation h="0" r="0" p="0" />
+                </LanePosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
         <Private entityRef="rb2">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <WorldPosition x="855" y="$rb2_y" z="3.0" h="3.14" r="0" p="0" />
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <!-- <WorldPosition x="855" y="$rb2_y" z="3.0" h="3.14" r="0" p="0" /> -->
+                <LanePosition roadId="2" laneId="-2" s="$rb2_s" offset="0.0">
+                  <Orientation h="3.14" r="0" p="0" />
+                </LanePosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
         <Private entityRef="NPC1">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <WorldPosition x="910" y="-448.6" z="1.8" h="0" r="0" p="0"/>
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="910" y="-448.6" z="1.8" h="0" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
         <Private entityRef="NPC2">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <WorldPosition x="832" y="-177.2" z="1.8" h="0" r="0" p="0"/>
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="832" y="-177.2" z="1.8" h="0" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
       </Actions>
     </Init>
@@ -265,7 +274,7 @@
                       </TriggeringEntities>
                       <EntityCondition>
                         <RelativeDistanceCondition entityRef="Ego"
-                          relativeDistanceType="cartesianDistance" value="3" freespace="true"
+                          relativeDistanceType="cartesianDistance" value="$d_rb1_explosion" freespace="true"
                           rule="lessThan" />
                       </EntityCondition>
                     </ByEntityCondition>

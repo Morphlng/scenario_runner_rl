@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
-  <FileHeader taskCategory="陆域" name="打击任务-对抗打击" description="打击任务-对抗打击" author="lp" revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
+<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
+  <FileHeader taskCategory="陆域" name="打击任务-对抗打击" description="打击任务-对抗打击" author="lp" revMajor="1"
+    revMinor="0" date="2023-10-08T10:00:00" />
   <ParameterDeclarations>
 
     <ParameterDeclaration name="barrier1_x" parameterType="double" value="-38" />
@@ -73,7 +75,7 @@
   <Entities>
     <!-- 主车  -->
     <ScenarioObject name="Ego">
-      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.imv.rb" />
+      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.imv.bigrb" />
     </ScenarioObject>
     <!-- 障碍物  -->
     <ScenarioObject name="barrier1">
@@ -252,6 +254,8 @@
                           <ParameterAssignment parameterRef="Step_ticks" value="60" />
                           <ParameterAssignment parameterRef="Focus_actors" value="Ego" />
                           <ParameterAssignment parameterRef="Add_action_mask" value="true" />
+                          <ParameterAssignment parameterRef="Action_extra_config"
+                            value='{"z_correction": 1.73, "pitch_correction": -0.5, "grid_size": 20}' />
                           <ParameterAssignment parameterRef="Discrete_action_set"
                             value='[{"0": -5, "1": -4, "2": -3, "3": -2, "4": -1, "5": 0, "6": 1, "7": 2, "8": 3, "9": 4, "10": 5}, {"0": 0, "1": 1, "2": 2}]' />
                           <ParameterAssignment parameterRef="Measurement_type"
@@ -303,6 +307,8 @@
                           <ParameterAssignment parameterRef="Step_ticks" value="60" />
                           <ParameterAssignment parameterRef="Focus_actors" value="Ego" />
                           <ParameterAssignment parameterRef="Add_action_mask" value="true" />
+                          <ParameterAssignment parameterRef="Action_extra_config"
+                            value='{"z_correction": 1.73, "pitch_correction": -0.5, "grid_size": 20}' />
                           <ParameterAssignment parameterRef="Discrete_action_set"
                             value='[{"0": -5, "1": -4, "2": -3, "3": -2, "4": -1, "5": 0, "6": 1, "7": 2, "8": 3, "9": 4, "10": 5}, {"0": 0, "1": 1, "2": 2}]' />
                           <ParameterAssignment parameterRef="Measurement_type"
@@ -342,6 +348,21 @@
             <Condition name="dtnpcdaji2_start_trigger" delay="0" conditionEdge="none">
               <ByValueCondition>
                 <SimulationTimeCondition value="0" rule="greaterThan" />
+              </ByValueCondition>
+            </Condition>
+          </ConditionGroup>
+        </StartTrigger>
+        <StopTrigger />
+      </Act>
+      <Act name="iic_act">
+        <ManeuverGroup name="noStopAct" maximumExecutionCount="1">
+          <Actors selectTriggeringEntities="false" />
+        </ManeuverGroup>
+        <StartTrigger>
+          <ConditionGroup>
+            <Condition name="noStopAct-start_trigger" delay="0" conditionEdge="rising">
+              <ByValueCondition>
+                <SimulationTimeCondition value="10000" rule="greaterThan" />
               </ByValueCondition>
             </Condition>
           </ConditionGroup>

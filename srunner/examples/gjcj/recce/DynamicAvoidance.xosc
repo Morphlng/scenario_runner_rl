@@ -2,40 +2,40 @@
 <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenSCENARIO.xsd">
   <FileHeader taskCategory="陆域" name="侦察任务-动态避障" description="侦察任务-动态避障" author="rhp" revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
   <ParameterDeclarations>
-        <ParameterDeclaration name="ego_start_s" parameterType="double" value="48.0"/>
-        
-        <ParameterDeclaration name="npc1_start_s" parameterType="double" value="15.0"/>
-        <ParameterDeclaration name="npc1_acc_time" parameterType="double" value="3.0"/>
-        <ParameterDeclaration name="npc1_speed" parameterType="double" value="8.0"/>
-        <ParameterDeclaration name="d_npc1" parameterType="double" value="50.0"/>
+    <ParameterDeclaration name="ego_start_s" parameterType="double" value="48.0" />
 
-        <ParameterDeclaration name="npc2_start_s" parameterType="double" value="30.0"/>
-        <ParameterDeclaration name="npc2_acc_time" parameterType="double" value="3.0"/>
-        <ParameterDeclaration name="npc2_speed" parameterType="double" value="6.0"/>
-        <ParameterDeclaration name="d_npc2" parameterType="double" value="50.0"/>
+    <ParameterDeclaration name="npc1_start_s" parameterType="double" value="15.0" />
+    <ParameterDeclaration name="npc1_acc_time" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="npc1_speed" parameterType="double" value="8.0" />
+    <ParameterDeclaration name="d_npc1" parameterType="double" value="50.0" />
 
-        <ParameterDeclaration name="walker1_start_s" parameterType="double" value="5.0"/>
-        <ParameterDeclaration name="walker1_acc_time" parameterType="double" value="3.0"/>
-        <ParameterDeclaration name="walker1_speed" parameterType="double" value="0.5"/>
-        <ParameterDeclaration name="d_walker1" parameterType="double" value="20.0"/>
+    <ParameterDeclaration name="npc2_start_s" parameterType="double" value="30.0" />
+    <ParameterDeclaration name="npc2_acc_time" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="npc2_speed" parameterType="double" value="6.0" />
+    <ParameterDeclaration name="d_npc2" parameterType="double" value="50.0" />
 
-        <ParameterDeclaration name="walker2_start_s" parameterType="double" value="70.0"/>
-        <ParameterDeclaration name="walker2_acc_time" parameterType="double" value="3.0"/>
-        <ParameterDeclaration name="walker2_speed" parameterType="double" value="3.0"/>
-        <ParameterDeclaration name="d_walker2" parameterType="double" value="20.0"/>
+    <ParameterDeclaration name="walker1_start_s" parameterType="double" value="5.0" />
+    <ParameterDeclaration name="walker1_acc_time" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="walker1_speed" parameterType="double" value="0.5" />
+    <ParameterDeclaration name="d_walker1" parameterType="double" value="20.0" />
+
+    <ParameterDeclaration name="walker2_start_s" parameterType="double" value="74.0" />
+    <ParameterDeclaration name="walker2_acc_time" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="walker2_speed" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="d_walker2" parameterType="double" value="20.0" />
   </ParameterDeclarations>
   <CatalogLocations>
     <VehicleCatalog>
-      <Directory path="../../Catalogs/Vehicles"/>
+      <Directory path="../../Catalogs/Vehicles" />
     </VehicleCatalog>
     <PedestrianCatalog>
-      <Directory path="../../Catalogs/Pedestrians"/>
+      <Directory path="../../Catalogs/Pedestrians" />
     </PedestrianCatalog>
     <MiscObjectCatalog>
-      <Directory path="../../Catalogs/MiscObjects"/>
+      <Directory path="../../Catalogs/MiscObjects" />
     </MiscObjectCatalog>
     <ControllerCatalog>
-      <Directory path="../../Catalogs/Controllers"/>
+      <Directory path="../../Catalogs/Controllers" />
     </ControllerCatalog>
   </CatalogLocations>
   <RoadNetwork>
@@ -127,64 +127,64 @@
             </ControllerAction>
           </PrivateAction>
         </Private>
-                <Private entityRef="npc1">
-                    <PrivateAction>
-                        <TeleportAction>
-                            <Position>
-                                <LanePosition roadId="30" laneId="1" s="$npc1_start_s" offset="0"/>
-                            </Position>
-                        </TeleportAction>
-                    </PrivateAction>
-                </Private>
-                <Private entityRef="npc2">
-                    <PrivateAction>
-                        <TeleportAction>
-                            <Position>
-                                <LanePosition roadId="30" laneId="-1" s="$npc2_start_s" offset="0"/>
-                            </Position>
-                        </TeleportAction>
-                    </PrivateAction>
-                </Private>
-                <Private entityRef="walker1">
-                    <PrivateAction>
-                        <TeleportAction>
-                            <Position>
-                                <LanePosition roadId="21" laneId="5" s="$walker1_start_s" offset="0">
-                                    <Orientation type="relative" h="1.57" p="0" r="0"/> 
-                                </LanePosition>
-                            </Position>
-                        </TeleportAction>
-                    </PrivateAction>
-                </Private>
-                <Private entityRef="walker2">
-                    <PrivateAction>
-                        <TeleportAction>
-                            <Position>
-                                <LanePosition roadId="30" laneId="5" s="$walker2_start_s" offset="0">
-                                    <Orientation type="relative" h="1.57" p="0" r="0"/> 
-                                </LanePosition> 
-                            </Position>
-                        </TeleportAction>
-                    </PrivateAction>
-                </Private>
-                <Private entityRef="barrier1">
-                    <PrivateAction>
-                        <TeleportAction>
-                            <Position>
-                                <RoadPosition roadId="21" s="53" t="0"/>
-                            </Position>
-                        </TeleportAction>
-                    </PrivateAction>
-                </Private>
-                <Private entityRef="barrier2">
-                    <PrivateAction>
-                        <TeleportAction>
-                            <Position>
-                                <WorldPosition x="30" y="-76.59" z="0" h="-1.57" p="0.0" r="0.0"/>
-                            </Position>
-                        </TeleportAction>
-                    </PrivateAction>
-                </Private>
+        <Private entityRef="npc1">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="30" laneId="1" s="$npc1_start_s" offset="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="npc2">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="30" laneId="-1" s="$npc2_start_s" offset="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="walker1">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="21" laneId="5" s="$walker1_start_s" offset="0">
+                  <Orientation type="relative" h="1.57" p="0" r="0" />
+                </LanePosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="walker2">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="30" laneId="5" s="$walker2_start_s" offset="0">
+                  <Orientation type="relative" h="1.57" p="0" r="0" />
+                </LanePosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="barrier1">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <RoadPosition roadId="21" s="53" t="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="barrier2">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="30" y="-76.59" z="0" h="-1.57" p="0.0" r="0.0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
       </Actions>
     </Init>
 

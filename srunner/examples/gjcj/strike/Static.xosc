@@ -281,6 +281,8 @@
                           <ParameterAssignment parameterRef="Step_ticks" value="60" />
                           <ParameterAssignment parameterRef="Focus_actors" value="Ego" />
                           <ParameterAssignment parameterRef="Add_action_mask" value="true" />
+                          <ParameterAssignment parameterRef="Action_extra_config"
+                            value='{"z_correction": 2.49, "grid_size": 20}' />
                           <ParameterAssignment parameterRef="Discrete_action_set"
                             value='[{"0": -5, "1": -4, "2": -3, "3": -2, "4": -1, "5": 0, "6": 1, "7": 2, "8": 3, "9": 4, "10": 5}, {"0": 0, "1": 1, "2": 2}]' />
                           <ParameterAssignment parameterRef="Measurement_type"
@@ -331,6 +333,8 @@
                           <ParameterAssignment parameterRef="Action_type" value="fire_action" />
                           <ParameterAssignment parameterRef="Add_action_mask" value="true" />
                           <ParameterAssignment parameterRef="Focus_actors" value="Ego" />
+                          <ParameterAssignment parameterRef="Action_extra_config"
+                            value='{"z_correction": 2.49, "grid_size": 20}' />
                           <ParameterAssignment parameterRef="Discrete_action_set"
                             value='[{"0": -5, "1": -4, "2": -3, "3": -2, "4": -1, "5": 0, "6": 1, "7": 2, "8": 3, "9": 4, "10": 5}, {"0": 0, "1": 1, "2": 2}]' />
                           <ParameterAssignment parameterRef="Measurement_type"

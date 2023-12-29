@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
-  <FileHeader taskCategory="陆域" name="打击任务-战场区域通行" description="打击任务-战场区域通行" author="lp"
-    revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
+<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
+  <FileHeader taskCategory="陆域" name="打击任务-战场区域通行" description="打击任务-战场区域通行" author="lp" revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
   <ParameterDeclarations>
     <ParameterDeclaration name="barrier1_x" parameterType="double" value="-148" />
     <ParameterDeclaration name="barrier1_y" parameterType="double" value="-2899.8" />
@@ -55,7 +53,6 @@
     <ParameterDeclaration name="d_rb4" parameterType="double" value="15" />
 
     <ParameterDeclaration name="smoke_num" parameterType="double" value="5" />
-
   </ParameterDeclarations>
   <CatalogLocations>
     <VehicleCatalog>
@@ -152,9 +149,9 @@
         <GlobalAction>
           <EnvironmentAction>
             <Environment name="Environment">
-              <TimeOfDay animation="false" dateTime="2023-03-09T08:33:28" />
+              <TimeOfDay animation="false" dateTime="2023-03-09T17:33:28" />
               <Weather cloudState="free">
-                <Sun azimuth="0" intensity="100" elevation="1" />
+                <Sun azimuth="4.0" intensity="0.96" elevation="2.6" />
                 <Fog visualRange="100" />
                 <Precipitation precipitationType="rain" intensity="0" />
               </Weather>
@@ -166,7 +163,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="-179.2" y="-2934" z="84.5" h="0" r="0" p="0" />
+                <WorldPosition x="-179.2" y="-2934" z="84.5" h="1.07" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>

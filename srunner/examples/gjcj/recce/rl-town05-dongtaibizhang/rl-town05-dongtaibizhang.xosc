@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenSCENARIO.xsd">
-  <FileHeader taskCategory="陆域" name="侦察任务-动态避障" description="侦察任务-动态避障" author="rhp" revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
+  <FileHeader taskCategory="陆域" name="侦察任务-动态避障" description="侦察任务-动态避障" author="rhp" revMajor="1"
+    revMinor="0" date="2023-10-08T10:00:00" />
   <ParameterDeclarations>
     <ParameterDeclaration name="ego_start_s" parameterType="double" value="48.0" />
 
@@ -89,10 +90,10 @@
         <GlobalAction>
           <EnvironmentAction>
             <Environment name="Environment">
-              <TimeOfDay animation="true" dateTime="2023-03-09T08:33:28" />
-              <Weather cloudState="skyOff">
-                <Sun azimuth="1.57" intensity="100" elevation="0.2" />
-                <Fog visualRange="10000" />
+              <TimeOfDay animation="false" dateTime="2023-03-09T08:33:28" />
+              <Weather cloudState="cloudy">
+                <Sun azimuth="1.57" intensity="0.96" elevation="0.9" />
+                <Fog visualRange="1000" />
                 <Precipitation precipitationType="rain" intensity="0" />
               </Weather>
               <RoadCondition frictionScaleFactor="0.6" />

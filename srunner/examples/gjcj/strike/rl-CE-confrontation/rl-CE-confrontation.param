@@ -10,14 +10,14 @@
                     {
                         "key": "barrier1_x",
                         "description": "障碍1的x初始位置",
-                        "value": [-38.6,-32.4],
-                        "default": -38.6,
+                        "value": [-38,-36.3],
+                        "default": -38,
                         "unit": "米"
                     },
                     {
                         "key": "barrier1_y",
                         "description": "障碍1的y初始位置",
-                        "value": [-2058.3,-2044.2],
+                        "value": [-2058.3,-2048],
                         "default": -2057.3,
                         "unit": "米"
                     }
@@ -30,8 +30,8 @@
                     {
                         "key": "barrier2_x",
                         "description": "障碍2的x初始位置",
-                        "value": [15.4,20],
-                        "default": 17,
+                        "value": [17.5,20],
+                        "default": 18.5,
                         "unit": "米"
                     },
                     {
@@ -50,8 +50,8 @@
                     {
                         "key": "barrier3_x",
                         "description": "障碍3的x初始位置",
-                        "value": [97,102],
-                        "default": 97,
+                        "value": [101,104],
+                        "default": 101,
                         "unit": "米"
                     },
                     {
@@ -78,7 +78,7 @@
                         "key": "zjc1_y",
                         "description": "静态车辆1的y初始位置",
                         "value": [-2014.6,-2002.5],
-                        "default": -2014.6,
+                        "default": -2014.1,
                         "unit": "米"
                     }
                 ]
@@ -90,15 +90,15 @@
                     {
                         "key": "zjc2_x",
                         "description": "静态车辆2的x初始位置",
-                        "value": [35,45],
-                        "default": 45,
+                        "value": [47.1,58],
+                        "default": 45.6,
                         "unit": "米"
                     },
                     {
                         "key": "zjc2_y",
                         "description": "静态车辆2的y初始位置",
-                        "value": [-1865,-1860],
-                        "default": -1865,
+                        "value": [-1843.8,-1826],
+                        "default": -1843,
                         "unit": "米"
                     }
                 ]
@@ -130,15 +130,15 @@
                     {
                         "key": "dynpc1_x",
                         "description": "打击车辆1的x初始位置",
-                        "value": [0,12],
-                        "default": 12,
+                        "value": [15,30.3],
+                        "default": 23.9,
                         "unit": "米"
                     },
                     {
                         "key": "dynpc1_y",
                         "description": "打击车辆1的y初始位置",
-                        "value": [-1998,-1980],
-                        "default": -1998,
+                        "value": [-1951,-1931.8],
+                        "default": -1951,
                         "unit": "米"
                     },
                     {
@@ -157,15 +157,15 @@
                     {
                         "key": "dynpc2_x",
                         "description": "打击车辆2的x初始位置",
-                        "value": [-1,14],
-                        "default": -1,
+                        "value": [14,30],
+                        "default": -1.2,
                         "unit": "秒"
                     },
                     {
                         "key": "dynpc2_y",
                         "description": "打击车辆2的y初始位置",
-                        "value": [-1859,-1845],
-                        "default": -1854,
+                        "value": [-1870,-1855],
+                        "default": -1860,
                         "unit": "米/秒"
                     },
                     {
@@ -184,15 +184,15 @@
                     {
                         "key": "depot1_x",
                         "description": "弹药库1的x初始位置",
-                        "value": [18,22],
-                        "default": 22,
+                        "value": [60,65],
+                        "default": 60,
                         "unit": "米"
                     },
                     {
                         "key": "depot1_y",
                         "description": "弹药库1的y初始位置",
-                        "value": [-1952,-1945],
-                        "default": -1945,
+                        "value": [-1914,-1905],
+                        "default": -1914,
                         "unit": "米"
                     }
                 ]
@@ -211,8 +211,8 @@
                     {
                         "key": "depot2_y",
                         "description": "弹药库2的y初始位置",
-                        "value": [-1817,-1799],
-                        "default": -1799,
+                        "value": [-1817.6,-1799],
+                        "default": -1809.7,
                         "unit": "米"
                     }
                 ]

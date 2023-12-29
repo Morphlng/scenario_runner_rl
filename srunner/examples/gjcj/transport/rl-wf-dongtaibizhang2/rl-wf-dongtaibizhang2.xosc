@@ -104,14 +104,14 @@
       <Actions>
         <GlobalAction>
           <EnvironmentAction>
-            <Environment name="Environment1">
-              <TimeOfDay animation="false" dateTime="2022-04-20T17:20:40" />
-              <Weather cloudState="free">
-                <Sun azimuth="0" intensity="0.35" elevation="1.31" />
-                <Fog visualRange="10000" />
-                <Precipitation precipitationType="dry" intensity="0.0" />
+            <Environment name="Environment">
+              <TimeOfDay animation="false" dateTime="2023-03-09T17:33:28" />
+              <Weather cloudState="cloudy">
+                <Sun azimuth="4.07" intensity="0.96" elevation="2.8" />
+                <Fog visualRange="1000" />
+                <Precipitation precipitationType="rain" intensity="0" />
               </Weather>
-              <RoadCondition frictionScaleFactor="1.0" />
+              <RoadCondition frictionScaleFactor="0.6" />
             </Environment>
           </EnvironmentAction>
         </GlobalAction>

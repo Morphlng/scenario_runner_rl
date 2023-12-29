@@ -184,8 +184,8 @@
                     {
                         "key": "depot1_x",
                         "description": "弹药库1的x初始位置",
-                        "value": [-103,-101],
-                        "default":-103,
+                        "value": [-107,-105],
+                        "default": -105,
                         "unit": "米"
                     },
                     {

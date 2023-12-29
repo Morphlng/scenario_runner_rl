@@ -1,0 +1,42 @@
+{
+    "seed": 13,
+    "name": "ego",
+    "map": "CE-A2",
+    "agent": {
+        "opt": {
+            "ignore_traffic_lights": false,
+            "ignore_stop_signs": false,
+            "ignore_vehicles": false
+        }
+    },
+    "init": {
+        "maneuver": {}
+    },
+    "destination": [
+        {"location": [-51.6, -2103.9, 84]}
+    ],
+    "targets": {
+        "scout": [],
+        "strike": ["gun1","gun2","depot1","depot2"],
+        "track": []
+    },
+    "taskarea": [
+        {"location": [-116.3, -2456.8, 84]},
+        {"location": [-65.8, -2458.8, 83.6]},
+        {"location": [-95, -2088.9, 83.1]},
+        {"location": [-17.4, -2105.3, 83.1]}
+    ],
+    "keypoints": [],
+    "team": {
+        "red": [], 
+        "blue": ["gun1","gun2","depot1","depot2"],  
+        "neutrality": ["barrier1","barrier2","barrier3","barrier4","zjc1","zjc2"]
+    },
+    "elementtype":{
+        "pedestrian": [], 
+        "dynamic": ["gun1","gun2"],     
+        "static": ["zjc1","zjc2"],    
+        "obstacle": ["barrier1","barrier2","barrier3","barrier4","depot1","depot2"],  
+        "keypoints": []    
+    }  
+}

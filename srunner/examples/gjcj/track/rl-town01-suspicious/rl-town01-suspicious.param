@@ -1,0 +1,116 @@
+[
+    {
+        "name": "story_transport",
+        "description": "跟踪任务-可疑车辆跟踪",
+        "param": [
+            {
+                "key": "ego",
+                "description": "主车",
+                "children": [
+                    {
+                        "key": "ego_start_s",
+                        "description": "主车初始位置",
+                        "value": [28,33],
+                        "default": 30,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "suspicious",
+                "description": "可疑车辆",
+                "children": [
+                    {
+                        "key": "suspicious_start_s",
+                        "description": "可疑车辆的初始位置",
+                        "value": [150,153],
+                        "default": 151,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "suspicious_acc_time",
+                        "description": "可疑车辆的的加速时间",
+                        "value": [1,10],
+                        "default": 3,
+                        "unit": "秒"
+                    },
+                    {
+                        "key": "suspicious_speed",
+                        "description": "可疑车辆的速度",
+                        "value": [5,14],
+                        "default": 8,
+                        "unit": "米/秒"
+                    }
+                ]
+            },
+            {
+                "key": "npc1",
+                "description": "运动车辆1",
+                "children": [
+                    {
+                        "key": "npc1_start_s",
+                        "description": "npc1初始位置",
+                        "value": [5,13],
+                        "default": 9,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "npc1_acc_time",
+                        "description": "npc1的加速时间",
+                        "value": [1,10],
+                        "default": 6,
+                        "unit": "秒"
+                    },
+                    {
+                        "key": "npc1_speed",
+                        "description": "npc1的速度",
+                        "value": [5,12],
+                        "default": 7,
+                        "unit": "米/秒"
+                    },
+                    {
+                        "key": "npc1_reach_region1",
+                        "description": "可疑车辆到达位置1后npc1运动",
+                        "value": [1,22],
+                        "default": 4,
+                        "unit": "米"
+                    }
+                ]
+            },
+           {
+                "key": "npc2",
+                "description": "运动车辆2",
+                "children": [
+                    {
+                        "key": "npc2_start_s",
+                        "description": "npc2初始位置",
+                        "value": [3,43],
+                        "default": 13,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "npc2_acc_time",
+                        "description": "npc2的加速时间",
+                        "value": [1,10],
+                        "default": 10,
+                        "unit": "秒"
+                    },
+                    {
+                        "key": "npc2_speed",
+                        "description": "npc2的速度",
+                        "value": [9,15],
+                        "default": 10,
+                        "unit": "米/秒"
+                    },
+                    {
+                        "key": "npc2_reach_region2",
+                        "description": "可疑车辆到达位置1后npc2运动",
+                        "value": [50,80],
+                        "default": 65,
+                        "unit": "米"
+                    }
+                ]
+            }
+        ]
+    }
+]

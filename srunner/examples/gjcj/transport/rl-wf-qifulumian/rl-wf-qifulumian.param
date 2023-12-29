@@ -1,0 +1,167 @@
+[
+    {
+        "name": "story_transport",
+        "description": "运输任务-起伏路面通行",
+        "param": [
+            {
+                "key": "ego",
+                "description": "主车",
+                "children": [
+                    {
+                        "key": "ego_start_s",
+                        "description": "主车初始位置",
+                        "value": [5,50],
+                        "default": 35,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "npc1",
+                "description": "左侧道路车辆",
+                "children": [
+                    {
+                        "key": "npc1_s",
+                        "description": "npc1初始位置",
+                        "value": [30,150],
+                        "default": 84,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "npc1_acc_distance1",
+                        "description": "npc1完成加速的距离",
+                        "value": [5,30],
+                        "default": 30,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "npc1_acc_speed1",
+                        "description": "npc1加速达到的速度1",
+                        "value": [5,15],
+                        "default": 10,
+                        "unit": "米/秒"
+                    },
+                    {
+                        "key": "npc1_egoreach_region",
+                        "description": "npc1到region位置",
+                        "value": [200,400],
+                        "default": 270,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "npc2",
+                "description": "右侧道路车辆",
+                "children": [
+                    {
+                        "key": "npc2_s",
+                        "description": "npc2初始位置",
+                        "value": [100,210],
+                        "default": 100,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "npc2_acc_distance1",
+                        "description": "npc2完成加速的距离",
+                        "value": [10,35],
+                        "default": 30,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "npc2_acc_speed1",
+                        "description": "npc2加速达到的速度1",
+                        "value": [5,16],
+                        "default": 5,
+                        "unit": "米/秒"
+                    },
+                    {
+                        "key": "npc2_egoreach_region2",
+                        "description": "npc2到达region2位置",
+                        "value": [250,420],
+                        "default": 350,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "tudui1",
+                "description": "土堆1",
+                "children": [
+                    {
+                        "key": "tudui1_s",
+                        "description": "土堆1初始位置",
+                        "value": [70,115],
+                        "default": 70,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "tudui2",
+                "description": "土堆2",
+                "children": [
+                    {
+                        "key": "tudui2_s",
+                        "description": "土堆2初始位置",
+                        "value": [130,175],
+                        "default": 132,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "tudui3",
+                "description": "土堆3",
+                "children": [
+                    {
+                        "key": "tudui3_s",
+                        "description": "土堆3初始位置",
+                        "value": [190,235],
+                        "default": 198,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "tudui4",
+                "description": "土堆4",
+                "children": [
+                    {
+                        "key": "tudui4_s",
+                        "description": "土堆4初始位置",
+                        "value": [250,295],
+                        "default": 256,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "tudui5",
+                "description": "土堆5",
+                "children": [
+                    {
+                        "key": "tudui5_s",
+                        "description": "土堆5初始位置",
+                        "value": [310,355],
+                        "default": 332,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "tudui6",
+                "description": "土堆6",
+                "children": [
+                    {
+                        "key": "tudui6_s",
+                        "description": "土堆6初始位置",
+                        "value": [370,415],
+                        "default": 395,
+                        "unit": "米"
+                    }
+                ]
+            }
+        ]
+    }
+]

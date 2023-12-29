@@ -1,0 +1,189 @@
+[
+    {
+        "name": "story_transport",
+        "description": "运输任务-动态避障1",
+        "param": [
+            {
+                "key": "ego",
+                "description": "主车",
+                "children": [
+                    {
+                        "key": "ego_start_s",
+                        "description": "主车初始位置",
+                        "value": [330,390],
+                        "default": 350,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "npc1",
+                "description": "同向前方车辆1",
+                "children": [
+                    {
+                        "key": "npc1_start_s",
+                        "description": "npc1初始位置",
+                        "value": [800,1100],
+                        "default": 880,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "npc1_acc_speed1",
+                        "description": "npc1加速达到的速度1",
+                        "value": [12,20],
+                        "default": 13,
+                        "unit": "米/秒"
+                    },
+                    {
+                        "key": "npc1_acc_speed4",
+                        "description": "npc1加速达到的速度4",
+                        "value": [11,15],
+                        "default": 15,
+                        "unit": "米/秒"
+                    },
+                    {
+                        "key": "d_npc1",
+                        "description": "npc1与ego的相对距离",
+                        "value": [30,300],
+                        "default": 50,
+                        "unit": "米/秒"
+                    }
+                ]
+            },
+            {
+                "key": "npc2",
+                "description": "对向前方车辆2",
+                "children": [
+                    {
+                        "key": "npc2_start_s",
+                        "description": "npc2初始位置",
+                        "value": [750, 1200],
+                        "default": 750,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "npc2_acc_speed1",
+                        "description": "npc2加速达到的速度1",
+                        "value": [8,12],
+                        "default": 12,
+                        "unit": "米/秒"
+                    },
+                    {
+                        "key": "d_npc2",
+                        "description": "npc2与ego的相对距离",
+                        "value": [80,180],
+                        "default": 180,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "npc3",
+                "description": "对向前方车辆3",
+                "children": [
+                    {
+                        "key": "npc3_start_s",
+                        "description": "npc3初始位置",
+                        "value": [400, 600],
+                        "default": 434,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "npc3_acc_speed1",
+                        "description": "npc3加速达到的速度1",
+                        "value": [13,22],
+                        "default": 16,
+                        "unit": "米/秒"
+                    },
+                    {
+                        "key": "npc3_decelerate_speed3",
+                        "description": "npc3减速达到的速度3",
+                        "value": [8,12],
+                        "default": 10,
+                        "unit": "米/秒"
+                    },
+                    {
+                        "key": "d_npc3",
+                        "description": "npc3与ego的相对距离",
+                        "value": [70,350],
+                        "default": 70,
+                        "unit": "米/秒"
+                    }
+                ]
+            },
+            {
+                "key": "npc5",
+                "description": "同车道静止车辆5",
+                "children": [
+                    {
+                        "key": "npc5_start_s",
+                        "description": "npc5初始位置",
+                        "value": [30, 130],
+                        "default": 110,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "zjc1",
+                "description": "路边静止障碍车1",
+                "children": [
+                    {
+                        "key": "zjc1_start_x",
+                        "description": "zjc1的x位置",
+                        "value": [270, 320],
+                        "default": 270,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "zjc1_start_y",
+                        "description": "zjc1的y位置",
+                        "value": [-495, -480],
+                        "default":-480,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "zjc2",
+                "description": "路边静止障碍车2",
+                "children": [
+                    {
+                        "key": "zjc2_start_x",
+                        "description": "zjc2的x位置",
+                        "value": [-100, -85],
+                        "default": -100,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "zjc2_start_y",
+                        "description": "zjc2的y位置",
+                        "value": [-530, -515],
+                        "default":-515,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "zjc3",
+                "description": "路边静止障碍车3",
+                "children": [
+                    {
+                        "key": "zjc3_start_x",
+                        "description": "zjc3的x位置",
+                        "value": [-510, -503],
+                        "default": -510,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "zjc3_start_y",
+                        "description": "zjc3的y位置",
+                        "value": [-550, -530],
+                        "default":-550,
+                        "unit": "米"
+                    }
+                ]
+            }
+        ]
+    }
+]

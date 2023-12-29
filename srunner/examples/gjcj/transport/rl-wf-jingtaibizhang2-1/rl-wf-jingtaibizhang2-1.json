@@ -1,0 +1,42 @@
+{
+    "seed": 13,
+    "name": "ego",
+    "map": "wf_afghanSceneRecnew",
+    "agent": {
+        "opt": {
+            "ignore_traffic_lights": false,
+            "ignore_stop_signs": false,
+            "ignore_vehicles": false
+        }
+    },
+    "init": {
+        "maneuver": {}
+    },
+    "destination": [
+        {"location": [-724.13, -205.74, 0.0]}
+    ],
+    "targets": {
+        "scout": [],
+        "strike": [],
+        "track": []
+    },
+    "taskarea": [
+        {"location": [-618.8, -140.6, 0.0]},
+        {"location": [-716.6, -623.3, 0.0]},
+        {"location": [-809.6, -623.6, 0.0]},
+        {"location": [-794.6, -98.9, 0.0]}
+    ],
+    "keypoints": [],
+    "team": {
+        "red": [], 
+        "blue": ["rb1","rb2"],  
+        "neutrality": ["static1","static2","static3","static4","NPC1","NPC2"]
+    },
+    "elementtype":{
+        "pedestrian": [], 
+        "dynamic": ["rb1","rb2"],     
+        "static": ["NPC1","NPC2"],    
+        "obstacle": ["static1","static2","static3","static4"],  
+        "keypoints": []    
+    }  
+}

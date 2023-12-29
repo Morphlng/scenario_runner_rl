@@ -1,56 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
-  <FileHeader taskCategory="陆域" name="打击任务-对抗打击" description="打击任务-对抗打击" author="lp" revMajor="1"
+  <FileHeader taskCategory="陆域" name="打击任务-静态打击" description="打击任务-静态打击" author="lp" revMajor="1"
     revMinor="0" date="2023-10-08T10:00:00" />
   <ParameterDeclarations>
 
-    <ParameterDeclaration name="barrier1_x" parameterType="double" value="-38" />
-    <ParameterDeclaration name="barrier1_y" parameterType="double" value="-2057.3" />
+    <ParameterDeclaration name="Ego_x" parameterType="double" value="-96.5" />
+    <ParameterDeclaration name="Ego_y" parameterType="double" value="-2458.7" />
 
-    <ParameterDeclaration name="barrier2_x" parameterType="double" value="18.5" />
-    <ParameterDeclaration name="barrier2_y" parameterType="double" value="-1891" />
+    <ParameterDeclaration name="barrier1_x" parameterType="double" value="-92.8" />
+    <ParameterDeclaration name="barrier1_y" parameterType="double" value="-2404.2" />
 
-    <ParameterDeclaration name="barrier3_x" parameterType="double" value="101" />
-    <ParameterDeclaration name="barrier3_y" parameterType="double" value="-1825.5" />
+    <ParameterDeclaration name="barrier2_x" parameterType="double" value="-66.1" />
+    <ParameterDeclaration name="barrier2_y" parameterType="double" value="-2332.9" />
 
-    <ParameterDeclaration name="zjc1_x" parameterType="double" value="-26.4" />
-    <ParameterDeclaration name="zjc1_y" parameterType="double" value="-2014.1" />
+    <ParameterDeclaration name="barrier3_x" parameterType="double" value="-61.8" />
+    <ParameterDeclaration name="barrier3_y" parameterType="double" value="-2220.9" />
 
-    <ParameterDeclaration name="zjc2_x" parameterType="double" value="54" />
-    <ParameterDeclaration name="zjc2_y" parameterType="double" value="-1843" />
+    <ParameterDeclaration name="barrier4_x" parameterType="double" value="-75.5" />
+    <ParameterDeclaration name="barrier4_y" parameterType="double" value="-2151.6" />
 
-    <ParameterDeclaration name="zjc3_x" parameterType="double" value="114.9" />
-    <ParameterDeclaration name="zjc3_y" parameterType="double" value="-1781.4" />
+    <ParameterDeclaration name="zjc1_x" parameterType="double" value="-103" />
+    <ParameterDeclaration name="zjc1_y" parameterType="double" value="-2435" />
 
+    <ParameterDeclaration name="zjc2_x" parameterType="double" value="-81" />
+    <ParameterDeclaration name="zjc2_y" parameterType="double" value="-2210" />
 
-    <ParameterDeclaration name="dynpc1_x" parameterType="double" value="23.9" />
-    <ParameterDeclaration name="dynpc1_y" parameterType="double" value="-1951" />
-    <ParameterDeclaration name="dynpc1_fire_distance" parameterType="double" value="50" />
+    <ParameterDeclaration name="gun1_x" parameterType="double" value="-95.6" />
+    <ParameterDeclaration name="gun1_y" parameterType="double" value="-2315" />
+    <ParameterDeclaration name="gun1_fire_distance" parameterType="double" value="70" />
 
-    <ParameterDeclaration name="dynpc2_x" parameterType="double" value="-1.2" />
-    <ParameterDeclaration name="dynpc2_y" parameterType="double" value="-1854.6" />
-    <ParameterDeclaration name="dynpc2_fire_distance" parameterType="double" value="50" />
+    <ParameterDeclaration name="gun2_x" parameterType="double" value="-41.2" />
+    <ParameterDeclaration name="gun2_y" parameterType="double" value="-2187.9" />
+    <ParameterDeclaration name="gun2_fire_distance" parameterType="double" value="50" />
 
-    <ParameterDeclaration name="depot1_x" parameterType="double" value="60" />
-    <ParameterDeclaration name="depot1_y" parameterType="double" value="-1914" />
+    <ParameterDeclaration name="depot1_x" parameterType="double" value="-105" />
+    <ParameterDeclaration name="depot1_y" parameterType="double" value="-2235" />
 
-    <ParameterDeclaration name="depot2_x" parameterType="double" value="24.9" />
-    <ParameterDeclaration name="depot2_y" parameterType="double" value="-1809.7" />
+    <ParameterDeclaration name="depot2_x" parameterType="double" value="-48" />
+    <ParameterDeclaration name="depot2_y" parameterType="double" value="-2146" />
 
   </ParameterDeclarations>
   <CatalogLocations>
     <VehicleCatalog>
-      <Directory path="../../Catalogs/Vehicles" />
+      <Directory path="../xosc/Catalogs/Vehicles" />
     </VehicleCatalog>
     <PedestrianCatalog>
-      <Directory path="../../Catalogs/Pedestrians" />
+      <Directory path="../xosc/Catalogs/Pedestrians" />
     </PedestrianCatalog>
     <MiscObjectCatalog>
-      <Directory path="../../Catalogs/MiscObjects" />
+      <Directory path="../xosc/Catalogs/MiscObjects" />
     </MiscObjectCatalog>
     <ControllerCatalog>
-      <Directory path="../../Catalogs/Controllers" />
+      <Directory path="../xosc/Catalogs/Controllers" />
     </ControllerCatalog>
   </CatalogLocations>
   <RoadNetwork>
@@ -73,11 +75,11 @@
     </TargetObject>
   </TargetObjects>
   <Entities>
-    <!-- 主车  -->
+
     <ScenarioObject name="Ego">
       <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.imv.bigrb" />
     </ScenarioObject>
-    <!-- 障碍物  -->
+
     <ScenarioObject name="barrier1">
       <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.barricadehard" />
     </ScenarioObject>
@@ -87,29 +89,33 @@
     <ScenarioObject name="barrier3">
       <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.barricadehard" />
     </ScenarioObject>
-    <!-- 静态车辆  -->
+    <ScenarioObject name="barrier4">
+      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.barricadehard" />
+    </ScenarioObject>
+
     <ScenarioObject name="zjc1">
       <CatalogReference catalogName="VehicleCatalog" entryName="dynamic.prop.apc_80_wreck" />
     </ScenarioObject>
     <ScenarioObject name="zjc2">
       <CatalogReference catalogName="VehicleCatalog" entryName="dynamic.prop.apc_80_wreck" />
     </ScenarioObject>
-    <ScenarioObject name="zjc3">
-      <CatalogReference catalogName="VehicleCatalog" entryName="dynamic.prop.apc_80_wreck" />
+
+    <ScenarioObject name="gun1">
+    <!-- 需要使用set_attributes 扩大3倍 -->
+    <!-- 打击半径10m，重力设置默认 -->
+      <CatalogReference catalogName="VehicleCatalog" entryName="load.gunfire.001" />
     </ScenarioObject>
-    <!-- 打击车辆  -->
-    <ScenarioObject name="dynpc1">
-      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.armored.blue" />
+    <ScenarioObject name="gun2">
+      <CatalogReference catalogName="VehicleCatalog" entryName="load.gunfire.001" />
     </ScenarioObject>
-    <ScenarioObject name="dynpc2">
-      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.armored.blue" />
-    </ScenarioObject>
-    <!-- 弹药库  -->
+
     <ScenarioObject name="depot1">
-      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.ammunitiondepot" />
+      <CatalogReference catalogName="MiscObjectCatalog"
+        entryName="dynamic.prop.ammunitiondepot" />
     </ScenarioObject>
     <ScenarioObject name="depot2">
-      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.ammunitiondepot" />
+      <CatalogReference catalogName="MiscObjectCatalog"
+        entryName="dynamic.prop.ammunitiondepot" />
     </ScenarioObject>
 
     <!-- <ScenarioObject name="scar1">
@@ -122,9 +128,9 @@
         <GlobalAction>
           <EnvironmentAction>
             <Environment name="Environment">
-              <TimeOfDay animation="false" dateTime="2023-03-09T08:33:28" />
+              <TimeOfDay animation="false" dateTime="2023-03-09T17:33:28" />
               <Weather cloudState="free">
-                <Sun azimuth="0" intensity="100" elevation="1" />
+                <Sun azimuth="4.0" intensity="0.96" elevation="2.6" />
                 <Fog visualRange="100" />
                 <Precipitation precipitationType="rain" intensity="0" />
               </Weather>
@@ -136,17 +142,36 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="-46.9" y="-2087.5" z="83" h="0" r="0" p="0" />
+                <WorldPosition x="$Ego_x" y="$Ego_y" z="85" h="1.57" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
-          <!-- s -->
+          <PrivateAction>
+            <ControllerAction>
+              <AssignControllerAction>
+                <Controller name="HeroAgent">
+                  <Properties>
+                    <Property name="module" value="external_control" />
+                  </Properties>
+                </Controller>
+              </AssignControllerAction>
+              <OverrideControllerValueAction>
+                <Throttle value="0" active="false" />
+                <Brake value="0" active="false" />
+                <Clutch value="0" active="false" />
+                <ParkingBrake value="0" active="false" />
+                <SteeringWheel value="0" active="false" />
+                <Gear number="0" active="false" />
+              </OverrideControllerValueAction>
+            </ControllerAction>
+          </PrivateAction>
         </Private>
         <Private entityRef="barrier1">
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$barrier1_x" y="$barrier1_y" z="85" h="1" r="0" p="0" />
+                <WorldPosition x="$barrier1_x" y="$barrier1_y" z="85.5" h="1.57"
+                  r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -155,7 +180,8 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$barrier2_x" y="$barrier2_y" z="85" h="1" r="0" p="0" />
+                <WorldPosition x="$barrier2_x" y="$barrier2_y" z="85" h="1.57" r="0"
+                  p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -164,7 +190,18 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$barrier3_x" y="$barrier3_y" z="86" h="0" r="0" p="0" />
+                <WorldPosition x="$barrier3_x" y="$barrier3_y" z="85" h="1.57" r="0"
+                  p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="barrier4">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$barrier4_x" y="$barrier4_y" z="85" h="1.57" r="0"
+                  p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -173,7 +210,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$zjc1_x" y="$zjc1_y" z="86" h="0" r="0" p="0" />
+                <WorldPosition x="$zjc1_x" y="$zjc1_y" z="84" h="0" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -182,34 +219,25 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$zjc2_x" y="$zjc2_y" z="85" h="-1" r="0" p="0" />
+                <WorldPosition x="$zjc2_x" y="$zjc2_y" z="84.5" h="1.57" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
         </Private>
-        <Private entityRef="zjc3">
+        <Private entityRef="gun1">
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$zjc3_x" y="$zjc3_y" z="86.5" h="0" r="0" p="0" />
+                <WorldPosition x="$gun1_x" y="$gun1_y" z="85" h="0" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
         </Private>
-        <Private entityRef="dynpc1">
+        <Private entityRef="gun2">
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$dynpc1_x" y="$dynpc1_y" z="85" h="3.14" r="0" p="0" />
-              </Position>
-            </TeleportAction>
-          </PrivateAction>
-        </Private>
-        <Private entityRef="dynpc2">
-          <PrivateAction>
-            <TeleportAction>
-              <Position>
-                <WorldPosition x="$dynpc2_x" y="$dynpc2_y" z="85" h="0" r="0" p="0" />
+                <WorldPosition x="$gun2_x" y="$gun2_y" z="85" h="3.14" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -218,7 +246,8 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$depot1_x" y="$depot1_y" z="99" h="-0.5" r="0" p="0" />
+                <WorldPosition x="$depot1_x" y="$depot1_y" z="90" h="0.03" r="0"
+                  p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -227,23 +256,23 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$depot2_x" y="$depot2_y" z="99" h="1.57" r="0" p="0" />
+                <WorldPosition x="$depot2_x" y="$depot2_y" z="90" h="0.07" r="0"
+                  p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
         </Private>
       </Actions>
     </Init>
-    <Story name="dtnpcdaji1_story">
-      <ParameterDeclarations />
-      <Act name="dtnpcdaji1_story">
-        <ManeuverGroup maximumExecutionCount="1" name="zjc1-mg">
+    <Story name="dj_story">
+      <Act name="dj_story-act">
+        <ManeuverGroup name="rb1_mang" maximumExecutionCount="1">
           <Actors selectTriggeringEntities="false">
-            <EntityRef entityRef="dynpc1" />
+            <EntityRef entityRef="gun1" />
           </Actors>
-          <Maneuver name="dtnpcdaji1-man">
-            <Event name="dtnpcdaji1_fire" priority="parallel" maximumExecutionCount="1">
-              <Action name="dynpc1_assign_controller_action">
+          <Maneuver name="gun1_maneuver">
+            <Event name="gun1_fire" priority="parallel" maximumExecutionCount="1">
+              <Action name="gun1_assign_controller_action">
                 <PrivateAction>
                   <ControllerAction>
                     <AssignControllerAction>
@@ -255,15 +284,15 @@
                           <ParameterAssignment parameterRef="Focus_actors" value="Ego" />
                           <ParameterAssignment parameterRef="Add_action_mask" value="true" />
                           <ParameterAssignment parameterRef="Action_extra_config"
-                            value='{"z_correction": 1.73, "pitch_correction": -0.5, "grid_size": 20}' />
+                            value='{"z_correction": 2.49, "grid_size": 20}' />
                           <ParameterAssignment parameterRef="Discrete_action_set"
                             value='[{"0": -5, "1": -4, "2": -3, "3": -2, "4": -1, "5": 0, "6": 1, "7": 2, "8": 3, "9": 4, "10": 5}, {"0": 0, "1": 1, "2": 2}]' />
                           <ParameterAssignment parameterRef="Measurement_type"
                             value="x,y,vx,vy,heading,self:ammo_left" />
                           <ParameterAssignment parameterRef="Model_path"
-                            value="srunner/examples/rl_models/Strike/Strike.Dynamic/checkpoint" />
+                            value="srunner/examples/rl_models/Strike/Strike.Static/checkpoint" />
                           <ParameterAssignment parameterRef="Params_path"
-                            value="srunner/examples/rl_models/Strike/Strike.Dynamic/params.json" />
+                            value="srunner/examples/rl_models/Strike/Strike.Static/params.json" />
                         </ParameterAssignments>
                       </CatalogReference>
                     </AssignControllerAction>
@@ -280,7 +309,7 @@
               </Action>
               <StartTrigger>
                 <ConditionGroup>
-                  <Condition name="dynpc1_con1" delay="0" conditionEdge="none">
+                  <Condition name="gun1_con1" delay="0" conditionEdge="none">
                     <ByValueCondition>
                       <SimulationTimeCondition value="1" rule="greaterThan" />
                     </ByValueCondition>
@@ -290,13 +319,13 @@
             </Event>
           </Maneuver>
         </ManeuverGroup>
-        <ManeuverGroup maximumExecutionCount="1" name="zjc2-mg">
+        <ManeuverGroup name="gun2_mang" maximumExecutionCount="1">
           <Actors selectTriggeringEntities="false">
-            <EntityRef entityRef="dynpc2" />
+            <EntityRef entityRef="gun2" />
           </Actors>
-          <Maneuver name="dtnpcdaji2-man">
-            <Event name="dtnpcdaji2_fire" priority="parallel" maximumExecutionCount="10">
-              <Action name="dynpc2_assign_controller_action">
+          <Maneuver name="gun2_maneuver">
+            <Event name="gun2_fire" priority="parallel" maximumExecutionCount="1">
+              <Action name="gun2_assign_controller_action">
                 <PrivateAction>
                   <ControllerAction>
                     <AssignControllerAction>
@@ -304,19 +333,18 @@
                         <ParameterAssignments>
                           <ParameterAssignment parameterRef="Type" value="weapon" />
                           <ParameterAssignment parameterRef="Action_type" value="fire_action" />
-                          <ParameterAssignment parameterRef="Step_ticks" value="60" />
-                          <ParameterAssignment parameterRef="Focus_actors" value="Ego" />
                           <ParameterAssignment parameterRef="Add_action_mask" value="true" />
+                          <ParameterAssignment parameterRef="Focus_actors" value="Ego" />
                           <ParameterAssignment parameterRef="Action_extra_config"
-                            value='{"z_correction": 1.73, "pitch_correction": -0.5, "grid_size": 20}' />
+                            value='{"z_correction": 2.49, "grid_size": 20}' />
                           <ParameterAssignment parameterRef="Discrete_action_set"
                             value='[{"0": -5, "1": -4, "2": -3, "3": -2, "4": -1, "5": 0, "6": 1, "7": 2, "8": 3, "9": 4, "10": 5}, {"0": 0, "1": 1, "2": 2}]' />
                           <ParameterAssignment parameterRef="Measurement_type"
                             value="x,y,vx,vy,heading,self:ammo_left" />
                           <ParameterAssignment parameterRef="Model_path"
-                            value="srunner/examples/rl_models/Strike/Strike.Dynamic/checkpoint" />
+                            value="srunner/examples/rl_models/Strike/Strike.Static/checkpoint" />
                           <ParameterAssignment parameterRef="Params_path"
-                            value="srunner/examples/rl_models/Strike/Strike.Dynamic/params.json" />
+                            value="srunner/examples/rl_models/Strike/Strike.Static/params.json" />
                         </ParameterAssignments>
                       </CatalogReference>
                     </AssignControllerAction>
@@ -333,7 +361,7 @@
               </Action>
               <StartTrigger>
                 <ConditionGroup>
-                  <Condition name="dynpc2_con1" delay="0" conditionEdge="none">
+                  <Condition name="gun2_con1" delay="0" conditionEdge="none">
                     <ByValueCondition>
                       <SimulationTimeCondition value="1" rule="greaterThan" />
                     </ByValueCondition>
@@ -345,9 +373,9 @@
         </ManeuverGroup>
         <StartTrigger>
           <ConditionGroup>
-            <Condition name="dtnpcdaji2_start_trigger" delay="0" conditionEdge="none">
+            <Condition name="all_start" delay="0" conditionEdge="rising">
               <ByValueCondition>
-                <SimulationTimeCondition value="0" rule="greaterThan" />
+                <SimulationTimeCondition value="0.1" rule="greaterThan" />
               </ByValueCondition>
             </Condition>
           </ConditionGroup>

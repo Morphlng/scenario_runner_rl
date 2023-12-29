@@ -1,57 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
-  <FileHeader taskCategory="陆域" name="运输-动态避障2" description="运输任务动态避障2" author="lp" revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
+  <FileHeader taskCategory="陆域" name="运输任务-起伏路面通行" description="运输任务-起伏路面通行" author="lp" revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
   <ParameterDeclarations>
-    <ParameterDeclaration name="ego_start_s" parameterType="double" value="480" />
+    <ParameterDeclaration name="ego_start_s" parameterType="double" value="35.0" />
 
-    <ParameterDeclaration name="npc1_start_s" parameterType="double" value="400" />
-    <ParameterDeclaration name="npc1_acc_distance1" parameterType="double" value="50" />
-    <ParameterDeclaration name="npc1_acc_speed1" parameterType="double" value="13" />
-    <ParameterDeclaration name="npc1_decelerate_distance3" parameterType="double" value="30" />
-    <ParameterDeclaration name="npc1_decelerate_speed3" parameterType="double" value="6" />
-    <ParameterDeclaration name="npc1_acc_distance4" parameterType="double" value="50" />
-    <ParameterDeclaration name="npc1_acc_speed4" parameterType="double" value="15" />
-    <ParameterDeclaration name="npc1_stop_distance5" parameterType="double" value="50" />
-    <ParameterDeclaration name="d_npc1" parameterType="double" value="50" />
+    <ParameterDeclaration name="npc1_s" parameterType="double" value="84" />
+    <ParameterDeclaration name="npc1_acc_distance1" parameterType="double" value="30" />
+    <ParameterDeclaration name="npc1_acc_speed1" parameterType="double" value="15" />
+    <ParameterDeclaration name="npc1_egoreach_region" parameterType="double" value="270" />
 
-    <ParameterDeclaration name="npc2_start_s" parameterType="double" value="170" />
-    <ParameterDeclaration name="npc2_acc_distance1" parameterType="double" value="50" />
-    <ParameterDeclaration name="npc2_acc_speed1" parameterType="double" value="12" />
-    <ParameterDeclaration name="npc2_stop_distance5" parameterType="double" value="30" />
-    <ParameterDeclaration name="d_npc2" parameterType="double" value="160" />
+    <ParameterDeclaration name="npc2_s" parameterType="double" value="100" />
+    <ParameterDeclaration name="npc2_acc_distance1" parameterType="double" value="30" />
+    <ParameterDeclaration name="npc2_acc_speed1" parameterType="double" value="5" />
+    <ParameterDeclaration name="npc2_egoreach_region2" parameterType="double" value="350" />
 
-    <ParameterDeclaration name="npc3_start_s" parameterType="double" value="260" />
-    <ParameterDeclaration name="npc3_acc_distance1" parameterType="double" value="50" />
-    <ParameterDeclaration name="npc3_acc_speed1" parameterType="double" value="16" />
-    <ParameterDeclaration name="npc3_decelerate_distance3" parameterType="double" value="30" />
-    <ParameterDeclaration name="npc3_decelerate_speed3" parameterType="double" value="10" />
-    <ParameterDeclaration name="npc3_acc_distance4" parameterType="double" value="50" />
-    <ParameterDeclaration name="npc3_acc_speed4" parameterType="double" value="15" />
-    <ParameterDeclaration name="npc3_stop_distance5" parameterType="double" value="30" />
-    <ParameterDeclaration name="d_npc3" parameterType="double" value="50" />
-    <ParameterDeclaration name="npc5_start_s" parameterType="double" value="450" />
+    <ParameterDeclaration name="tudui1_s" parameterType="double" value="70" />
+    <ParameterDeclaration name="tudui2_s" parameterType="double" value="132" />
+    <ParameterDeclaration name="tudui3_s" parameterType="double" value="198" />
+    <ParameterDeclaration name="tudui4_s" parameterType="double" value="256" />
+    <ParameterDeclaration name="tudui5_s" parameterType="double" value="332" />
+    <ParameterDeclaration name="tudui6_s" parameterType="double" value="395" />
 
-    <ParameterDeclaration name="zjc1_start_x" parameterType="double" value="433" />
-    <ParameterDeclaration name="zjc1_start_y" parameterType="double" value="-12" />
-
-    <ParameterDeclaration name="zjc2_start_x" parameterType="double" value="143" />
-    <ParameterDeclaration name="zjc2_start_y" parameterType="double" value="-15" />
-
-    <ParameterDeclaration name="zjc3_start_x" parameterType="double" value="-257.9"/>
-    <ParameterDeclaration name="zjc3_start_y" parameterType="double" value="-43.4"/>
   </ParameterDeclarations>
   <CatalogLocations>
     <VehicleCatalog>
-      <Directory path="../../Catalogs/Vehicles"/>
+      <Directory path="../xosc/Catalogs/Vehicles"/>
     </VehicleCatalog>
     <PedestrianCatalog>
-      <Directory path="../../Catalogs/Pedestrians"/>
+      <Directory path="../xosc/Catalogs/Pedestrians"/>
     </PedestrianCatalog>
     <MiscObjectCatalog>
-      <Directory path="../../Catalogs/MiscObjects"/>
+      <Directory path="../xosc/Catalogs/MiscObjects"/>
     </MiscObjectCatalog>
     <ControllerCatalog>
-      <Directory path="../../Catalogs/Controllers"/>
+      <Directory path="../xosc/Catalogs/Controllers"/>
     </ControllerCatalog>
   </CatalogLocations>
   <RoadNetwork>
@@ -78,26 +60,33 @@
       <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.wheeled.trucknormal" />
     </ScenarioObject>
     <ScenarioObject name="npc1">
-      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.tesla.cybertruck" />
+      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.apc.puma" />
     </ScenarioObject>
     <ScenarioObject name="npc2">
-      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.tesla.cybertruck" />
+      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.apc.puma" />
     </ScenarioObject>
-    <ScenarioObject name="npc3">
-      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.tesla.cybertruck" />
+    <ScenarioObject name="tudui1">
+      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.taft" />
     </ScenarioObject>
-    <ScenarioObject name="npc5">
-      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.sprinter" />
+    <ScenarioObject name="tudui2">
+      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.taft" />
     </ScenarioObject>
-    <ScenarioObject name="zjc1">
-      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.zjc" />
+    <ScenarioObject name="tudui3">
+      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.taft" />
     </ScenarioObject>
-    <ScenarioObject name="zjc2">
-      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.zjc" />
+    <ScenarioObject name="tudui4">
+      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.taft" />
     </ScenarioObject>
-    <ScenarioObject name="zjc3">
-      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.zjc" />
+    <ScenarioObject name="tudui5">
+      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.taft" />
     </ScenarioObject>
+    <ScenarioObject name="tudui6">
+      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.taft" />
+    </ScenarioObject>
+    <ScenarioObject name="soldier">
+      <CatalogReference catalogName="PedestrianCatalog" entryName="walker.pedestrian.0055" />
+    </ScenarioObject>
+
   </Entities>
   <Storyboard>
     <Init>
@@ -119,7 +108,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <LanePosition roadId="28" laneId="1" s="$ego_start_s" offset="0.0" />
+                <LanePosition roadId="0" laneId="-1" s="$ego_start_s" offset="0.0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -143,38 +132,11 @@
             </ControllerAction>
           </PrivateAction>
         </Private>
-        <Private entityRef="zjc1">
-          <PrivateAction>
-            <TeleportAction>
-              <Position>
-                <WorldPosition x="$zjc1_start_x" y="$zjc1_start_y" z="1.7" h="1.27" />
-              </Position>
-            </TeleportAction>
-          </PrivateAction>
-        </Private>
-        <Private entityRef="zjc2">
-          <PrivateAction>
-            <TeleportAction>
-              <Position>
-                <WorldPosition x="$zjc2_start_x" y="$zjc2_start_y" z="2.0" h="1.57" />
-              </Position>
-            </TeleportAction>
-          </PrivateAction>
-        </Private>
-        <Private entityRef="zjc3">
-          <PrivateAction>
-            <TeleportAction>
-              <Position>
-                <WorldPosition x="$zjc3_start_x" y="$zjc3_start_y" z="1.7" h="1.57" />
-              </Position>
-            </TeleportAction>
-          </PrivateAction>
-        </Private>
         <Private entityRef="npc1">
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <LanePosition roadId="28" laneId="1" s="$npc1_start_s" offset="0.0" />
+                <LanePosition roadId="14" laneId="1" s="$npc1_s" offset="0.0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -183,32 +145,76 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <LanePosition roadId="28" laneId="-1" s="$npc2_start_s" offset="0.0" />
+                <LanePosition roadId="13" laneId="-1" s="$npc2_s" offset="1.57" />
               </Position>
             </TeleportAction>
           </PrivateAction>
         </Private>
-        <Private entityRef="npc3">
+        <Private entityRef="soldier">
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <LanePosition roadId="28" laneId="-1" s="$npc3_start_s" offset="0.0" />
+                <WorldPosition x="-442" y="367" z="1.0" h="-1.57" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
         </Private>
-        <Private entityRef="npc5">
+        <Private entityRef="tudui1">
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <LanePosition roadId="28" laneId="1" s="$npc5_start_s" offset="0.0" />
+                <LanePosition roadId="0" laneId="-1" s="$tudui1_s" offset="0.0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="tudui2">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="0" laneId="1" s="$tudui2_s" offset="0.0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="tudui3">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="0" laneId="-1" s="$tudui3_s" offset="0.0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="tudui4">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="0" laneId="1" s="$tudui4_s" offset="0.0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="tudui5">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="0" laneId="-1" s="$tudui5_s" offset="0.0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="tudui6">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="0" laneId="1" s="$tudui6_s" offset="0.0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
         </Private>
       </Actions>
     </Init>
-
     <Story name="npc1_story_transport">
       <ParameterDeclarations />
       <Act name="iic1_act">
@@ -227,15 +233,19 @@
                           <ParameterAssignment parameterRef="Type" value="vehicle_4w" />
                           <ParameterAssignment parameterRef="Target_speed" value="20" />
                           <ParameterAssignment parameterRef="Init_speed" value="20" />
+                          <ParameterAssignment parameterRef="Focus_actors"
+                            value="Ego,npc1,npc2,soldier" />
                           <ParameterAssignment parameterRef="Action_type"
                             value="vehicle_atomic_action" />
                           <ParameterAssignment parameterRef="Discrete_action_set"
                             value='[{"0": "stop", "1": "lane_follow", "2": "left_lane_change", "3": "right_lane_change"}, {"0": 0, "1": 4, "2": 8, "3": 12, "4": 16}]' />
+                          <ParameterAssignment parameterRef="Foucs_actors"
+                            value="Ego,npc1,npc2,soldier" />
                           <ParameterAssignment parameterRef="Add_action_mask" value="true" />
                           <ParameterAssignment parameterRef="Model_path"
-                            value="srunner/examples/rl_models/Transport/Transport.Dynamic/checkpoint" />
+                            value="srunner/examples/rl_models/Transport/Transport.Passthrough/checkpoint" />
                           <ParameterAssignment parameterRef="Params_path"
-                            value="srunner/examples/rl_models/Transport/Transport.Dynamic/params.json" />
+                            value="srunner/examples/rl_models/Transport/Transport.Passthrough/params.json" />
                         </ParameterAssignments>
                       </CatalogReference>
                     </AssignControllerAction>
@@ -254,7 +264,7 @@
                 <ConditionGroup>
                   <Condition name="npc1_con1" delay="0" conditionEdge="none">
                     <ByValueCondition>
-                      <SimulationTimeCondition value="3" rule="greaterThan" />
+                      <SimulationTimeCondition value="10" rule="greaterThan" />
                     </ByValueCondition>
                   </Condition>
                 </ConditionGroup>
@@ -308,15 +318,19 @@
                           <ParameterAssignment parameterRef="Type" value="vehicle_4w" />
                           <ParameterAssignment parameterRef="Target_speed" value="20" />
                           <ParameterAssignment parameterRef="Init_speed" value="20" />
+                          <ParameterAssignment parameterRef="Focus_actors"
+                            value="Ego,npc1,npc2,soldier" />
                           <ParameterAssignment parameterRef="Action_type"
                             value="vehicle_atomic_action" />
                           <ParameterAssignment parameterRef="Discrete_action_set"
                             value='[{"0": "stop", "1": "lane_follow", "2": "left_lane_change", "3": "right_lane_change"}, {"0": 0, "1": 4, "2": 8, "3": 12, "4": 16}]' />
+                          <ParameterAssignment parameterRef="Foucs_actors"
+                            value="Ego,npc1,npc2,soldier" />
                           <ParameterAssignment parameterRef="Add_action_mask" value="true" />
                           <ParameterAssignment parameterRef="Model_path"
-                            value="srunner/examples/rl_models/Transport/Transport.Dynamic/checkpoint" />
+                            value="srunner/examples/rl_models/Transport/Transport.Passthrough/checkpoint" />
                           <ParameterAssignment parameterRef="Params_path"
-                            value="srunner/examples/rl_models/Transport/Transport.Dynamic/params.json" />
+                            value="srunner/examples/rl_models/Transport/Transport.Passthrough/params.json" />
                         </ParameterAssignments>
                       </CatalogReference>
                     </AssignControllerAction>
@@ -335,7 +349,7 @@
                 <ConditionGroup>
                   <Condition name="npc2_con1" delay="0" conditionEdge="none">
                     <ByValueCondition>
-                      <SimulationTimeCondition value="3" rule="greaterThan" />
+                      <SimulationTimeCondition value="10" rule="greaterThan" />
                     </ByValueCondition>
                   </Condition>
                 </ConditionGroup>
@@ -361,87 +375,6 @@
         <StartTrigger>
           <ConditionGroup>
             <Condition name="noStopAct2-start_trigger" delay="0" conditionEdge="rising">
-              <ByValueCondition>
-                <SimulationTimeCondition value="10000" rule="greaterThan" />
-              </ByValueCondition>
-            </Condition>
-          </ConditionGroup>
-        </StartTrigger>
-        <StopTrigger />
-      </Act>
-    </Story>
-
-    <Story name="npc3_story_transport">
-      <ParameterDeclarations />
-      <Act name="iic3_act">
-        <ManeuverGroup name="npc3_mang1" maximumExecutionCount="1">
-          <Actors selectTriggeringEntities="false">
-            <EntityRef entityRef="npc3" />
-          </Actors>
-          <Maneuver name="npc3_man1">
-            <Event name="npc3_event" priority="parallel" maximumExecutionCount="1">
-              <Action name="npc1_assign_controller_action">
-                <PrivateAction>
-                  <ControllerAction>
-                    <AssignControllerAction>
-                      <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
-                        <ParameterAssignments>
-                          <ParameterAssignment parameterRef="Type" value="vehicle_4w" />
-                          <ParameterAssignment parameterRef="Target_speed" value="20" />
-                          <ParameterAssignment parameterRef="Init_speed" value="20" />
-                          <ParameterAssignment parameterRef="Action_type"
-                            value="vehicle_atomic_action" />
-                          <ParameterAssignment parameterRef="Discrete_action_set"
-                            value='[{"0": "stop", "1": "lane_follow", "2": "left_lane_change", "3": "right_lane_change"}, {"0": 0, "1": 4, "2": 8, "3": 12, "4": 16}]' />
-                          <ParameterAssignment parameterRef="Add_action_mask" value="true" />
-                          <ParameterAssignment parameterRef="Model_path"
-                            value="srunner/examples/rl_models/Transport/Transport.Dynamic/checkpoint" />
-                          <ParameterAssignment parameterRef="Params_path"
-                            value="srunner/examples/rl_models/Transport/Transport.Dynamic/params.json" />
-                        </ParameterAssignments>
-                      </CatalogReference>
-                    </AssignControllerAction>
-                    <OverrideControllerValueAction>
-                      <Throttle value="0" active="false" />
-                      <Brake value="0" active="false" />
-                      <Clutch value="0" active="false" />
-                      <ParkingBrake value="0" active="false" />
-                      <SteeringWheel value="0" active="false" />
-                      <Gear number="0" active="false" />
-                    </OverrideControllerValueAction>
-                  </ControllerAction>
-                </PrivateAction>
-              </Action>
-              <StartTrigger>
-                <ConditionGroup>
-                  <Condition name="npc3_con1" delay="0" conditionEdge="none">
-                    <ByValueCondition>
-                      <SimulationTimeCondition value="3" rule="greaterThan" />
-                    </ByValueCondition>
-                  </Condition>
-                </ConditionGroup>
-              </StartTrigger>
-            </Event>
-          </Maneuver>
-        </ManeuverGroup>
-        <StartTrigger>
-          <ConditionGroup>
-            <Condition name="start_trigger3" delay="0" conditionEdge="none">
-              <ByValueCondition>
-                <SimulationTimeCondition value="0" rule="greaterThan" />
-              </ByValueCondition>
-            </Condition>
-          </ConditionGroup>
-        </StartTrigger>
-        <StopTrigger />
-      </Act>
-      <Act name="iic_act">
-        <ManeuverGroup name="noStopAct3" maximumExecutionCount="1">
-          <Actors selectTriggeringEntities="false" />
-        </ManeuverGroup>
-        <StartTrigger>
-          <ConditionGroup>
-            <Condition name="noStopAct3-start_trigger" delay="0" conditionEdge="rising">
               <ByValueCondition>
                 <SimulationTimeCondition value="10000" rule="greaterThan" />
               </ByValueCondition>

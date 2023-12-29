@@ -1,0 +1,352 @@
+[
+    {
+        "name": "story_transport",
+        "description": "打击任务-战场区域通行",
+        "param": [
+            {
+                "key": "barrier1",
+                "description": "障碍1",
+                "children": [
+                    {
+                        "key": "barrier1_x",
+                        "description": "障碍1的x初始位置",
+                        "value": [-152.7,-148],
+                        "default": -152.7,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "barrier1_y",
+                        "description": "障碍1的y初始位置",
+                        "value": [-2900,-2891],
+                        "default": -2899.8,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "barrier2",
+                "description": "障碍2",
+                "children": [
+                    {
+                        "key": "barrier2_x",
+                        "description": "障碍2的x初始位置",
+                        "value": [-150.3,-146],
+                        "default": -150.3,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "barrier2_y",
+                        "description": "障碍2的y初始位置",
+                        "value": [-2860.4,-2846.4],
+                        "default": -2858.8,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "barrier3",
+                "description": "障碍3",
+                "children": [
+                    {
+                        "key": "barrier3_x",
+                        "description": "障碍3的x初始位置",
+                        "value": [-125.4,-121.9],
+                        "default": -123.2,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "barrier3_y",
+                        "description": "障碍3的y初始位置",
+                        "value": [-2608.8,-2597.7],
+                        "default": -2608.8,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "barrier4",
+                "description": "障碍4",
+                "children": [
+                    {
+                        "key": "barrier4_x",
+                        "description": "障碍4的x初始位置",
+                        "value": [-110.6,-106.2],
+                        "default": -108.4,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "barrier4_y",
+                        "description": "障碍4的y初始位置",
+                        "value": [-2510.2,-2497.6],
+                        "default": -2510.2,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "zjc1",
+                "description": "静态车辆1",
+                "children": [
+                    {
+                        "key": "zjc1_x",
+                        "description": "静态车辆1的x初始位置",
+                        "value": [-139.4,-135.3],
+                        "default": -136.1,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "zjc1_y",
+                        "description": "静态车辆1的y初始位置",
+                        "value": [-2809.2,-2802.3],
+                        "default": -2809.2,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "zjc2",
+                "description": "静态车辆2",
+                "children": [
+                    {
+                        "key": "zjc2_x",
+                        "description": "静态车辆2的x初始位置",
+                        "value": [-106.9,-101.6],
+                        "default": -106.9,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "zjc2_y",
+                        "description": "静态车辆2的y初始位置",
+                        "value": [-2764.7,-2757.3],
+                        "default": -2764.7,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "zjc3",
+                "description": "静态车辆3",
+                "children": [
+                    {
+                        "key": "zjc3_x",
+                        "description": "静态车辆3的x初始位置",
+                        "value": [-129.2,-124.8],
+                        "default": -125.5,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "zjc3_y",
+                        "description": "静态车辆3的y初始位置",
+                        "value": [-2711.9,-2703.2],
+                        "default": -2711.9,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "zjc4",
+                "description": "静态车辆4",
+                "children": [
+                    {
+                        "key": "zjc4_x",
+                        "description": "静态车辆4的x初始位置",
+                        "value": [-105.6,-100.9],
+                        "default": -105.6,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "zjc4_y",
+                        "description": "静态车辆4的y初始位置",
+                        "value": [-2667.9,-2660],
+                        "default": -2667.7,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "zjc5",
+                "description": "静态车辆5",
+                "children": [
+                    {
+                        "key": "zjc5_x",
+                        "description": "静态车辆5的x初始位置",
+                        "value":  [-122.2,-117.1],
+                        "default": -119.1,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "zjc5_y",
+                        "description": "静态车辆5的y初始位置",
+                        "value": [-2556.8,-2544.3],
+                        "default": -2556.8,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "robot1",
+                "description": "自杀式机器人1",
+                "children": [
+                    {
+                        "key": "rb1_x",
+                        "description": "自杀式机器人1的x初始距离",
+                        "value": [-137.7,-134.5],
+                        "default": -135,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "rb1_y",
+                        "description": "自杀式机器人1的y初始距离",
+                        "value": [-2798.9,-2794.5],
+                        "default": -2798.9,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "rb1_acc_time",
+                        "description": "自杀式机器人1的加速时间",
+                        "value": [1,8],
+                        "default": 3,
+                        "unit": "秒"
+                    },
+                    {
+                        "key": "rb1_speed",
+                        "description": "自杀式机器人1的速度",
+                        "value": [1,4],
+                        "default": 2,
+                        "unit": "米/秒"
+                    },
+                    {
+                        "key": "d_rb1",
+                        "description": "与ego的相对距离",
+                        "value": [5,50],
+                        "default": 15,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "robot2",
+                "description": "自杀式机器人2",
+                "children": [
+                    {
+                        "key": "rb2_x",
+                        "description": "自杀式机器人2的x初始距离",
+                        "value": [-105.2,-100.2],
+                        "default": -105.2,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "rb2_y",
+                        "description": "自杀式机器人2的y初始距离",
+                        "value": [-2753,-2748.3],
+                        "default": -2752.8,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "rb2_acc_time",
+                        "description": "自杀式机器人2的加速时间",
+                        "value": [1,8],
+                        "default": 3,
+                        "unit": "秒"
+                    },
+                    {
+                        "key": "rb2_speed",
+                        "description": "自杀式机器人2的速度",
+                        "value": [1,4],
+                        "default": 2,
+                        "unit": "米/秒"
+                    },
+                    {
+                        "key": "d_rb2",
+                        "description": "与ego的相对距离",
+                        "value": [5,50],
+                        "default": 15,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "robot3",
+                "description": "自杀式机器人3",
+                "children": [
+                    {
+                        "key": "rb3_x",
+                        "description": "自杀式机器人3的x初始距离",
+                        "value": [-104.4,-100.6],
+                        "default": -104.4,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "rb3_y",
+                        "description": "自杀式机器人3的y初始距离",
+                        "value": [-2656.9,-2651.6],
+                        "default": -2656.6,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "rb3_acc_time",
+                        "description": "自杀式机器人3的加速时间",
+                        "value": [1,8],
+                        "default": 3,
+                        "unit": "秒"
+                    },
+                    {
+                        "key": "rb3_speed",
+                        "description": "自杀式机器人3的速度",
+                        "value": [1,4],
+                        "default": 2,
+                        "unit": "米/秒"
+                    },
+                    {
+                        "key": "d_rb3",
+                        "description": "与ego的相对距离",
+                        "value": [5,50],
+                        "default": 15,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "robot4",
+                "description": "自杀式机器人4",
+                "children": [
+                    {
+                        "key": "rb4_x",
+                        "description": "自杀式机器人4的x初始距离",
+                        "value": [-124.1,-121.5],
+                        "default": -121.9,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "rb4_y",
+                        "description": "自杀式机器人4的y初始距离",
+                        "value": [-2594.1,-2586.9],
+                        "default": -2594.1,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "rb4_acc_time",
+                        "description": "自杀式机器人4的加速时间",
+                        "value": [1,8],
+                        "default": 3,
+                        "unit": "秒"
+                    },
+                    {
+                        "key": "rb4_speed",
+                        "description": "自杀式机器人4的速度",
+                        "value": [1,4],
+                        "default": 2,
+                        "unit": "米/秒"
+                    },
+                    {
+                        "key": "d_rb4",
+                        "description": "与ego的相对距离",
+                        "value": [5,50],
+                        "default": 15,
+                        "unit": "米"
+                    }
+                ]
+            }
+        ]
+    }
+]

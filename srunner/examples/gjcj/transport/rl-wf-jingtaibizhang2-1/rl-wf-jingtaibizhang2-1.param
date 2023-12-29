@@ -1,0 +1,148 @@
+[
+    {
+        "name": "story_transport",
+        "description": "运输任务静态避障2",
+        "param": [
+            {
+                "key": "ego",
+                "description": "主车",
+                "children": [
+                    {
+                        "key": "ego_start_s",
+                        "description": "主车初始位置",
+                        "value": [5,30],
+                        "default": 10,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "rb1",
+                "description": "自杀式机器人1",
+                "children": [
+                    {
+                        "key": "rb1_acc_time",
+                        "description": "自杀式机器人1的加速时间",
+                        "value": [1,8],
+                        "default": 3,
+                        "unit": "秒"
+                    },
+                    {
+                        "key": "rb1_speed",
+                        "description": "自杀式机器人1的速度",
+                        "value": [0.5,3],
+                        "default": 2,
+                        "unit": "米/秒"
+                    },
+                    {
+                        "key": "d_rb1",
+                        "description": "与ego的相对距离",
+                        "value": [3,20],
+                        "default": 15,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "rb1_s",
+                        "description": "自杀式机器人1的初始位置",
+                        "value": [167,168],
+                        "default": 167,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "rb2",
+                "description": "自杀式机器人2",
+                "children": [
+                    {
+                        "key": "rb2_acc_time",
+                        "description": "自杀式机器人2的加速时间",
+                        "value": [1,8],
+                        "default": 3,
+                        "unit": "秒"
+                    },
+                    {
+                        "key": "rb2_speed",
+                        "description": "自杀式机器人2的速度",
+                        "value": [0.5,3],
+                        "default": 2,
+                        "unit": "米/秒"
+                    },
+                    {
+                        "key": "d_rb2",
+                        "description": "与ego的相对距离",
+                        "value": [3,20],
+                        "default": 15,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "rb2_y",
+                        "description": "自杀式机器人2的初始位置-y轴",
+                        "value": [-363,-360],
+                        "default": -363,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "rb2_s",
+                        "description": "自杀式机器人2的路线s位置",
+                        "value": [235,240],
+                        "default": 236,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "static1",
+                "description": "障碍1",
+                "children": [
+                    {
+                        "key": "static1_s",
+                        "description": "障碍1初始位置",
+                        "value": [60,65],
+                        "default": 62,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "static2",
+                "description": "障碍2",
+                "children": [
+                    {
+                        "key": "static2_s",
+                        "description": "障碍2初始位置",
+                        "value": [160,165],
+                        "default": 165,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "static3",
+                "description": "障碍3",
+                "children": [
+                    {
+                        "key": "static3_y",
+                        "description": "障碍3初始的y位置",
+                        "value": [-370,-365],
+                        "default": -370,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "static4",
+                "description": "障碍4",
+                "children": [
+                    {
+                        "key": "static4_s",
+                        "description": "障碍4初始位置",
+                        "value": [360,365],
+                        "default": 364,
+                        "unit": "米"
+                    }
+                ]
+            }
+        ]
+    }
+]

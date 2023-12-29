@@ -1,0 +1,54 @@
+[
+    {
+        "name": "story_transport",
+        "description": "运输任务-终点停车",
+        "param": [
+            {
+                "key": "ego",
+                "description": "主车",
+                "children": [
+                    {
+                        "key": "ego_start_s",
+                        "description": "主车初始位置",
+                        "value": [5,100],
+                        "default": 27,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "patrol1",
+                "description": "巡逻士兵1",
+                "children": [
+                    {
+                        "key": "patrol1_s",
+                        "description": "patrol1初始位置",
+                        "value": [200,250],
+                        "default": 250,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "patrol1_speed",
+                        "description": "patrol1初始速度",
+                        "value": [1,4],
+                        "default": 1,
+                        "unit": "米/秒"
+                    }
+                ]
+            },
+            {
+                "key": "patrol2",
+                "description": "巡逻士兵2",
+                "children": [
+                    {
+                        "key": "patrol2_speed",
+                        "description": "patrol2初始速度",
+                        "value": [1,4],
+                        "default": 1,
+                        "unit": "米/秒"
+                    }
+                ]
+            }
+        ]
+    }
+]

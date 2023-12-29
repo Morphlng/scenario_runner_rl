@@ -1,0 +1,148 @@
+[
+    {
+        "name": "story_transport",
+        "description": "运输任务静态避障1",
+        "param": [
+            {
+                "key": "ego",
+                "description": "主车",
+                "children": [
+                    {
+                        "key": "ego_start_s",
+                        "description": "主车初始位置",
+                        "value": [5,30],
+                        "default": 30,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "static2",
+                "description": "障碍2",
+                "children": [
+                    {
+                        "key": "static2_s",
+                        "description": "障碍2初始位置",
+                        "value": [80,150],
+                        "default": 100,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "static3",
+                "description": "障碍3",
+                "children": [
+                    {
+                        "key": "static3_s",
+                        "description": "障碍3初始位置",
+                        "value": [200,220],
+                        "default": 217,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "static4",
+                "description": "障碍4",
+                "children": [
+                    {
+                        "key": "static4_s",
+                        "description": "障碍4初始位置",
+                        "value": [280,306],
+                        "default": 300,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "static5",
+                "description": "障碍5",
+                "children": [
+                    {
+                        "key": "static5_s",
+                        "description": "障碍5初始位置",
+                        "value": [390,420],
+                        "default": 420,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "rb1",
+                "description": "自杀式机器人1",
+                "children": [
+                    {
+                        "key": "rb1_acc_time",
+                        "description": "自杀式机器人1的加速时间",
+                        "value": [1,8],
+                        "default": 3,
+                        "unit": "秒"
+                    },
+                    {
+                        "key": "rb1_speed",
+                        "description": "自杀式机器人1的速度",
+                        "value": [0.5,4],
+                        "default": 2,
+                        "unit": "米/秒"
+                    },
+                    {
+                        "key": "d_rb1",
+                        "description": "与ego的相对距离",
+                        "value": [5,60],
+                        "default": 15,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "rb1_s",
+                        "description": "自杀式机器人1的初始距离",
+                        "value": [222,235],
+                        "default": 225,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "d_rb1_explosion",
+                        "description": "rb1的爆炸触发距离",
+                        "value": [1,2],
+                        "default": 2,
+                        "unit": "米"
+                    }
+                ]
+            },
+             {
+                "key": "rb2",
+                "description": "自杀式机器人2",
+                "children": [
+                    {
+                        "key": "rb2_acc_time",
+                        "description": "自杀式机器人2的加速时间",
+                        "value": [1,8],
+                        "default": 3,
+                        "unit": "秒"
+                    },
+                    {
+                        "key": "rb2_speed",
+                        "description": "自杀式机器人2的速度",
+                        "value": [0.8,4],
+                        "default": 2,
+                        "unit": "米/秒"
+                    },
+                    {
+                        "key": "d_rb2",
+                        "description": "与ego的相对距离",
+                        "value": [5,80],
+                        "default": 15,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "rb2_s",
+                        "description": "自杀式机器人2的初始距离",
+                        "value": [310,334],
+                        "default": 325,
+                        "unit": "米"
+                    }
+                ]
+            }
+        ]
+    }
+]

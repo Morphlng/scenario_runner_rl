@@ -1,0 +1,222 @@
+[
+    {
+        "name": "story_transport",
+        "description": "打击任务-静态打击",
+        "param": [
+            {
+                "key": "barrier1",
+                "description": "障碍1",
+                "children": [
+                    {
+                        "key": "barrier1_x",
+                        "description": "障碍1的x初始位置",
+                        "value": [-94,-90.7],
+                        "default": -92.8,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "barrier1_y",
+                        "description": "障碍1的y初始位置",
+                        "value": [-2404.2,-2387.9],
+                        "default": -2404.2,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "barrier2",
+                "description": "障碍2",
+                "children": [
+                    {
+                        "key": "barrier2_x",
+                        "description": "障碍2的x初始位置",
+                        "value": [-66.1,-63],
+                        "default": -66.1,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "barrier2_y",
+                        "description": "障碍2的y初始位置",
+                        "value": [-2333.2,-2315.3],
+                        "default": -2332.9,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "barrier3",
+                "description": "障碍3",
+                "children": [
+                    {
+                        "key": "barrier3_x",
+                        "description": "障碍3的x初始位置",
+                        "value": [-61.8,-59.6],
+                        "default": -61.8,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "barrier3_y",
+                        "description": "障碍3的y初始位置",
+                        "value": [-2220.9,-2206.1],
+                        "default": -2220.9,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "barrier4",
+                "description": "障碍4",
+                "children": [
+                    {
+                        "key": "barrier4_x",
+                        "description": "障碍4的x初始位置",
+                        "value": [-77.8,-72.9],
+                        "default": -75.5,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "barrier4_y",
+                        "description": "障碍4的y初始位置",
+                        "value": [-2151.6,-2140.7],
+                        "default": -2151.6,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "zjc1",
+                "description": "静态车辆1",
+                "children": [
+                    {
+                        "key": "zjc1_x",
+                        "description": "静态车辆1的x初始位置",
+                        "value": [-103,-97],
+                        "default":-99,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "zjc1_y",
+                        "description": "静态车辆1的y初始位置",
+                        "value": [-2441,-2430],
+                        "default":-2435,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "zjc2",
+                "description": "静态车辆2",
+                "children": [
+                    {
+                        "key": "zjc2_x",
+                        "description": "静态车辆2的x初始位置",
+                        "value": [-81,-77],
+                        "default":-81,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "zjc2_y",
+                        "description": "静态车辆2的y初始位置",
+                        "value": [-2210,-2202],
+                        "default":-2210,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "gun1",
+                "description": "静态火炮1",
+                "children": [
+                    {
+                        "key": "gun1_x",
+                        "description": "静态火炮1的x初始位置",
+                        "value": [-107.6,-95.6],
+                        "default":-107.6,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "gun1_y",
+                        "description": "静态火炮1的y初始位置",
+                        "value": [-2303.1,-2290.7],
+                        "default":-2303.1,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "gun1_fire_distance",
+                        "description": "静态火炮1的打击距离",
+                        "value": [45,105],
+                        "default":50,
+                        "unit": "米"
+                    }
+                ]
+            },
+             {
+                "key": "gun2",
+                "description": "静态火炮2",
+                "children": [
+                    {
+                        "key": "gun2_x",
+                        "description": "静态火炮2的x初始位置",
+                        "value": [-50.8,-41.2],
+                        "default":-50.8,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "gun2_y",
+                        "description": "静态火炮2的y初始位置",
+                        "value": [-2188.7,-2179.7],
+                        "default":-2187.9,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "gun2_fire_distance",
+                        "description": "静态火炮2的打击距离",
+                        "value": [45,105],
+                        "default":50,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "depot1",
+                "description": "弹药库1",
+                "children": [
+                    {
+                        "key": "depot1_x",
+                        "description": "弹药库1的x初始位置",
+                        "value": [-103,-101],
+                        "default":-103,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "depot1_y",
+                        "description": "弹药库1的y初始位置",
+                        "value": [-2255,-2250],
+                        "default":-2250,
+                        "unit": "米"
+                    }
+                ]
+            },
+            {
+                "key": "depot2",
+                "description": "弹药库2",
+                "children": [
+                    {
+                        "key": "depot2_x",
+                        "description": "弹药库2的x初始位置",
+                        "value": [-48,-40],
+                        "default":-48,
+                        "unit": "米"
+                    },
+                    {
+                        "key": "depot2_y",
+                        "description": "弹药库2的y初始位置",
+                        "value": [-2153,-2146],
+                        "default":-2146,
+                        "unit": "米"
+                    }
+                ]
+            }
+        ]
+    }
+]

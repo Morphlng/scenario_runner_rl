@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
-  <FileHeader taskCategory="陆域" name="运输任务-动态避障1" description="运输任务-动态避障1" author="lp" revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
+  <FileHeader taskCategory="陆域" name="运输-动态避障2" description="运输任务动态避障2" author="lp" revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
   <ParameterDeclarations>
-    <ParameterDeclaration name="ego_start_s" parameterType="double" value="350.0" />
+    <ParameterDeclaration name="ego_start_s" parameterType="double" value="480" />
 
-    <ParameterDeclaration name="npc1_start_s" parameterType="double" value="880.0" />
+    <ParameterDeclaration name="npc1_start_s" parameterType="double" value="400" />
     <ParameterDeclaration name="npc1_acc_distance1" parameterType="double" value="50" />
     <ParameterDeclaration name="npc1_acc_speed1" parameterType="double" value="13" />
     <ParameterDeclaration name="npc1_decelerate_distance3" parameterType="double" value="30" />
-    <ParameterDeclaration name="npc1_decelerate_speed3" parameterType="double" value="9" />
+    <ParameterDeclaration name="npc1_decelerate_speed3" parameterType="double" value="6" />
     <ParameterDeclaration name="npc1_acc_distance4" parameterType="double" value="50" />
     <ParameterDeclaration name="npc1_acc_speed4" parameterType="double" value="15" />
     <ParameterDeclaration name="npc1_stop_distance5" parameterType="double" value="50" />
     <ParameterDeclaration name="d_npc1" parameterType="double" value="50" />
 
-    <ParameterDeclaration name="npc2_start_s" parameterType="double" value="750.0" />
-    <ParameterDeclaration name="npc2_acc_distance1" parameterType="double" value="60" />
+    <ParameterDeclaration name="npc2_start_s" parameterType="double" value="170" />
+    <ParameterDeclaration name="npc2_acc_distance1" parameterType="double" value="50" />
     <ParameterDeclaration name="npc2_acc_speed1" parameterType="double" value="12" />
-    <ParameterDeclaration name="npc2_stop_distance5" parameterType="double" value="60" />
-    <ParameterDeclaration name="d_npc2" parameterType="double" value="180" />
+    <ParameterDeclaration name="npc2_stop_distance5" parameterType="double" value="30" />
+    <ParameterDeclaration name="d_npc2" parameterType="double" value="160" />
 
-    <ParameterDeclaration name="npc3_start_s" parameterType="double" value="434.0" />
+    <ParameterDeclaration name="npc3_start_s" parameterType="double" value="260" />
     <ParameterDeclaration name="npc3_acc_distance1" parameterType="double" value="50" />
     <ParameterDeclaration name="npc3_acc_speed1" parameterType="double" value="16" />
     <ParameterDeclaration name="npc3_decelerate_distance3" parameterType="double" value="30" />
@@ -28,32 +28,30 @@
     <ParameterDeclaration name="npc3_acc_distance4" parameterType="double" value="50" />
     <ParameterDeclaration name="npc3_acc_speed4" parameterType="double" value="15" />
     <ParameterDeclaration name="npc3_stop_distance5" parameterType="double" value="30" />
-    <ParameterDeclaration name="d_npc3" parameterType="double" value="70" />
+    <ParameterDeclaration name="d_npc3" parameterType="double" value="50" />
+    <ParameterDeclaration name="npc5_start_s" parameterType="double" value="450" />
 
-    <ParameterDeclaration name="npc5_start_s" parameterType="double" value="110.0" />
+    <ParameterDeclaration name="zjc1_start_x" parameterType="double" value="433" />
+    <ParameterDeclaration name="zjc1_start_y" parameterType="double" value="-12" />
 
-    <ParameterDeclaration name="zjc1_start_x" parameterType="double" value="270" />
-    <ParameterDeclaration name="zjc1_start_y" parameterType="double" value="-480" />
+    <ParameterDeclaration name="zjc2_start_x" parameterType="double" value="143" />
+    <ParameterDeclaration name="zjc2_start_y" parameterType="double" value="-15" />
 
-    <ParameterDeclaration name="zjc2_start_x" parameterType="double" value="-100" />
-    <ParameterDeclaration name="zjc2_start_y" parameterType="double" value="-515" />
-
-    <ParameterDeclaration name="zjc3_start_x" parameterType="double" value="-510" />
-    <ParameterDeclaration name="zjc3_start_y" parameterType="double" value="-550" />
-
+    <ParameterDeclaration name="zjc3_start_x" parameterType="double" value="-257.9"/>
+    <ParameterDeclaration name="zjc3_start_y" parameterType="double" value="-43.4"/>
   </ParameterDeclarations>
   <CatalogLocations>
     <VehicleCatalog>
-      <Directory path="../../Catalogs/Vehicles"/>
+      <Directory path="../xosc/Catalogs/Vehicles"/>
     </VehicleCatalog>
     <PedestrianCatalog>
-      <Directory path="../../Catalogs/Pedestrians"/>
+      <Directory path="../xosc/Catalogs/Pedestrians"/>
     </PedestrianCatalog>
     <MiscObjectCatalog>
-      <Directory path="../../Catalogs/MiscObjects"/>
+      <Directory path="../xosc/Catalogs/MiscObjects"/>
     </MiscObjectCatalog>
     <ControllerCatalog>
-      <Directory path="../../Catalogs/Controllers"/>
+      <Directory path="../xosc/Catalogs/Controllers"/>
     </ControllerCatalog>
   </CatalogLocations>
   <RoadNetwork>
@@ -121,8 +119,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <!-- <LanePosition roadId="23" laneId="-1" s="$ego_start_s" offset="0.0" /> -->
-                <LanePosition roadId="24" laneId="-1" s="$ego_start_s" offset="0.0" />
+                <LanePosition roadId="28" laneId="1" s="$ego_start_s" offset="0.0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -146,47 +143,11 @@
             </ControllerAction>
           </PrivateAction>
         </Private>
-        <Private entityRef="npc1">
-          <PrivateAction>
-            <TeleportAction>
-              <Position>
-                <LanePosition roadId="24" laneId="-1" s="$npc1_start_s" offset="0.0" />
-              </Position>
-            </TeleportAction>
-          </PrivateAction>
-        </Private>
-        <Private entityRef="npc2">
-          <PrivateAction>
-            <TeleportAction>
-              <Position>
-                <LanePosition roadId="24" laneId="1" s="$npc2_start_s" offset="0.0" />
-              </Position>
-            </TeleportAction>
-          </PrivateAction>
-        </Private>
-        <Private entityRef="npc3">
-          <PrivateAction>
-            <TeleportAction>
-              <Position>
-                <LanePosition roadId="24" laneId="1" s="$npc3_start_s" offset="0.0" />
-              </Position>
-            </TeleportAction>
-          </PrivateAction>
-        </Private>
-        <Private entityRef="npc5">
-          <PrivateAction>
-            <TeleportAction>
-              <Position>
-                <LanePosition roadId="24" laneId="-1" s="$npc5_start_s" offset="0.0" />
-              </Position>
-            </TeleportAction>
-          </PrivateAction>
-        </Private>
         <Private entityRef="zjc1">
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$zjc1_start_x" y="$zjc1_start_y" z="2.0" />
+                <WorldPosition x="$zjc1_start_x" y="$zjc1_start_y" z="1.7" h="1.27" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -195,7 +156,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$zjc2_start_x" y="$zjc2_start_y" z="2.0" h="3.0" p="0.0" r="0.0" />
+                <WorldPosition x="$zjc2_start_x" y="$zjc2_start_y" z="2.0" h="1.57" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -204,7 +165,43 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$zjc3_start_x" y="$zjc3_start_y" z="2.0" />
+                <WorldPosition x="$zjc3_start_x" y="$zjc3_start_y" z="1.7" h="1.57" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="npc1">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="28" laneId="1" s="$npc1_start_s" offset="0.0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="npc2">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="28" laneId="-1" s="$npc2_start_s" offset="0.0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="npc3">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="28" laneId="-1" s="$npc3_start_s" offset="0.0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="npc5">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="28" laneId="1" s="$npc5_start_s" offset="0.0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -228,8 +225,8 @@
                       <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
                         <ParameterAssignments>
                           <ParameterAssignment parameterRef="Type" value="vehicle_4w" />
-                          <ParameterAssignment parameterRef="Target_speed" value="40" />
-                          <ParameterAssignment parameterRef="Init_speed" value="30" />
+                          <ParameterAssignment parameterRef="Target_speed" value="20" />
+                          <ParameterAssignment parameterRef="Init_speed" value="20" />
                           <ParameterAssignment parameterRef="Action_type"
                             value="vehicle_atomic_action" />
                           <ParameterAssignment parameterRef="Discrete_action_set"
@@ -309,8 +306,8 @@
                       <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
                         <ParameterAssignments>
                           <ParameterAssignment parameterRef="Type" value="vehicle_4w" />
-                          <ParameterAssignment parameterRef="Target_speed" value="40" />
-                          <ParameterAssignment parameterRef="Init_speed" value="30" />
+                          <ParameterAssignment parameterRef="Target_speed" value="20" />
+                          <ParameterAssignment parameterRef="Init_speed" value="20" />
                           <ParameterAssignment parameterRef="Action_type"
                             value="vehicle_atomic_action" />
                           <ParameterAssignment parameterRef="Discrete_action_set"
@@ -390,8 +387,8 @@
                       <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
                         <ParameterAssignments>
                           <ParameterAssignment parameterRef="Type" value="vehicle_4w" />
-                          <ParameterAssignment parameterRef="Target_speed" value="40" />
-                          <ParameterAssignment parameterRef="Init_speed" value="30" />
+                          <ParameterAssignment parameterRef="Target_speed" value="20" />
+                          <ParameterAssignment parameterRef="Init_speed" value="20" />
                           <ParameterAssignment parameterRef="Action_type"
                             value="vehicle_atomic_action" />
                           <ParameterAssignment parameterRef="Discrete_action_set"

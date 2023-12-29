@@ -1,0 +1,422 @@
+<?xml version="1.0"?>
+<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenSCENARIO.xsd">
+  <FileHeader taskCategory="陆域" name="侦察任务-动态避障" description="侦察任务-动态避障" author="rhp" revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
+  <ParameterDeclarations>
+    <ParameterDeclaration name="ego_start_s" parameterType="double" value="48.0" />
+
+    <ParameterDeclaration name="npc1_start_s" parameterType="double" value="15.0" />
+    <ParameterDeclaration name="npc1_acc_time" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="npc1_speed" parameterType="double" value="8.0" />
+    <ParameterDeclaration name="d_npc1" parameterType="double" value="50.0" />
+
+    <ParameterDeclaration name="npc2_start_s" parameterType="double" value="30.0" />
+    <ParameterDeclaration name="npc2_acc_time" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="npc2_speed" parameterType="double" value="6.0" />
+    <ParameterDeclaration name="d_npc2" parameterType="double" value="50.0" />
+
+    <ParameterDeclaration name="walker1_start_s" parameterType="double" value="5.0" />
+    <ParameterDeclaration name="walker1_acc_time" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="walker1_speed" parameterType="double" value="0.5" />
+    <ParameterDeclaration name="d_walker1" parameterType="double" value="20.0" />
+
+    <ParameterDeclaration name="walker2_start_s" parameterType="double" value="74.0" />
+    <ParameterDeclaration name="walker2_acc_time" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="walker2_speed" parameterType="double" value="3.0" />
+    <ParameterDeclaration name="d_walker2" parameterType="double" value="20.0" />
+  </ParameterDeclarations>
+  <CatalogLocations>
+    <VehicleCatalog>
+      <Directory path="../xosc/Catalogs/Vehicles" />
+    </VehicleCatalog>
+    <PedestrianCatalog>
+      <Directory path="../xosc/Catalogs/Pedestrians" />
+    </PedestrianCatalog>
+    <MiscObjectCatalog>
+      <Directory path="../xosc/Catalogs/MiscObjects" />
+    </MiscObjectCatalog>
+    <ControllerCatalog>
+      <Directory path="../xosc/Catalogs/Controllers" />
+    </ControllerCatalog>
+  </CatalogLocations>
+  <RoadNetwork>
+    <LogicFile filepath="Town05" />
+    <SceneGraphFile filepath="Town05" />
+    <LandGraphFile filepath="Town05" />
+  </RoadNetwork>
+  <Electromagnetic name="elc" electromagneticCategory="line" intensity="12">
+    <Position>
+      <WorldPosition x="32" y="12" z="12" />
+    </Position>
+  </Electromagnetic>
+  <Metrics>
+    <Metric name="coStrike_story_metric1" description="描述。。。。" metricCategory="scout-F1" />
+    <Metric name="coStrike_story_metric2" description="描述。。。。" metricCategory="scout-acc" />
+  </Metrics>
+  <TargetObjects>
+    <TargetObject name="target1">
+      <Entit value="12" rule="greaterThan" entityRef="coStrike_story_metric1" />
+    </TargetObject>
+  </TargetObjects>
+  <Entities>
+    <ScenarioObject name="Ego">
+      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.auto.electron" />
+    </ScenarioObject>
+
+    <ScenarioObject name="npc1">
+      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.tesla.cybertruck" />
+    </ScenarioObject>
+    <ScenarioObject name="npc2">
+      <CatalogReference catalogName="VehicleCatalog" entryName="vehicle.tesla.cybertruck" />
+    </ScenarioObject>
+
+    <ScenarioObject name="walker1">
+      <CatalogReference catalogName="PedestrianCatalog" entryName="walker.pedestrian.0057" />
+    </ScenarioObject>
+    <ScenarioObject name="walker2">
+      <CatalogReference catalogName="PedestrianCatalog" entryName="walker.pedestrian.0057" />
+    </ScenarioObject>
+
+    <ScenarioObject name="barrier1">
+      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.barricadehard" />
+    </ScenarioObject>
+    <ScenarioObject name="barrier2">
+      <CatalogReference catalogName="MiscObjectCatalog" entryName="dynamic.prop.barricadehard" />
+    </ScenarioObject>
+  </Entities>
+  <Storyboard>
+    <Init>
+      <Actions>
+        <GlobalAction>
+          <EnvironmentAction>
+            <Environment name="Environment">
+              <TimeOfDay animation="true" dateTime="2023-03-09T08:33:28" />
+              <Weather cloudState="skyOff">
+                <Sun azimuth="1.57" intensity="100" elevation="0.2" />
+                <Fog visualRange="10000" />
+                <Precipitation precipitationType="rain" intensity="0" />
+              </Weather>
+              <RoadCondition frictionScaleFactor="0.6" />
+            </Environment>
+          </EnvironmentAction>
+        </GlobalAction>
+        <Private entityRef="Ego">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="21" laneId="1" s="$ego_start_s" offset="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+          <PrivateAction>
+            <ControllerAction>
+              <AssignControllerAction>
+                <Controller name="HeroAgent">
+                  <Properties>
+                    <Property name="module" value="external_control" />
+                  </Properties>
+                </Controller>
+              </AssignControllerAction>
+              <OverrideControllerValueAction>
+                <Throttle value="0" active="false" />
+                <Brake value="0" active="false" />
+                <Clutch value="0" active="false" />
+                <ParkingBrake value="0" active="false" />
+                <SteeringWheel value="0" active="false" />
+                <Gear number="0" active="false" />
+              </OverrideControllerValueAction>
+            </ControllerAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="npc1">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="30" laneId="1" s="$npc1_start_s" offset="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="npc2">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="30" laneId="-1" s="$npc2_start_s" offset="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="walker1">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="21" laneId="5" s="$walker1_start_s" offset="0">
+                  <Orientation type="relative" h="1.57" p="0" r="0" />
+                </LanePosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="walker2">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="30" laneId="5" s="$walker2_start_s" offset="0">
+                  <Orientation type="relative" h="1.57" p="0" r="0" />
+                </LanePosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="barrier1">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <RoadPosition roadId="21" s="53" t="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="barrier2">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="30" y="-76.59" z="0" h="-1.57" p="0.0" r="0.0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+      </Actions>
+    </Init>
+
+    <Story name="bizhang_story">
+      <Act name="bizhang_act">
+        <ManeuverGroup name="npc1_mang" maximumExecutionCount="1">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="npc1" />
+          </Actors>
+          <Maneuver name="npc1_man1">
+            <Event name="npc1_event" priority="parallel" maximumExecutionCount="1">
+              <Action name="npc1_assign_controller_action">
+                <PrivateAction>
+                  <ControllerAction>
+                    <AssignControllerAction>
+                      <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
+                        <ParameterAssignments>
+                          <ParameterAssignment parameterRef="Type" value="vehicle_4w" />
+                          <ParameterAssignment parameterRef="Target_speed" value="20" />
+                          <ParameterAssignment parameterRef="Init_speed" value="20" />
+                          <ParameterAssignment parameterRef="Action_type"
+                            value="vehicle_atomic_action" />
+                          <ParameterAssignment parameterRef="Discrete_action_set"
+                            value='[{"0": "stop", "1": "lane_follow", "2": "left_lane_change", "3": "right_lane_change"}, {"0": 0, "1": 4, "2": 8, "3": 12, "4": 16}]' />
+                          <ParameterAssignment parameterRef="Ignore_actors"
+                            value="barrier1,barrier2" />
+                          <ParameterAssignment parameterRef="Add_action_mask" value="true" />
+                          <ParameterAssignment parameterRef="Model_path"
+                            value="srunner/examples/rl_models/Recce/Recce.Dynamic/checkpoint" />
+                          <ParameterAssignment parameterRef="Params_path"
+                            value="srunner/examples/rl_models/Recce/Recce.Dynamic/params.json" />
+                        </ParameterAssignments>
+                      </CatalogReference>
+                    </AssignControllerAction>
+                    <OverrideControllerValueAction>
+                      <Throttle value="0" active="false" />
+                      <Brake value="0" active="false" />
+                      <Clutch value="0" active="false" />
+                      <ParkingBrake value="0" active="false" />
+                      <SteeringWheel value="0" active="false" />
+                      <Gear number="0" active="false" />
+                    </OverrideControllerValueAction>
+                  </ControllerAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition name="npc1_con1" delay="0" conditionEdge="none">
+                    <ByValueCondition>
+                      <SimulationTimeCondition value="3" rule="greaterThan" />
+                    </ByValueCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+        <ManeuverGroup name="npc2_mang" maximumExecutionCount="1">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="npc2" />
+          </Actors>
+          <Maneuver name="npc2_man1">
+            <Event name="npc2_event" priority="parallel" maximumExecutionCount="1">
+              <Action name="npc2_assign_controller_action">
+                <PrivateAction>
+                  <ControllerAction>
+                    <AssignControllerAction>
+                      <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
+                        <ParameterAssignments>
+                          <ParameterAssignment parameterRef="Type" value="vehicle_4w" />
+                          <ParameterAssignment parameterRef="Target_speed" value="20" />
+                          <ParameterAssignment parameterRef="Init_speed" value="20" />
+                          <ParameterAssignment parameterRef="Action_type"
+                            value="vehicle_atomic_action" />
+                          <ParameterAssignment parameterRef="Discrete_action_set"
+                            value='[{"0": "stop", "1": "lane_follow", "2": "left_lane_change", "3": "right_lane_change"}, {"0": 0, "1": 4, "2": 8, "3": 12, "4": 16}]' />
+                          <ParameterAssignment parameterRef="Ignore_actors"
+                            value="barrier1,barrier2" />
+                          <ParameterAssignment parameterRef="Add_action_mask" value="true" />
+                          <ParameterAssignment parameterRef="Model_path"
+                            value="srunner/examples/rl_models/Recce/Recce.Dynamic/checkpoint" />
+                          <ParameterAssignment parameterRef="Params_path"
+                            value="srunner/examples/rl_models/Recce/Recce.Dynamic/params.json" />
+                        </ParameterAssignments>
+                      </CatalogReference>
+                    </AssignControllerAction>
+                    <OverrideControllerValueAction>
+                      <Throttle value="0" active="false" />
+                      <Brake value="0" active="false" />
+                      <Clutch value="0" active="false" />
+                      <ParkingBrake value="0" active="false" />
+                      <SteeringWheel value="0" active="false" />
+                      <Gear number="0" active="false" />
+                    </OverrideControllerValueAction>
+                  </ControllerAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition name="npc2_con1" delay="0" conditionEdge="none">
+                    <ByValueCondition>
+                      <SimulationTimeCondition value="3" rule="greaterThan" />
+                    </ByValueCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+        <ManeuverGroup name="walker1_mang" maximumExecutionCount="1">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="walker1" />
+          </Actors>
+          <Maneuver name="walker1_man1">
+            <Event name="walker1_event" priority="parallel" maximumExecutionCount="1">
+              <Action name="walker1_assign_controller_action">
+                <PrivateAction>
+                  <ControllerAction>
+                    <AssignControllerAction>
+                      <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
+                        <ParameterAssignments>
+                          <ParameterAssignment parameterRef="Type" value="walker" />
+                          <ParameterAssignment parameterRef="Action_type"
+                            value="walker_speed_action" />
+                          <ParameterAssignment parameterRef="Ignore_actors"
+                            value="barrier1,barrier2" />
+                          <ParameterAssignment parameterRef="Add_action_mask" value="true" />
+                          <ParameterAssignment parameterRef="Model_path"
+                            value="srunner/examples/rl_models/Recce/Recce.Dynamic/checkpoint" />
+                          <ParameterAssignment parameterRef="Params_path"
+                            value="srunner/examples/rl_models/Recce/Recce.Dynamic/params.json" />
+                        </ParameterAssignments>
+                      </CatalogReference>
+                    </AssignControllerAction>
+                    <OverrideControllerValueAction>
+                      <Throttle value="0" active="false" />
+                      <Brake value="0" active="false" />
+                      <Clutch value="0" active="false" />
+                      <ParkingBrake value="0" active="false" />
+                      <SteeringWheel value="0" active="false" />
+                      <Gear number="0" active="false" />
+                    </OverrideControllerValueAction>
+                  </ControllerAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition name="walker1_con1" delay="0" conditionEdge="none">
+                    <ByValueCondition>
+                      <SimulationTimeCondition value="3" rule="greaterThan" />
+                    </ByValueCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+        <ManeuverGroup name="walker2_mang" maximumExecutionCount="1">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="walker2" />
+          </Actors>
+          <Maneuver name="walker2_man1">
+            <Event name="walker2_event" priority="parallel" maximumExecutionCount="1">
+              <Action name="walker2_assign_controller_action">
+                <PrivateAction>
+                  <ControllerAction>
+                    <AssignControllerAction>
+                      <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
+                        <ParameterAssignments>
+                          <ParameterAssignment parameterRef="Type" value="walker" />
+                          <ParameterAssignment parameterRef="Action_type"
+                            value="walker_speed_action" />
+                          <ParameterAssignment parameterRef="Ignore_actors"
+                            value="barrier1,barrier2" />
+                          <ParameterAssignment parameterRef="Add_action_mask" value="true" />
+                          <ParameterAssignment parameterRef="Model_path"
+                            value="srunner/examples/rl_models/Recce/Recce.Dynamic/checkpoint" />
+                          <ParameterAssignment parameterRef="Params_path"
+                            value="srunner/examples/rl_models/Recce/Recce.Dynamic/params.json" />
+                        </ParameterAssignments>
+                      </CatalogReference>
+                    </AssignControllerAction>
+                    <OverrideControllerValueAction>
+                      <Throttle value="0" active="false" />
+                      <Brake value="0" active="false" />
+                      <Clutch value="0" active="false" />
+                      <ParkingBrake value="0" active="false" />
+                      <SteeringWheel value="0" active="false" />
+                      <Gear number="0" active="false" />
+                    </OverrideControllerValueAction>
+                  </ControllerAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition name="walker2_con1" delay="0" conditionEdge="none">
+                    <ByValueCondition>
+                      <SimulationTimeCondition value="3" rule="greaterThan" />
+                    </ByValueCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+        <StartTrigger>
+          <ConditionGroup>
+            <Condition name="all_start" delay="0" conditionEdge="rising">
+              <ByValueCondition>
+                <SimulationTimeCondition value="0.1" rule="greaterThan" />
+              </ByValueCondition>
+            </Condition>
+          </ConditionGroup>
+        </StartTrigger>
+        <StopTrigger />
+      </Act>
+      <Act name="iic_act">
+        <ManeuverGroup name="noStopAct" maximumExecutionCount="1">
+          <Actors selectTriggeringEntities="false" />
+        </ManeuverGroup>
+        <StartTrigger>
+          <ConditionGroup>
+            <Condition name="noStopAct-start_trigger" delay="0" conditionEdge="rising">
+              <ByValueCondition>
+                <SimulationTimeCondition value="10000" rule="greaterThan" />
+              </ByValueCondition>
+            </Condition>
+          </ConditionGroup>
+        </StartTrigger>
+        <StopTrigger />
+      </Act>
+    </Story>
+    <StopTrigger />
+  </Storyboard>
+</OpenSCENARIO>

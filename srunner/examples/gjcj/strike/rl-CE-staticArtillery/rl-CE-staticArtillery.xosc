@@ -128,9 +128,9 @@
         <GlobalAction>
           <EnvironmentAction>
             <Environment name="Environment">
-              <TimeOfDay animation="false" dateTime="2023-03-09T08:33:28" />
+              <TimeOfDay animation="false" dateTime="2023-03-09T17:33:28" />
               <Weather cloudState="free">
-                <Sun azimuth="0" intensity="100" elevation="1" />
+                <Sun azimuth="4.0" intensity="0.96" elevation="2.6" />
                 <Fog visualRange="100" />
                 <Precipitation precipitationType="rain" intensity="0" />
               </Weather>

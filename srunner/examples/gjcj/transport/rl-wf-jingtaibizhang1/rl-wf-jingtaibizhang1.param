@@ -82,14 +82,14 @@
                     {
                         "key": "rb1_speed",
                         "description": "自杀式机器人1的速度",
-                        "value": [0.5,4],
+                        "value": [0.5,3],
                         "default": 2,
                         "unit": "米/秒"
                     },
                     {
                         "key": "d_rb1",
                         "description": "与ego的相对距离",
-                        "value": [5,60],
+                        "value": [2,50],
                         "default": 15,
                         "unit": "米"
                     },
@@ -98,13 +98,6 @@
                         "description": "自杀式机器人1的初始距离",
                         "value": [222,235],
                         "default": 225,
-                        "unit": "米"
-                    },
-                    {
-                        "key": "d_rb1_explosion",
-                        "description": "rb1的爆炸触发距离",
-                        "value": [1,2],
-                        "default": 2,
                         "unit": "米"
                     }
                 ]
@@ -123,14 +116,14 @@
                     {
                         "key": "rb2_speed",
                         "description": "自杀式机器人2的速度",
-                        "value": [0.8,4],
+                        "value": [0.5,3],
                         "default": 2,
                         "unit": "米/秒"
                     },
                     {
                         "key": "d_rb2",
                         "description": "与ego的相对距离",
-                        "value": [5,80],
+                        "value": [2,60],
                         "default": 15,
                         "unit": "米"
                     },

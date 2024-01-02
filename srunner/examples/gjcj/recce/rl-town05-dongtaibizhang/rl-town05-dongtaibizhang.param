@@ -10,8 +10,8 @@
                     {
                         "key": "ego_start_s",
                         "description": "主车初始位置",
-                        "value": [40,48],
-                        "default": 48,
+                        "value": [5, 10],
+                        "default": 25,
                         "unit": "米"
                     }
                 ]
@@ -23,7 +23,7 @@
                     {
                         "key": "npc1_start_s",
                         "description": "npc1初始位置",
-                        "value": [15,100],
+                        "value": [0,10],
                         "default": 15,
                         "unit": "米"
                     },
@@ -57,7 +57,7 @@
                     {
                         "key": "npc2_start_s",
                         "description": "npc2初始位置",
-                        "value": [1,80],
+                        "value": [95,105],
                         "default": 30,
                         "unit": "米"
                     },
@@ -71,14 +71,14 @@
                     {
                         "key": "npc2_speed",
                         "description": "npc2的速度",
-                        "value": [5,16],
+                        "value": [3,10],
                         "default": 6,
                         "unit": "米/秒"
                     },
                     {
                         "key": "d_npc2",
                         "description": "npc2与ego的相对距离",
-                        "value": [30,60],
+                        "value": [20,50],
                         "default": 50,
                         "unit": "米"
                     }
@@ -91,7 +91,7 @@
                     {
                         "key": "walker1_start_s",
                         "description": "行人1的初始位置",
-                        "value": [0,5],
+                        "value": [0,3.5],
                         "default": 3,
                         "unit": "米"
                     },
@@ -112,7 +112,7 @@
                     {
                         "key": "d_walker1",
                         "description": "行人1与ego的相对距离",
-                        "value": [8,40],
+                        "value": [20,60],
                         "default": 20,
                         "unit": "米"
                     }

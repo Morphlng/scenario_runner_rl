@@ -125,7 +125,7 @@
                     {
                         "key": "walker2_start_s",
                         "description": "行人2的初始位置",
-                        "value": [40,80],
+                        "value": [40,74],
                         "default": 70,
                         "unit": "米"
                     },

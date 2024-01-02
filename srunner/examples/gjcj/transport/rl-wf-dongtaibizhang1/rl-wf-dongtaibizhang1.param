@@ -10,8 +10,8 @@
                     {
                         "key": "ego_start_s",
                         "description": "主车初始位置",
-                        "value": [330,390],
-                        "default": 350,
+                        "value": [380,400],
+                        "default": 390,
                         "unit": "米"
                     }
                 ]
@@ -23,8 +23,8 @@
                     {
                         "key": "npc1_start_s",
                         "description": "npc1初始位置",
-                        "value": [800,1100],
-                        "default": 880,
+                        "value": [65,90],
+                        "default": 75,
                         "unit": "米"
                     },
                     {
@@ -57,8 +57,8 @@
                     {
                         "key": "npc2_start_s",
                         "description": "npc2初始位置",
-                        "value": [750, 1200],
-                        "default": 750,
+                        "value": [165, 200],
+                        "default": 170,
                         "unit": "米"
                     },
                     {
@@ -84,8 +84,8 @@
                     {
                         "key": "npc3_start_s",
                         "description": "npc3初始位置",
-                        "value": [400, 600],
-                        "default": 434,
+                        "value": [80, 150],
+                        "default": 100,
                         "unit": "米"
                     },
                     {
@@ -118,8 +118,8 @@
                     {
                         "key": "npc5_start_s",
                         "description": "npc5初始位置",
-                        "value": [30, 130],
-                        "default": 110,
+                        "value": [20, 60],
+                        "default": 40,
                         "unit": "米"
                     }
                 ]

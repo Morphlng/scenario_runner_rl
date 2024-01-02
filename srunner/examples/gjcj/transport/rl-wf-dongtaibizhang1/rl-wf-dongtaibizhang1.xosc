@@ -2,9 +2,9 @@
 <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
   <FileHeader taskCategory="陆域" name="运输任务-动态避障1" description="运输任务-动态避障1" author="lp" revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
   <ParameterDeclarations>
-    <ParameterDeclaration name="ego_start_s" parameterType="double" value="350.0" />
+    <ParameterDeclaration name="ego_start_s" parameterType="double" value="390.0" />
 
-    <ParameterDeclaration name="npc1_start_s" parameterType="double" value="880.0" />
+    <ParameterDeclaration name="npc1_start_s" parameterType="double" value="75.0" />
     <ParameterDeclaration name="npc1_acc_distance1" parameterType="double" value="50" />
     <ParameterDeclaration name="npc1_acc_speed1" parameterType="double" value="13" />
     <ParameterDeclaration name="npc1_decelerate_distance3" parameterType="double" value="30" />
@@ -14,13 +14,13 @@
     <ParameterDeclaration name="npc1_stop_distance5" parameterType="double" value="50" />
     <ParameterDeclaration name="d_npc1" parameterType="double" value="50" />
 
-    <ParameterDeclaration name="npc2_start_s" parameterType="double" value="750.0" />
+    <ParameterDeclaration name="npc2_start_s" parameterType="double" value="235.0" />
     <ParameterDeclaration name="npc2_acc_distance1" parameterType="double" value="60" />
     <ParameterDeclaration name="npc2_acc_speed1" parameterType="double" value="12" />
     <ParameterDeclaration name="npc2_stop_distance5" parameterType="double" value="60" />
     <ParameterDeclaration name="d_npc2" parameterType="double" value="180" />
 
-    <ParameterDeclaration name="npc3_start_s" parameterType="double" value="434.0" />
+    <ParameterDeclaration name="npc3_start_s" parameterType="double" value="170.0" />
     <ParameterDeclaration name="npc3_acc_distance1" parameterType="double" value="50" />
     <ParameterDeclaration name="npc3_acc_speed1" parameterType="double" value="16" />
     <ParameterDeclaration name="npc3_decelerate_distance3" parameterType="double" value="30" />
@@ -30,7 +30,7 @@
     <ParameterDeclaration name="npc3_stop_distance5" parameterType="double" value="30" />
     <ParameterDeclaration name="d_npc3" parameterType="double" value="70" />
 
-    <ParameterDeclaration name="npc5_start_s" parameterType="double" value="110.0" />
+    <ParameterDeclaration name="npc5_start_s" parameterType="double" value="40.0" />
 
     <ParameterDeclaration name="zjc1_start_x" parameterType="double" value="270" />
     <ParameterDeclaration name="zjc1_start_y" parameterType="double" value="-480" />
@@ -121,8 +121,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <!-- <LanePosition roadId="23" laneId="-1" s="$ego_start_s" offset="0.0" /> -->
-                <LanePosition roadId="24" laneId="-1" s="$ego_start_s" offset="0.0" />
+                <LanePosition roadId="23" laneId="-1" s="$ego_start_s" offset="0.0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -257,7 +256,7 @@
                 <ConditionGroup>
                   <Condition name="npc1_con1" delay="0" conditionEdge="none">
                     <ByValueCondition>
-                      <SimulationTimeCondition value="3" rule="greaterThan" />
+                      <SimulationTimeCondition value="1" rule="greaterThan" />
                     </ByValueCondition>
                   </Condition>
                 </ConditionGroup>
@@ -338,7 +337,7 @@
                 <ConditionGroup>
                   <Condition name="npc2_con1" delay="0" conditionEdge="none">
                     <ByValueCondition>
-                      <SimulationTimeCondition value="3" rule="greaterThan" />
+                      <SimulationTimeCondition value="1" rule="greaterThan" />
                     </ByValueCondition>
                   </Condition>
                 </ConditionGroup>
@@ -419,7 +418,7 @@
                 <ConditionGroup>
                   <Condition name="npc3_con1" delay="0" conditionEdge="none">
                     <ByValueCondition>
-                      <SimulationTimeCondition value="3" rule="greaterThan" />
+                      <SimulationTimeCondition value="1" rule="greaterThan" />
                     </ByValueCondition>
                   </Condition>
                 </ConditionGroup>

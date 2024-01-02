@@ -122,9 +122,9 @@
         <GlobalAction>
           <EnvironmentAction>
             <Environment name="Environment">
-              <TimeOfDay animation="false" dateTime="2023-03-09T08:33:28" />
+              <TimeOfDay animation="false" dateTime="2023-03-09T17:33:28" />
               <Weather cloudState="free">
-                <Sun azimuth="0" intensity="100" elevation="1" />
+                <Sun azimuth="4.0" intensity="0.96" elevation="2.6" />
                 <Fog visualRange="100" />
                 <Precipitation precipitationType="rain" intensity="0" />
               </Weather>
@@ -136,9 +136,28 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="-46.9" y="-2087.5" z="83" h="0" r="0" p="0" />
+                <WorldPosition x="-46.9" y="-2087.5" z="83" h="1.27" r="0" p="0" />
               </Position>
             </TeleportAction>
+          </PrivateAction>
+          <PrivateAction>
+            <ControllerAction>
+              <AssignControllerAction>
+                <Controller name="HeroAgent">
+                  <Properties>
+                    <Property name="module" value="external_control" />
+                  </Properties>
+                </Controller>
+              </AssignControllerAction>
+              <OverrideControllerValueAction>
+                <Throttle value="0" active="false" />
+                <Brake value="0" active="false" />
+                <Clutch value="0" active="false" />
+                <ParkingBrake value="0" active="false" />
+                <SteeringWheel value="0" active="false" />
+                <Gear number="0" active="false" />
+              </OverrideControllerValueAction>
+            </ControllerAction>
           </PrivateAction>
           <!-- s -->
         </Private>
@@ -182,7 +201,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$zjc2_x" y="$zjc2_y" z="85" h="-1" r="0" p="0" />
+                <WorldPosition x="$zjc2_x" y="$zjc2_y" z="86.5" h="0" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -200,7 +219,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$dynpc1_x" y="$dynpc1_y" z="85" h="3.14" r="0" p="0" />
+                <WorldPosition x="$dynpc1_x" y="$dynpc1_y" z="88" h="3.14" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -209,7 +228,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$dynpc2_x" y="$dynpc2_y" z="85" h="0" r="0" p="0" />
+                <WorldPosition x="$dynpc2_x" y="$dynpc2_y" z="88" h="0" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -218,7 +237,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$depot1_x" y="$depot1_y" z="99" h="-0.5" r="0" p="0" />
+                <WorldPosition x="$depot1_x" y="$depot1_y" z="99" h="-0.57" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -227,7 +246,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$depot2_x" y="$depot2_y" z="99" h="1.57" r="0" p="0" />
+                <WorldPosition x="$depot2_x" y="$depot2_y" z="99" h="-0.67" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>

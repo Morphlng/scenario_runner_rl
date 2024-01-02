@@ -110,10 +110,10 @@
         <GlobalAction>
           <EnvironmentAction>
             <Environment name="Environment">
-              <TimeOfDay animation="false" dateTime="2023-03-09T17:33:28" />
+              <TimeOfDay animation="true" dateTime="2023-03-09T08:33:28" />
               <Weather cloudState="cloudy">
-                <Sun azimuth="4.07" intensity="0.96" elevation="2.8" />
-                <Fog visualRange="1000" />
+                <Sun azimuth="0.1" intensity="0.1" elevation="0.02" />
+                <Fog visualRange="50" />
                 <Precipitation precipitationType="rain" intensity="0" />
               </Weather>
               <RoadCondition frictionScaleFactor="0.6" />

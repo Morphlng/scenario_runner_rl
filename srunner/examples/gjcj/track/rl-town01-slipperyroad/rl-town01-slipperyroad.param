@@ -37,7 +37,7 @@
                     {
                         "key": "suspicious_speed",
                         "description": "可疑车辆的速度",
-                        "value": [5,14],
+                        "value": [4,9],
                         "default": 5,
                         "unit": "米/秒"
                     }
@@ -129,7 +129,7 @@
                     {
                         "key": "walker0_speed",
                         "description": "walker0的速度",
-                        "value": [0.5,3],
+                        "value": [0.5,2],
                         "default": 2,
                         "unit": "米/秒"
                     },
@@ -163,7 +163,7 @@
                     {
                         "key": "walker1_speed",
                         "description": "walker1的速度",
-                        "value": [0.5,3],
+                        "value": [1,3],
                         "default": 2,
                         "unit": "米/秒"
                     },

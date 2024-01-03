@@ -90,8 +90,8 @@
                     {
                         "key": "zjc1_x",
                         "description": "静态车辆1的x初始位置",
-                        "value": [-103,-97],
-                        "default":-99,
+                        "value": [-103,-101],
+                        "default":-101,
                         "unit": "米"
                     },
                     {
@@ -144,7 +144,7 @@
                     {
                         "key": "gun1_fire_distance",
                         "description": "静态火炮1的打击距离",
-                        "value": [45,105],
+                        "value": [10,120],
                         "default":50,
                         "unit": "米"
                     }
@@ -171,7 +171,7 @@
                     {
                         "key": "gun2_fire_distance",
                         "description": "静态火炮2的打击距离",
-                        "value": [45,105],
+                        "value": [20,120],
                         "default":50,
                         "unit": "米"
                     }
@@ -184,7 +184,7 @@
                     {
                         "key": "depot1_x",
                         "description": "弹药库1的x初始位置",
-                        "value": [-107, -105],
+                        "value": [ -107, -105 ],
                         "default": -105,
                         "unit": "米"
                     },

@@ -256,17 +256,26 @@
                   </RoutingAction>
                 </PrivateAction>
               </Action>
+              <!-- <StartTrigger>
+                      <ConditionGroup>
+                          <Condition name="sus_acc_trigger" delay="0" conditionEdge="none">
+                              <ByEntityCondition>
+                                  <TriggeringEntities triggeringEntitiesRule="any">
+                                      <EntityRef entityRef="Ego"/>
+                                  </TriggeringEntities>
+                                  <EntityCondition>
+                                      <SpeedCondition value="0.8" rule="greaterThan"/>
+                                  </EntityCondition>
+                              </ByEntityCondition>
+                          </Condition>
+                      </ConditionGroup>
+                  </StartTrigger> -->
               <StartTrigger>
                 <ConditionGroup>
-                  <Condition name="sus_acc_trigger" delay="0" conditionEdge="none">
-                    <ByEntityCondition>
-                      <TriggeringEntities triggeringEntitiesRule="any">
-                        <EntityRef entityRef="Ego" />
-                      </TriggeringEntities>
-                      <EntityCondition>
-                        <SpeedCondition value="0.1" rule="greaterThan" />
-                      </EntityCondition>
-                    </ByEntityCondition>
+                  <Condition name="sus_acc_trigger1" delay="0" conditionEdge="none">
+                    <ByValueCondition>
+                      <SimulationTimeCondition value="0" rule="greaterThan" />
+                    </ByValueCondition>
                   </Condition>
                 </ConditionGroup>
               </StartTrigger>

@@ -379,12 +379,21 @@
                         <EntityRef entityRef="Ego" />
                       </TriggeringEntities>
                       <EntityCondition>
-                        <SpeedCondition value="0.1" rule="greaterThan" />
+                        <SpeedCondition value="0.8" rule="greaterThan" />
                       </EntityCondition>
                     </ByEntityCondition>
                   </Condition>
                 </ConditionGroup>
               </StartTrigger>
+              <!-- <StartTrigger>
+                      <ConditionGroup>
+                          <Condition name="sus_acc_trigger1" delay="0" conditionEdge="none">
+                              <ByValueCondition>
+                                  <SimulationTimeCondition value="0" rule="greaterThan"/>
+                              </ByValueCondition>
+                          </Condition>
+                      </ConditionGroup>
+                  </StartTrigger> -->
             </Event>
           </Maneuver>
         </ManeuverGroup>
@@ -531,7 +540,7 @@
                       </TriggeringEntities>
                       <EntityCondition>
                         <RelativeDistanceCondition entityRef="Ego"
-                          relativeDistanceType="cartesianDistance" value="50" freespace="true"
+                          relativeDistanceType="cartesianDistance" value="100" freespace="true"
                           rule="lessThan" />
                       </EntityCondition>
                     </ByEntityCondition>
@@ -586,7 +595,7 @@
                       </TriggeringEntities>
                       <EntityCondition>
                         <RelativeDistanceCondition entityRef="Ego"
-                          relativeDistanceType="cartesianDistance" value="50" freespace="true"
+                          relativeDistanceType="cartesianDistance" value="100" freespace="true"
                           rule="lessThan" />
                       </EntityCondition>
                     </ByEntityCondition>

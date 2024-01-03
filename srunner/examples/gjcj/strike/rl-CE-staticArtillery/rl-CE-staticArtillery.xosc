@@ -5,40 +5,40 @@
     revMinor="0" date="2023-10-08T10:00:00" />
   <ParameterDeclarations>
 
-    <ParameterDeclaration name="Ego_x" parameterType="double" value="-96.5" />
-    <ParameterDeclaration name="Ego_y" parameterType="double" value="-2458.7" />
+    <ParameterDeclaration name="Ego_x" parameterType="double" value="-90.5"/>
+    <ParameterDeclaration name="Ego_y" parameterType="double" value="-2458.7"/>
 
-    <ParameterDeclaration name="barrier1_x" parameterType="double" value="-92.8" />
-    <ParameterDeclaration name="barrier1_y" parameterType="double" value="-2404.2" />
+    <ParameterDeclaration name="barrier1_x" parameterType="double" value="-91" />
+    <ParameterDeclaration name="barrier1_y" parameterType="double" value="-2391" />
 
-    <ParameterDeclaration name="barrier2_x" parameterType="double" value="-66.1" />
-    <ParameterDeclaration name="barrier2_y" parameterType="double" value="-2332.9" />
+    <ParameterDeclaration name="barrier2_x" parameterType="double" value="-63" />
+    <ParameterDeclaration name="barrier2_y" parameterType="double" value="-2332" />
 
-    <ParameterDeclaration name="barrier3_x" parameterType="double" value="-61.8" />
-    <ParameterDeclaration name="barrier3_y" parameterType="double" value="-2220.9" />
+    <ParameterDeclaration name="barrier3_x" parameterType="double" value="-60" />
+    <ParameterDeclaration name="barrier3_y" parameterType="double" value="-2211" />
 
-    <ParameterDeclaration name="barrier4_x" parameterType="double" value="-75.5" />
-    <ParameterDeclaration name="barrier4_y" parameterType="double" value="-2151.6" />
+    <ParameterDeclaration name="barrier4_x" parameterType="double" value="-74" />
+    <ParameterDeclaration name="barrier4_y" parameterType="double" value="-2141" />
 
-    <ParameterDeclaration name="zjc1_x" parameterType="double" value="-103" />
-    <ParameterDeclaration name="zjc1_y" parameterType="double" value="-2435" />
+    <ParameterDeclaration name="zjc1_x" parameterType="double" value="-99" />
+    <ParameterDeclaration name="zjc1_y" parameterType="double" value="-2441" />
 
-    <ParameterDeclaration name="zjc2_x" parameterType="double" value="-81" />
-    <ParameterDeclaration name="zjc2_y" parameterType="double" value="-2210" />
+    <ParameterDeclaration name="zjc2_x" parameterType="double" value="-78" />
+    <ParameterDeclaration name="zjc2_y" parameterType="double" value="-2207" />
 
-    <ParameterDeclaration name="gun1_x" parameterType="double" value="-95.6" />
-    <ParameterDeclaration name="gun1_y" parameterType="double" value="-2315" />
-    <ParameterDeclaration name="gun1_fire_distance" parameterType="double" value="70" />
+    <ParameterDeclaration name="gun1_x" parameterType="double" value="-105" />
+    <ParameterDeclaration name="gun1_y" parameterType="double" value="-2292" />
+    <ParameterDeclaration name="gun1_fire_distance" parameterType="double" value="64" />
 
-    <ParameterDeclaration name="gun2_x" parameterType="double" value="-41.2" />
-    <ParameterDeclaration name="gun2_y" parameterType="double" value="-2187.9" />
-    <ParameterDeclaration name="gun2_fire_distance" parameterType="double" value="50" />
+    <ParameterDeclaration name="gun2_x" parameterType="double" value="-45" />
+    <ParameterDeclaration name="gun2_y" parameterType="double" value="-2182" />
+    <ParameterDeclaration name="gun2_fire_distance" parameterType="double" value="72" />
 
-    <ParameterDeclaration name="depot1_x" parameterType="double" value="-105" />
-    <ParameterDeclaration name="depot1_y" parameterType="double" value="-2235" />
+    <ParameterDeclaration name="depot1_x" parameterType="double" value="-103" />
+    <ParameterDeclaration name="depot1_y" parameterType="double" value="-2252" />
 
-    <ParameterDeclaration name="depot2_x" parameterType="double" value="-48" />
-    <ParameterDeclaration name="depot2_y" parameterType="double" value="-2146" />
+    <ParameterDeclaration name="depot2_x" parameterType="double" value="-42" />
+    <ParameterDeclaration name="depot2_y" parameterType="double" value="-2147" />
 
   </ParameterDeclarations>
   <CatalogLocations>
@@ -101,8 +101,8 @@
     </ScenarioObject>
 
     <ScenarioObject name="gun1">
-    <!-- 需要使用set_attributes 扩大3倍 -->
-    <!-- 打击半径10m，重力设置默认 -->
+      <!-- 需要使用set_attributes 扩大3倍 -->
+      <!-- 打击半径10m，重力设置默认 -->
       <CatalogReference catalogName="VehicleCatalog" entryName="load.gunfire.001" />
     </ScenarioObject>
     <ScenarioObject name="gun2">
@@ -142,7 +142,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$Ego_x" y="$Ego_y" z="85" h="1.57" r="0" p="0" />
+                <WorldPosition x="$Ego_x" y="$Ego_y" z="85" h="1.42" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -170,8 +170,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$barrier1_x" y="$barrier1_y" z="85.5" h="1.57"
-                  r="0" p="0" />
+                <WorldPosition x="$barrier1_x" y="$barrier1_y" z="85.5" h="1.57" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -180,8 +179,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$barrier2_x" y="$barrier2_y" z="85" h="1.57" r="0"
-                  p="0" />
+                <WorldPosition x="$barrier2_x" y="$barrier2_y" z="85" h="1.57" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -190,8 +188,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$barrier3_x" y="$barrier3_y" z="85" h="1.57" r="0"
-                  p="0" />
+                <WorldPosition x="$barrier3_x" y="$barrier3_y" z="85" h="1.57" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -200,8 +197,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$barrier4_x" y="$barrier4_y" z="85" h="1.57" r="0"
-                  p="0" />
+                <WorldPosition x="$barrier4_x" y="$barrier4_y" z="85" h="1.57" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -246,8 +242,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$depot1_x" y="$depot1_y" z="90" h="0.03" r="0"
-                  p="0" />
+                <WorldPosition x="$depot1_x" y="$depot1_y" z="90" h="0.03" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -256,8 +251,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$depot2_x" y="$depot2_y" z="90" h="0.07" r="0"
-                  p="0" />
+                <WorldPosition x="$depot2_x" y="$depot2_y" z="90" h="0.07" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>

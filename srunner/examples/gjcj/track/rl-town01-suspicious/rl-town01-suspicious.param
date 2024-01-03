@@ -37,7 +37,7 @@
                     {
                         "key": "suspicious_speed",
                         "description": "可疑车辆的速度",
-                        "value": [5,14],
+                        "value": [4,9],
                         "default": 8,
                         "unit": "米/秒"
                     }
@@ -57,14 +57,14 @@
                     {
                         "key": "npc1_acc_time",
                         "description": "npc1的加速时间",
-                        "value": [1,10],
+                        "value": [4,10],
                         "default": 6,
                         "unit": "秒"
                     },
                     {
                         "key": "npc1_speed",
                         "description": "npc1的速度",
-                        "value": [5,12],
+                        "value": [5,10],
                         "default": 7,
                         "unit": "米/秒"
                     },
@@ -91,14 +91,14 @@
                     {
                         "key": "npc2_acc_time",
                         "description": "npc2的加速时间",
-                        "value": [1,10],
+                        "value": [4,10],
                         "default": 10,
                         "unit": "秒"
                     },
                     {
                         "key": "npc2_speed",
                         "description": "npc2的速度",
-                        "value": [9,15],
+                        "value": [9,12],
                         "default": 10,
                         "unit": "米/秒"
                     },

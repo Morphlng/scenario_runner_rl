@@ -157,7 +157,7 @@
                     {
                         "key": "dynpc2_x",
                         "description": "打击车辆2的x初始位置",
-                        "value": [14,30],
+                        "value": [14,24],
                         "default": -1.2,
                         "unit": "秒"
                     },

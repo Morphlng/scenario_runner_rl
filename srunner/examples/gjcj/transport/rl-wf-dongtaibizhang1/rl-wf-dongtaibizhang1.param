@@ -57,7 +57,7 @@
                     {
                         "key": "npc2_start_s",
                         "description": "npc2初始位置",
-                        "value": [165, 200],
+                        "value": [170, 220],
                         "default": 170,
                         "unit": "米"
                     },
@@ -84,7 +84,7 @@
                     {
                         "key": "npc3_start_s",
                         "description": "npc3初始位置",
-                        "value": [80, 150],
+                        "value": [80, 140],
                         "default": 100,
                         "unit": "米"
                     },

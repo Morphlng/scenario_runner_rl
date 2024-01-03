@@ -5,31 +5,31 @@
     revMinor="0" date="2023-10-08T10:00:00" />
   <ParameterDeclarations>
 
-    <ParameterDeclaration name="barrier1_x" parameterType="double" value="-38" />
+    <ParameterDeclaration name="barrier1_x" parameterType="double" value="-38.6" />
     <ParameterDeclaration name="barrier1_y" parameterType="double" value="-2057.3" />
 
-    <ParameterDeclaration name="barrier2_x" parameterType="double" value="18.5" />
+    <ParameterDeclaration name="barrier2_x" parameterType="double" value="20" />
     <ParameterDeclaration name="barrier2_y" parameterType="double" value="-1891" />
 
-    <ParameterDeclaration name="barrier3_x" parameterType="double" value="101" />
-    <ParameterDeclaration name="barrier3_y" parameterType="double" value="-1825.5" />
+    <ParameterDeclaration name="barrier3_x" parameterType="double" value="102" />
+    <ParameterDeclaration name="barrier3_y" parameterType="double" value="-1825" />
 
-    <ParameterDeclaration name="zjc1_x" parameterType="double" value="-26.4" />
-    <ParameterDeclaration name="zjc1_y" parameterType="double" value="-2014.1" />
+    <ParameterDeclaration name="zjc1_x" parameterType="double" value="-17.5" />
+    <ParameterDeclaration name="zjc1_y" parameterType="double" value="-2002.5" />
 
-    <ParameterDeclaration name="zjc2_x" parameterType="double" value="54" />
-    <ParameterDeclaration name="zjc2_y" parameterType="double" value="-1843" />
+    <ParameterDeclaration name="zjc2_x" parameterType="double" value="35" />
+    <ParameterDeclaration name="zjc2_y" parameterType="double" value="-1865" />
 
-    <ParameterDeclaration name="zjc3_x" parameterType="double" value="114.9" />
-    <ParameterDeclaration name="zjc3_y" parameterType="double" value="-1781.4" />
+    <ParameterDeclaration name="zjc3_x" parameterType="double" value="123.4" />
+    <ParameterDeclaration name="zjc3_y" parameterType="double" value="-1766.9" />
 
 
     <ParameterDeclaration name="dynpc1_x" parameterType="double" value="23.9" />
     <ParameterDeclaration name="dynpc1_y" parameterType="double" value="-1951" />
     <ParameterDeclaration name="dynpc1_fire_distance" parameterType="double" value="50" />
 
-    <ParameterDeclaration name="dynpc2_x" parameterType="double" value="-1.2" />
-    <ParameterDeclaration name="dynpc2_y" parameterType="double" value="-1854.6" />
+    <ParameterDeclaration name="dynpc2_x" parameterType="double" value="15" />
+    <ParameterDeclaration name="dynpc2_y" parameterType="double" value="-1860" />
     <ParameterDeclaration name="dynpc2_fire_distance" parameterType="double" value="50" />
 
     <ParameterDeclaration name="depot1_x" parameterType="double" value="60" />
@@ -219,7 +219,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$dynpc1_x" y="$dynpc1_y" z="88" h="3.14" r="0" p="0" />
+                <WorldPosition x="$dynpc1_x" y="$dynpc1_y" z="88" h="2.61" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -228,7 +228,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="$dynpc2_x" y="$dynpc2_y" z="88" h="0" r="0" p="0" />
+                <WorldPosition x="$dynpc2_x" y="$dynpc2_y" z="88" h="-0.7" r="0" p="0" />
               </Position>
             </TeleportAction>
           </PrivateAction>

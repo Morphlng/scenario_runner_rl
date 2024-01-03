@@ -268,7 +268,7 @@
                       </TriggeringEntities>
                       <EntityCondition>
                         <RelativeDistanceCondition entityRef="Ego"
-                          relativeDistanceType="cartesianDistance" value="50" freespace="true"
+                          relativeDistanceType="cartesianDistance" value="100" freespace="true"
                           rule="lessThan" />
                       </EntityCondition>
                     </ByEntityCondition>
@@ -344,7 +344,7 @@
                       </TriggeringEntities>
                       <EntityCondition>
                         <RelativeDistanceCondition entityRef="Ego"
-                          relativeDistanceType="cartesianDistance" value="50" freespace="true"
+                          relativeDistanceType="cartesianDistance" value="100" freespace="true"
                           rule="lessThan" />
                       </EntityCondition>
                     </ByEntityCondition>
@@ -420,7 +420,7 @@
                       </TriggeringEntities>
                       <EntityCondition>
                         <RelativeDistanceCondition entityRef="Ego"
-                          relativeDistanceType="cartesianDistance" value="50" freespace="true"
+                          relativeDistanceType="cartesianDistance" value="100" freespace="true"
                           rule="lessThan" />
                       </EntityCondition>
                     </ByEntityCondition>
@@ -496,7 +496,7 @@
                       </TriggeringEntities>
                       <EntityCondition>
                         <RelativeDistanceCondition entityRef="Ego"
-                          relativeDistanceType="cartesianDistance" value="50" freespace="true"
+                          relativeDistanceType="cartesianDistance" value="100" freespace="true"
                           rule="lessThan" />
                       </EntityCondition>
                     </ByEntityCondition>

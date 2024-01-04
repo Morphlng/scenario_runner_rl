@@ -256,20 +256,6 @@
                   </RoutingAction>
                 </PrivateAction>
               </Action>
-              <!-- <StartTrigger>
-                      <ConditionGroup>
-                          <Condition name="sus_acc_trigger" delay="0" conditionEdge="none">
-                              <ByEntityCondition>
-                                  <TriggeringEntities triggeringEntitiesRule="any">
-                                      <EntityRef entityRef="Ego"/>
-                                  </TriggeringEntities>
-                                  <EntityCondition>
-                                      <SpeedCondition value="0.8" rule="greaterThan"/>
-                                  </EntityCondition>
-                              </ByEntityCondition>
-                          </Condition>
-                      </ConditionGroup>
-                  </StartTrigger> -->
               <StartTrigger>
                 <ConditionGroup>
                   <Condition name="sus_acc_trigger1" delay="0" conditionEdge="none">
@@ -297,7 +283,6 @@
                           <ParameterAssignment parameterRef="Type" value="vehicle_4w" />
                           <ParameterAssignment parameterRef="Target_speed" value="40" />
                           <ParameterAssignment parameterRef="Init_speed" value="20" />
-                          <ParameterAssignment parameterRef="Force_padding" value="true" />
                           <ParameterAssignment parameterRef="Action_type"
                             value="vehicle_atomic_action" />
                           <ParameterAssignment parameterRef="Discrete_action_set"

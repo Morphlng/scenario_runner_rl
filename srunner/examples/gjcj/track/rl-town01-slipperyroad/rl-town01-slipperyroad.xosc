@@ -385,15 +385,6 @@
                   </Condition>
                 </ConditionGroup>
               </StartTrigger>
-              <!-- <StartTrigger>
-                      <ConditionGroup>
-                          <Condition name="sus_acc_trigger1" delay="0" conditionEdge="none">
-                              <ByValueCondition>
-                                  <SimulationTimeCondition value="0" rule="greaterThan"/>
-                              </ByValueCondition>
-                          </Condition>
-                      </ConditionGroup>
-                  </StartTrigger> -->
             </Event>
           </Maneuver>
         </ManeuverGroup>
@@ -413,10 +404,8 @@
                           <ParameterAssignment parameterRef="Type" value="walker" />
                           <ParameterAssignment parameterRef="Action_type"
                             value="walker_speed_action" />
-                          <ParameterAssignment parameterRef="Force_padding" value="true" />
                           <ParameterAssignment parameterRef="Focus_actors"
                             value="walker0,walker1,Ego,suspicious,static0,static1" />
-                          <ParameterAssignment parameterRef="Add_action_mask" value="true" />
                           <ParameterAssignment parameterRef="Model_path"
                             value="srunner/examples/rl_models/Track/Track.Slippery/checkpoint" />
                           <ParameterAssignment parameterRef="Params_path"
@@ -464,7 +453,6 @@
                             value="walker_speed_action" />
                           <ParameterAssignment parameterRef="Focus_actors"
                             value="walker0,walker1,Ego,suspicious,static0,static1" />
-                          <ParameterAssignment parameterRef="Add_action_mask" value="true" />
                           <ParameterAssignment parameterRef="Model_path"
                             value="srunner/examples/rl_models/Track/Track.Slippery/checkpoint" />
                           <ParameterAssignment parameterRef="Params_path"
@@ -512,7 +500,6 @@
                             value="walker_speed_action" />
                           <ParameterAssignment parameterRef="Focus_actors"
                             value="walker3,walker4,Ego,suspicious,static3,static4" />
-                          <ParameterAssignment parameterRef="Add_action_mask" value="true" />
                           <ParameterAssignment parameterRef="Model_path"
                             value="srunner/examples/rl_models/Track/Track.Slippery/checkpoint" />
                           <ParameterAssignment parameterRef="Params_path"
@@ -567,7 +554,6 @@
                             value="walker_speed_action" />
                           <ParameterAssignment parameterRef="Focus_actors"
                             value="walker3,walker4,Ego,suspicious,static3,static4" />
-                          <ParameterAssignment parameterRef="Add_action_mask" value="true" />
                           <ParameterAssignment parameterRef="Model_path"
                             value="srunner/examples/rl_models/Track/Track.Slippery/checkpoint" />
                           <ParameterAssignment parameterRef="Params_path"

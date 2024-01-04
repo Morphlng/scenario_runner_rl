@@ -10,8 +10,8 @@
                     {
                         "key": "ego_start_s",
                         "description": "主车初始位置",
-                        "value": [380,400],
-                        "default": 390,
+                        "value": [330,390],
+                        "default": 360,
                         "unit": "米"
                     }
                 ]

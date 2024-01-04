@@ -231,8 +231,8 @@
                       <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
                         <ParameterAssignments>
                           <ParameterAssignment parameterRef="Type" value="vehicle_4w" />
-                          <ParameterAssignment parameterRef="Target_speed" value="20" />
-                          <ParameterAssignment parameterRef="Init_speed" value="20" />
+                          <ParameterAssignment parameterRef="Target_speed" value="40" />
+                          <ParameterAssignment parameterRef="Init_speed" value="30" />
                           <ParameterAssignment parameterRef="Focus_actors"
                             value="Ego,npc1,npc2,soldier" />
                           <ParameterAssignment parameterRef="Action_type"
@@ -264,7 +264,7 @@
                 <ConditionGroup>
                   <Condition name="npc1_con1" delay="0" conditionEdge="none">
                     <ByValueCondition>
-                      <SimulationTimeCondition value="10" rule="greaterThan" />
+                      <SimulationTimeCondition value="3" rule="greaterThan" />
                     </ByValueCondition>
                   </Condition>
                 </ConditionGroup>
@@ -316,8 +316,8 @@
                       <CatalogReference catalogName="ControllerCatalog" entryName="RLControl">
                         <ParameterAssignments>
                           <ParameterAssignment parameterRef="Type" value="vehicle_4w" />
-                          <ParameterAssignment parameterRef="Target_speed" value="20" />
-                          <ParameterAssignment parameterRef="Init_speed" value="20" />
+                          <ParameterAssignment parameterRef="Target_speed" value="40" />
+                          <ParameterAssignment parameterRef="Init_speed" value="30" />
                           <ParameterAssignment parameterRef="Focus_actors"
                             value="Ego,npc1,npc2,soldier" />
                           <ParameterAssignment parameterRef="Action_type"
@@ -349,7 +349,7 @@
                 <ConditionGroup>
                   <Condition name="npc2_con1" delay="0" conditionEdge="none">
                     <ByValueCondition>
-                      <SimulationTimeCondition value="10" rule="greaterThan" />
+                      <SimulationTimeCondition value="3" rule="greaterThan" />
                     </ByValueCondition>
                   </Condition>
                 </ConditionGroup>

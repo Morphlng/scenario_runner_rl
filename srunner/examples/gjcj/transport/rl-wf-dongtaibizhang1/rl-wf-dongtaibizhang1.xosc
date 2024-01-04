@@ -256,7 +256,7 @@
                 <ConditionGroup>
                   <Condition name="npc1_con1" delay="0" conditionEdge="none">
                     <ByValueCondition>
-                      <SimulationTimeCondition value="1" rule="greaterThan" />
+                      <SimulationTimeCondition value="2" rule="greaterThan" />
                     </ByValueCondition>
                   </Condition>
                 </ConditionGroup>
@@ -337,7 +337,7 @@
                 <ConditionGroup>
                   <Condition name="npc2_con1" delay="0" conditionEdge="none">
                     <ByValueCondition>
-                      <SimulationTimeCondition value="1" rule="greaterThan" />
+                      <SimulationTimeCondition value="2" rule="greaterThan" />
                     </ByValueCondition>
                   </Condition>
                 </ConditionGroup>
@@ -418,7 +418,7 @@
                 <ConditionGroup>
                   <Condition name="npc3_con1" delay="0" conditionEdge="none">
                     <ByValueCondition>
-                      <SimulationTimeCondition value="1" rule="greaterThan" />
+                      <SimulationTimeCondition value="2" rule="greaterThan" />
                     </ByValueCondition>
                   </Condition>
                 </ConditionGroup>

@@ -44,7 +44,7 @@
                     {
                         "key": "npc1_egoreach_region",
                         "description": "npc1到region位置",
-                        "value": [200,400],
+                        "value": [330,370],
                         "default": 270,
                         "unit": "米"
                     }
@@ -78,7 +78,7 @@
                     {
                         "key": "npc2_egoreach_region2",
                         "description": "npc2到达region2位置",
-                        "value": [250,420],
+                        "value": [330,370],
                         "default": 350,
                         "unit": "米"
                     }
@@ -91,7 +91,7 @@
                     {
                         "key": "tudui1_s",
                         "description": "土堆1初始位置",
-                        "value": [70,115],
+                        "value": [70,90],
                         "default": 70,
                         "unit": "米"
                     }
@@ -104,8 +104,8 @@
                     {
                         "key": "tudui2_s",
                         "description": "土堆2初始位置",
-                        "value": [130,175],
-                        "default": 132,
+                        "value": [140,155],
+                        "default": 142,
                         "unit": "米"
                     }
                 ]
@@ -117,7 +117,7 @@
                     {
                         "key": "tudui3_s",
                         "description": "土堆3初始位置",
-                        "value": [190,235],
+                        "value": [195,215],
                         "default": 198,
                         "unit": "米"
                     }
@@ -130,8 +130,8 @@
                     {
                         "key": "tudui4_s",
                         "description": "土堆4初始位置",
-                        "value": [250,295],
-                        "default": 256,
+                        "value": [270,280],
+                        "default": 276,
                         "unit": "米"
                     }
                 ]
@@ -143,8 +143,8 @@
                     {
                         "key": "tudui5_s",
                         "description": "土堆5初始位置",
-                        "value": [310,355],
-                        "default": 332,
+                        "value": [340,350],
+                        "default": 342,
                         "unit": "米"
                     }
                 ]
@@ -156,8 +156,8 @@
                     {
                         "key": "tudui6_s",
                         "description": "土堆6初始位置",
-                        "value": [370,415],
-                        "default": 395,
+                        "value": [405,415],
+                        "default": 410,
                         "unit": "米"
                     }
                 ]

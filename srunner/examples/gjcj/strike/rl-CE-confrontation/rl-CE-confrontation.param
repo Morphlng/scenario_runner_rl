@@ -30,15 +30,15 @@
                     {
                         "key": "barrier2_x",
                         "description": "障碍2的x初始位置",
-                        "value": [17.5,20],
-                        "default": 18.5,
+                        "value": [-10.18,-5.46],
+                        "default": -4.0,
                         "unit": "米"
                     },
                     {
                         "key": "barrier2_y",
                         "description": "障碍2的y初始位置",
-                        "value": [-1891,-1886],
-                        "default": -1891,
+                        "value": [-1918,-1913],
+                        "default": -1915,
                         "unit": "米"
                     }
                 ]

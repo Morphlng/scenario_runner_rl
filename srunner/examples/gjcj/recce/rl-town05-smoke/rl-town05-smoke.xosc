@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenSCENARIO.xsd">
+<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="OpenSCENARIO.xsd">
   <FileHeader taskCategory="陆域" name="侦察任务-雾天侦察" description="侦察任务-雾天侦察" author="rhp" revMajor="1"
     revMinor="0" date="2023-10-08T10:00:00" />
   <ParameterDeclarations>

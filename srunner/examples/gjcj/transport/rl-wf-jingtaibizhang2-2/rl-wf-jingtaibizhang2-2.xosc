@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
-  <FileHeader taskCategory="陆域" name="运输任务-静态避障2-2" description="运输任务-静态避障2-2" author="lp" revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
+<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
+  <FileHeader taskCategory="陆域" name="运输任务-静态避障2-2" description="运输任务-静态避障2-2" author="lp"
+    revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
   <ParameterDeclarations>
     <ParameterDeclaration name="ego_start_s" parameterType="double" value="390" />
 
@@ -24,16 +26,16 @@
   </ParameterDeclarations>
   <CatalogLocations>
     <VehicleCatalog>
-      <Directory path="../xosc/Catalogs/Vehicles"/>
+      <Directory path="../xosc/Catalogs/Vehicles" />
     </VehicleCatalog>
     <PedestrianCatalog>
-      <Directory path="../xosc/Catalogs/Pedestrians"/>
+      <Directory path="../xosc/Catalogs/Pedestrians" />
     </PedestrianCatalog>
     <MiscObjectCatalog>
-      <Directory path="../xosc/Catalogs/MiscObjects"/>
+      <Directory path="../xosc/Catalogs/MiscObjects" />
     </MiscObjectCatalog>
     <ControllerCatalog>
-      <Directory path="../xosc/Catalogs/Controllers"/>
+      <Directory path="../xosc/Catalogs/Controllers" />
     </ControllerCatalog>
   </CatalogLocations>
   <RoadNetwork>
@@ -132,76 +134,76 @@
           </PrivateAction>
         </Private>
         <Private entityRef="static5">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <LanePosition roadId="27" laneId="-2" s="$static5_s" offset="0.0"/>
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="27" laneId="-2" s="$static5_s" offset="0.0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
         <Private entityRef="static6">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <LanePosition roadId="27" laneId="-2" s="$static6_s" offset="0"/>
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="27" laneId="-2" s="$static6_s" offset="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
         <Private entityRef="static7">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <LanePosition roadId="27" laneId="2" s="$static7_s" offset="0.0"/>
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="27" laneId="2" s="$static7_s" offset="0.0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
         <Private entityRef="static8">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <LanePosition roadId="27" laneId="-2" s="$static8_s" offset="0.0"/>
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="27" laneId="-2" s="$static8_s" offset="0.0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
         <Private entityRef="rb1">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <WorldPosition x="$rb1_x" y="-127" z="3.0" h="1.57" r="0" p="0" />
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$rb1_x" y="-127" z="3.0" h="1.57" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
         <Private entityRef="rb2">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <WorldPosition x="$rb2_x" y="-90" z="3.0" h="-1.57" r="0" p="0" />
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="$rb2_x" y="-90" z="3.0" h="-1.57" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
         <Private entityRef="NPC1">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <WorldPosition x="-591" y="-93" z="1.8" h="0" r="0" p="0" />
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="-591" y="-93" z="1.8" h="0" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
         <Private entityRef="NPC2">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <WorldPosition x="-487.0" y="-106.0" z="1.8" h="3.14" r="0" p="0" />
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="-487.0" y="-106.0" z="1.8" h="3.14" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
       </Actions>
     </Init>

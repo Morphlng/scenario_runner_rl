@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
+<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
   <FileHeader taskCategory="陆域" name="运输任务-终点停车" description="运输任务-终点停车" author="lp" revMajor="1"
     revMinor="0" date="2023-10-08T10:00:00" />
   <ParameterDeclarations>
@@ -10,16 +11,16 @@
   </ParameterDeclarations>
   <CatalogLocations>
     <VehicleCatalog>
-      <Directory path="../xosc/Catalogs/Vehicles"/>
+      <Directory path="../xosc/Catalogs/Vehicles" />
     </VehicleCatalog>
     <PedestrianCatalog>
-      <Directory path="../xosc/Catalogs/Pedestrians"/>
+      <Directory path="../xosc/Catalogs/Pedestrians" />
     </PedestrianCatalog>
     <MiscObjectCatalog>
-      <Directory path="../xosc/Catalogs/MiscObjects"/>
+      <Directory path="../xosc/Catalogs/MiscObjects" />
     </MiscObjectCatalog>
     <ControllerCatalog>
-      <Directory path="../xosc/Catalogs/Controllers"/>
+      <Directory path="../xosc/Catalogs/Controllers" />
     </ControllerCatalog>
   </CatalogLocations>
   <RoadNetwork>

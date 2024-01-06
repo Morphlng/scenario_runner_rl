@@ -1,51 +1,85 @@
 {
-    "seed": 13,
-    "name": "ego",
-    "map": "CE-A2",
-    "agent": {
-        "opt": {
-            "ignore_traffic_lights": false,
-            "ignore_stop_signs": false,
-            "ignore_vehicles": false
+  "seed": 13,
+  "name": "ego",
+  "map": "CE-A2",
+  "agent": {
+    "opt": {
+      "ignore_traffic_lights": false,
+      "ignore_stop_signs": false,
+      "ignore_vehicles": false
+    }
+  },
+  "init": {
+    "maneuver": {},
+    "smoke": {
+      "smoke": [
+        {
+          "location": [-138.6, -2816.3, 82.3],
+          "rotation": [0, 0, 0],
+          "spped": 0,
+          "priority": 0
+        },
+        {
+          "location": [-104.5, -2771.8, 82.4],
+          "rotation": [0, 0, 0],
+          "spped": 0,
+          "priority": 1
+        },
+        {
+          "location": [-102.3, -2674.9, 82.7],
+          "rotation": [0, 0, 0],
+          "spped": 0,
+          "priority": 2
+        },
+        {
+          "location": [-123.7, -2616.3, 82.9],
+          "rotation": [0, 0, 0],
+          "spped": 0,
+          "priority": 3
+        },
+        {
+          "location": [-81.9, -2558.3, 84.4],
+          "rotation": [0, 0, 0],
+          "spped": 0,
+          "priority": 4
         }
-    },
-    "init": {
-        "maneuver": {},
-        "smoke":{
-            "smoke":[
-                {"location": [ -138.6,-2816.3,82.3],"rotation": [0, 0, 0], "spped": 0, "priority": 0 },
-                {"location": [ -104.5,-2771.8,82.4],"rotation": [0, 0, 0], "spped": 0, "priority": 1 },
-                {"location": [ -102.3,-2674.9,82.7],"rotation": [0, 0, 0], "spped": 0, "priority": 2 },
-                {"location": [ -123.7,-2616.3,82.9],"rotation": [0, 0, 0], "spped": 0, "priority": 3 },
-                {"location": [ -81.9,-2558.3,84.4],"rotation": [0, 0, 0], "spped": 0, "priority": 4 }
-            ]
-        }
-    },
-    "destination": [
-        {"location": [-99.9, -2479.5, 84]}
-    ],
-    "targets": {
-        "scout": [],
-        "strike": [],
-        "track": []
-    },
-    "taskarea": [
-        {"location": [-249.6, -2939.1, 83.6]},
-        {"location": [-153.5, -2966.4, 83]},
-        {"location": [-118.6, -2466, 84.1]},
-        {"location": [-69.9, -2472.4, 83.3]}
-    ],
-    "keypoints": [],
-    "team": {
-        "red": [], 
-        "blue": ["robot1","robot2","robot3","robot4"],  
-        "neutrality": ["barrier1","barrier2","barrier3","barrier4","zjc1","zjc2","zjc3","zjc4","zjc5","smoke"]
-    },
-    "elementtype":{
-        "pedestrian": [], 
-        "dynamic": ["robot1","robot2","robot3","robot4"],     
-        "static": ["zjc1","zjc2","zjc3","zjc4","zjc5"],    
-        "obstacle": ["barrier1","barrier2","barrier3","barrier4","smoke"],  
-        "keypoints": []    
-    }  
+      ]
+    }
+  },
+  "destination": [{ "location": [-99.9, -2479.5, 84] }],
+  "targets": {
+    "scout": [],
+    "strike": [],
+    "track": []
+  },
+  "taskarea": [
+    { "location": [-249.6, -2939.1, 83.6] },
+    { "location": [-153.5, -2966.4, 83] },
+    { "location": [-118.6, -2466, 84.1] },
+    { "location": [-69.9, -2472.4, 83.3] }
+  ],
+  "keypoints": [],
+  "team": {
+    "red": [],
+    "blue": ["robot1", "robot2", "robot3", "robot4"],
+    "neutrality": [
+      "barrier1",
+      "barrier2",
+      "barrier3",
+      "barrier4",
+      "zjc1",
+      "zjc2",
+      "zjc3",
+      "zjc4",
+      "zjc5",
+      "smoke"
+    ]
+  },
+  "elementtype": {
+    "pedestrian": [],
+    "dynamic": ["robot1", "robot2", "robot3", "robot4"],
+    "static": ["zjc1", "zjc2", "zjc3", "zjc4", "zjc5"],
+    "obstacle": ["barrier1", "barrier2", "barrier3", "barrier4", "smoke"],
+    "keypoints": []
+  }
 }

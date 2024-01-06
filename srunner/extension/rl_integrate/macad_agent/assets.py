@@ -158,6 +158,10 @@ class EnvAssets:
         return ({i: i - 10 for i in range(21)}, {i: i for i in range(11)})
 
     @property
+    def default_fire_cheat_discrete_actions(self):
+        return {i: i for i in range(26)}
+
+    @property
     def default_pseudo_discrete_actions(self):
         """The default discrete action set for pseudo control"""
         return {0: "null"}

@@ -1,42 +1,40 @@
 {
-    "seed": 13,
-    "name": "ego",
-    "map": "wf_afghanSceneRecnew",
-    "agent": {
-        "opt": {
-            "ignore_traffic_lights": false,
-            "ignore_stop_signs": false,
-            "ignore_vehicles": false
-        }
-    },
-    "init": {
-        "maneuver": {}
-    },
-    "destination": [
-        {"location": [-394.95, -79.28, 0.0]}
-    ],
-    "targets": {
-        "scout": [],
-        "strike": [],
-        "track": []
-    },
-    "taskarea": [
-        {"location": [-706.6, -280.4, 0.0]},
-        {"location": [-950.6, -144.7, 0.0]},
-        {"location": [-365.5, -6.7, 0.0]},
-        {"location": [-346.7, -109.8, 0.0]}
-    ],
-    "keypoints": [],
-    "team": {
-        "red": [], 
-        "blue": ["rb1","rb2"],  
-        "neutrality": ["static5","static6","static7","static8","NPC1","NPC2"]
-    },
-    "elementtype":{
-        "pedestrian": [], 
-        "dynamic": ["rb1","rb2"],     
-        "static": ["NPC1","NPC2"],    
-        "obstacle": ["static5","static6","static7","static8"],  
-        "keypoints": []    
-    }  
+  "seed": 13,
+  "name": "ego",
+  "map": "wf_afghanSceneRecnew",
+  "agent": {
+    "opt": {
+      "ignore_traffic_lights": false,
+      "ignore_stop_signs": false,
+      "ignore_vehicles": false
+    }
+  },
+  "init": {
+    "maneuver": {}
+  },
+  "destination": [{ "location": [-394.95, -79.28, 0.0] }],
+  "targets": {
+    "scout": [],
+    "strike": [],
+    "track": []
+  },
+  "taskarea": [
+    { "location": [-706.6, -280.4, 0.0] },
+    { "location": [-950.6, -144.7, 0.0] },
+    { "location": [-365.5, -6.7, 0.0] },
+    { "location": [-346.7, -109.8, 0.0] }
+  ],
+  "keypoints": [],
+  "team": {
+    "red": [],
+    "blue": ["rb1", "rb2"],
+    "neutrality": ["static5", "static6", "static7", "static8", "NPC1", "NPC2"]
+  },
+  "elementtype": {
+    "pedestrian": [],
+    "dynamic": ["rb1", "rb2"],
+    "static": ["NPC1", "NPC2"],
+    "obstacle": ["static5", "static6", "static7", "static8"],
+    "keypoints": []
+  }
 }

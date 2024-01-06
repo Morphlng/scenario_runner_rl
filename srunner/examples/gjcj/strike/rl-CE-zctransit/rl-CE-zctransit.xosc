@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
-  <FileHeader taskCategory="陆域" name="打击任务-战场区域通行" description="打击任务-战场区域通行" author="lp" revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
+<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
+  <FileHeader taskCategory="陆域" name="打击任务-战场区域通行" description="打击任务-战场区域通行" author="lp"
+    revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
   <ParameterDeclarations>
     <ParameterDeclaration name="barrier1_x" parameterType="double" value="-148" />
     <ParameterDeclaration name="barrier1_y" parameterType="double" value="-2899.8" />

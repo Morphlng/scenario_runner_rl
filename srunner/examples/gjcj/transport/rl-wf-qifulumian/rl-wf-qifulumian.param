@@ -10,8 +10,8 @@
                     {
                         "key": "ego_start_s",
                         "description": "主车初始位置",
-                        "value": [5,50],
-                        "default": 35,
+                        "value": [240,250],
+                        "default": 250,
                         "unit": "米"
                     }
                 ]
@@ -23,8 +23,8 @@
                     {
                         "key": "npc1_s",
                         "description": "npc1初始位置",
-                        "value": [30,150],
-                        "default": 84,
+                        "value": [30, 60],
+                        "default": 50,
                         "unit": "米"
                     },
                     {
@@ -44,8 +44,8 @@
                     {
                         "key": "npc1_egoreach_region",
                         "description": "npc1到region位置",
-                        "value": [200,400],
-                        "default": 270,
+                        "value": [330,370],
+                        "default": 350,
                         "unit": "米"
                     }
                 ]
@@ -57,8 +57,8 @@
                     {
                         "key": "npc2_s",
                         "description": "npc2初始位置",
-                        "value": [100,210],
-                        "default": 100,
+                        "value": [100, 150],
+                        "default": 120,
                         "unit": "米"
                     },
                     {
@@ -78,7 +78,7 @@
                     {
                         "key": "npc2_egoreach_region2",
                         "description": "npc2到达region2位置",
-                        "value": [250,420],
+                        "value": [330,370],
                         "default": 350,
                         "unit": "米"
                     }
@@ -91,7 +91,7 @@
                     {
                         "key": "tudui1_s",
                         "description": "土堆1初始位置",
-                        "value": [70,115],
+                        "value": [70,80],
                         "default": 70,
                         "unit": "米"
                     }
@@ -104,8 +104,8 @@
                     {
                         "key": "tudui2_s",
                         "description": "土堆2初始位置",
-                        "value": [130,175],
-                        "default": 132,
+                        "value": [120,135],
+                        "default": 122,
                         "unit": "米"
                     }
                 ]
@@ -117,8 +117,8 @@
                     {
                         "key": "tudui3_s",
                         "description": "土堆3初始位置",
-                        "value": [190,235],
-                        "default": 198,
+                        "value": [175,190],
+                        "default": 180,
                         "unit": "米"
                     }
                 ]
@@ -130,8 +130,8 @@
                     {
                         "key": "tudui4_s",
                         "description": "土堆4初始位置",
-                        "value": [250,295],
-                        "default": 256,
+                        "value": [218,220],
+                        "default": 220,
                         "unit": "米"
                     }
                 ]
@@ -143,8 +143,8 @@
                     {
                         "key": "tudui5_s",
                         "description": "土堆5初始位置",
-                        "value": [310,355],
-                        "default": 332,
+                        "value": [320,330],
+                        "default": 328,
                         "unit": "米"
                     }
                 ]
@@ -156,8 +156,8 @@
                     {
                         "key": "tudui6_s",
                         "description": "土堆6初始位置",
-                        "value": [370,415],
-                        "default": 395,
+                        "value": [408,415],
+                        "default": 410,
                         "unit": "米"
                     }
                 ]

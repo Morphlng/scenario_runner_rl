@@ -1,57 +1,110 @@
 {
-    "seed": 13,
-    "name": "ego",
-    "map": "Town05",
-    "agent": {
-        "opt": {
-            "ignore_traffic_lights": false,
-            "ignore_stop_signs": false,
-            "ignore_vehicles": false
+  "seed": 13,
+  "name": "ego",
+  "map": "Town05",
+  "agent": {
+    "opt": {
+      "ignore_traffic_lights": false,
+      "ignore_stop_signs": false,
+      "ignore_vehicles": false
+    }
+  },
+  "init": {
+    "maneuver": {},
+    "fire": {
+      "fire": [
+        {
+          "location": [66, -94, 0],
+          "rotation": [0, 0, 0],
+          "spped": 0,
+          "priority": 0
+        },
+        {
+          "location": [69, -82, 0],
+          "rotation": [0, 0, 0],
+          "spped": 0,
+          "priority": 1
+        },
+        {
+          "location": [89, -83, 0],
+          "rotation": [0, 0, 0],
+          "spped": 0,
+          "priority": 2
+        },
+        {
+          "location": [7, -93, 0],
+          "rotation": [0, 0, 0],
+          "spped": 0,
+          "priority": 3
+        },
+        {
+          "location": [-9, -85, 0],
+          "rotation": [0, 0, 0],
+          "spped": 0,
+          "priority": 4
+        },
+        {
+          "location": [-18, -94, 0],
+          "rotation": [0, 0, 0],
+          "spped": 0,
+          "priority": 5
+        },
+        {
+          "location": [25, -57, 0],
+          "rotation": [0, 0, 0],
+          "spped": 0,
+          "priority": 6
+        },
+        {
+          "location": [34, -94, 0],
+          "rotation": [0, 0, 0],
+          "spped": 0,
+          "priority": 7
+        },
+        {
+          "location": [24, -93, 0],
+          "rotation": [0, 0, 0],
+          "spped": 0,
+          "priority": 8
+        },
+        {
+          "location": [27, -47, 0],
+          "rotation": [0, 0, 0],
+          "spped": 0,
+          "priority": 9
+        },
+        {
+          "location": [28, -104, 0],
+          "rotation": [0, 0, 0],
+          "spped": 0,
+          "priority": 10
         }
-    },
-    "init": {
-        "maneuver": {},
-        "fire":{
-            "fire":[
-                {"location": [ 66,-94,0],"rotation": [0, 0, 0], "spped": 0, "priority": 0 },
-                {"location": [ 69,-82,0],"rotation": [0, 0, 0], "spped": 0, "priority": 1 },
-                {"location": [ 89,-83,0],"rotation": [0, 0, 0], "spped": 0, "priority": 2 },
-                {"location": [ 7,-93,0],"rotation": [0, 0, 0], "spped": 0, "priority": 3 },
-                {"location": [ -9,-85,0],"rotation": [0, 0, 0], "spped": 0, "priority": 4 },
-                {"location": [ -18,-94,0],"rotation": [0, 0, 0], "spped": 0, "priority": 5 },
-                {"location": [ 25,-57,0],"rotation": [0, 0, 0], "spped": 0, "priority": 6 },
-                {"location": [ 34,-94,0],"rotation": [0, 0, 0], "spped": 0, "priority": 7 },
-                {"location": [ 24,-93,0],"rotation": [0, 0, 0], "spped": 0, "priority": 8 },
-                {"location": [ 27,-47,0],"rotation": [0, 0, 0], "spped": 0, "priority": 9 },
-                {"location": [ 28,-104,0],"rotation": [0, 0, 0], "spped": 0, "priority": 10 }
-            ]
-        }
-    },
-    "destination": [
-        {"location": [103.35, -15.38, 0.0]}
-    ],
-    "targets": {
-        "scout": ["barrier2"],
-        "strike": [],
-        "track": []
-    },
-    "taskarea": [
-        {"location": [-47.8, -3.2, 0.0]},
-        {"location": [132.6, -0.2, 0.0]},
-        {"location": [-48.7, -118.4, 0.0]},
-        {"location": [120.9, -101.4, 0.0]}
-    ],
-    "keypoints": [],
-    "team": {
-        "red": [], 
-        "blue": [],  
-        "neutrality": ["npc1","npc2","walker1","walker2","barrier1","barrier2"]
-    },
-    "elementtype":{
-        "pedestrian": ["walker1","walker2"], 
-        "dynamic": ["npc1","npc2"],     
-        "static": [],    
-        "obstacle": ["barrier1","barrier2"],  
-        "keypoints": []    
-    }  
+      ]
+    }
+  },
+  "destination": [{ "location": [103.35, -15.38, 0.0] }],
+  "targets": {
+    "scout": ["barrier2"],
+    "strike": [],
+    "track": []
+  },
+  "taskarea": [
+    { "location": [-47.8, -3.2, 0.0] },
+    { "location": [132.6, -0.2, 0.0] },
+    { "location": [-48.7, -118.4, 0.0] },
+    { "location": [120.9, -101.4, 0.0] }
+  ],
+  "keypoints": [],
+  "team": {
+    "red": [],
+    "blue": [],
+    "neutrality": ["npc1", "npc2", "walker1", "walker2", "barrier1", "barrier2"]
+  },
+  "elementtype": {
+    "pedestrian": ["walker1", "walker2"],
+    "dynamic": ["npc1", "npc2"],
+    "static": [],
+    "obstacle": ["barrier1", "barrier2"],
+    "keypoints": []
+  }
 }

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
-  <FileHeader taskCategory="陆域" name="运输任务-静态避障2-1" description="运输任务-静态避障2-1" author="lp" revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
+<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
+  <FileHeader taskCategory="陆域" name="运输任务-静态避障2-1" description="运输任务-静态避障2-1" author="lp"
+    revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
   <ParameterDeclarations>
     <ParameterDeclaration name="ego_start_s" parameterType="double" value="10" />
 
@@ -23,16 +25,16 @@
   </ParameterDeclarations>
   <CatalogLocations>
     <VehicleCatalog>
-      <Directory path="../xosc/Catalogs/Vehicles"/>
+      <Directory path="../xosc/Catalogs/Vehicles" />
     </VehicleCatalog>
     <PedestrianCatalog>
-      <Directory path="../xosc/Catalogs/Pedestrians"/>
+      <Directory path="../xosc/Catalogs/Pedestrians" />
     </PedestrianCatalog>
     <MiscObjectCatalog>
-      <Directory path="../xosc/Catalogs/MiscObjects"/>
+      <Directory path="../xosc/Catalogs/MiscObjects" />
     </MiscObjectCatalog>
     <ControllerCatalog>
-      <Directory path="../xosc/Catalogs/Controllers"/>
+      <Directory path="../xosc/Catalogs/Controllers" />
     </ControllerCatalog>
   </CatalogLocations>
   <RoadNetwork>
@@ -131,78 +133,78 @@
           </PrivateAction>
         </Private>
         <Private entityRef="static1">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <LanePosition roadId="27" laneId="2" s="$static1_s" offset="0.0"/>
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="27" laneId="2" s="$static1_s" offset="0.0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
         <Private entityRef="static2">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <LanePosition roadId="27" laneId="-2" s="$static2_s" offset="0.0"/>
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="27" laneId="-2" s="$static2_s" offset="0.0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
         <Private entityRef="static3">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <WorldPosition x="-765.0" y="$static3_y" z="3.0" h="1.57" r="0" p="0" />
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="-765.0" y="$static3_y" z="3.0" h="1.57" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
         <Private entityRef="static4">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <LanePosition roadId="27" laneId="-2" s="$static4_s" offset="0.0"/>
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="27" laneId="-2" s="$static4_s" offset="0.0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
         <Private entityRef="rb1">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <LanePosition roadId="27" laneId="-2" s="$rb1_s" offset="0.0">
-                        <Orientation h="3.14" r="0" p="0" />
-                    </LanePosition>
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="27" laneId="-2" s="$rb1_s" offset="0.0">
+                  <Orientation h="3.14" r="0" p="0" />
+                </LanePosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
         <Private entityRef="rb2">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <WorldPosition x="-765.0" y="$rb2_y" z="3.0" h="0" r="0" p="0" />
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="-765.0" y="$rb2_y" z="3.0" h="0" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
         <Private entityRef="NPC1">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <WorldPosition x="-735" y="-455" z="1.8" h="0" r="0" p="0" />
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="-735" y="-455" z="1.8" h="0" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
         <Private entityRef="NPC2">
-            <PrivateAction>
-              <TeleportAction>
-                  <Position>
-                    <WorldPosition x="-760.9" y="-300.0" z="1.8" h="0" r="0" p="0" />
-                  </Position>
-              </TeleportAction>
-            </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="-760.9" y="-300.0" z="1.8" h="0" r="0" p="0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
         </Private>
       </Actions>
     </Init>

@@ -1,39 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
-  <FileHeader taskCategory="陆域" name="运输任务-起伏路面通行" description="运输任务-起伏路面通行" author="lp" revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
+<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="OpenScenario.xsd">
+  <FileHeader taskCategory="陆域" name="运输任务-起伏路面通行" description="运输任务-起伏路面通行" author="lp"
+    revMajor="1" revMinor="0" date="2023-10-08T10:00:00" />
   <ParameterDeclarations>
-    <ParameterDeclaration name="ego_start_s" parameterType="double" value="35.0" />
+    <ParameterDeclaration name="ego_start_s" parameterType="double" value="250.0" />  
 
-    <ParameterDeclaration name="npc1_s" parameterType="double" value="84" />
+    <ParameterDeclaration name="npc1_s" parameterType="double" value="40" />
     <ParameterDeclaration name="npc1_acc_distance1" parameterType="double" value="30" />
     <ParameterDeclaration name="npc1_acc_speed1" parameterType="double" value="15" />
     <ParameterDeclaration name="npc1_egoreach_region" parameterType="double" value="270" />
-
-    <ParameterDeclaration name="npc2_s" parameterType="double" value="100" />
+    <ParameterDeclaration name="npc2_s" parameterType="double" value="120" />
     <ParameterDeclaration name="npc2_acc_distance1" parameterType="double" value="30" />
     <ParameterDeclaration name="npc2_acc_speed1" parameterType="double" value="5" />
     <ParameterDeclaration name="npc2_egoreach_region2" parameterType="double" value="350" />
 
     <ParameterDeclaration name="tudui1_s" parameterType="double" value="70" />
-    <ParameterDeclaration name="tudui2_s" parameterType="double" value="132" />
-    <ParameterDeclaration name="tudui3_s" parameterType="double" value="198" />
-    <ParameterDeclaration name="tudui4_s" parameterType="double" value="256" />
-    <ParameterDeclaration name="tudui5_s" parameterType="double" value="332" />
-    <ParameterDeclaration name="tudui6_s" parameterType="double" value="395" />
+    <ParameterDeclaration name="tudui2_s" parameterType="double" value="135" />
+    <ParameterDeclaration name="tudui3_s" parameterType="double" value="190" />
+    <ParameterDeclaration name="tudui4_s" parameterType="double" value="220" />
+    <ParameterDeclaration name="tudui5_s" parameterType="double" value="320" />
+    <ParameterDeclaration name="tudui6_s" parameterType="double" value="408" />
 
   </ParameterDeclarations>
   <CatalogLocations>
     <VehicleCatalog>
-      <Directory path="../xosc/Catalogs/Vehicles"/>
+      <Directory path="../xosc/Catalogs/Vehicles" />
     </VehicleCatalog>
     <PedestrianCatalog>
-      <Directory path="../xosc/Catalogs/Pedestrians"/>
+      <Directory path="../xosc/Catalogs/Pedestrians" />
     </PedestrianCatalog>
     <MiscObjectCatalog>
-      <Directory path="../xosc/Catalogs/MiscObjects"/>
+      <Directory path="../xosc/Catalogs/MiscObjects" />
     </MiscObjectCatalog>
     <ControllerCatalog>
-      <Directory path="../xosc/Catalogs/Controllers"/>
+      <Directory path="../xosc/Catalogs/Controllers" />
     </ControllerCatalog>
   </CatalogLocations>
   <RoadNetwork>
@@ -145,7 +146,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <LanePosition roadId="13" laneId="-1" s="$npc2_s" offset="1.57" />
+                <LanePosition roadId="13" laneId="-1" s="$npc2_s" offset="0.0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -190,7 +191,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <LanePosition roadId="0" laneId="1" s="$tudui4_s" offset="0.0" />
+                <LanePosition roadId="0" laneId="1" s="$tudui4_s" offset="0.5" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -199,7 +200,9 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <LanePosition roadId="0" laneId="-1" s="$tudui5_s" offset="0.0" />
+                <LanePosition roadId="0" laneId="-1" s="$tudui5_s" offset="0.5">
+                  <Orientation h="0.52" p="0.0" r="0.0" type="relative" />
+                </LanePosition>
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -208,7 +211,9 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <LanePosition roadId="0" laneId="1" s="$tudui6_s" offset="0.0" />
+                <LanePosition roadId="0" laneId="-1" s="$tudui6_s" offset="0.5">
+                  <Orientation h="0.52" p="0.0" r="0.0" type="relative" />
+                </LanePosition>
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -232,15 +237,16 @@
                         <ParameterAssignments>
                           <ParameterAssignment parameterRef="Type" value="vehicle_4w" />
                           <ParameterAssignment parameterRef="Target_speed" value="40" />
-                          <ParameterAssignment parameterRef="Init_speed" value="30" />
+                          <ParameterAssignment parameterRef="Init_speed" value="20" />
+                          <ParameterAssignment parameterRef="Collision_sensor" value="off" />
+                          <ParameterAssignment parameterRef="Enable_planner" value="true" />
+                          <ParameterAssignment parameterRef="End_pos" value="-343.62,-453.81,0.0" />
                           <ParameterAssignment parameterRef="Focus_actors"
                             value="Ego,npc1,npc2,soldier" />
                           <ParameterAssignment parameterRef="Action_type"
                             value="vehicle_atomic_action" />
                           <ParameterAssignment parameterRef="Discrete_action_set"
                             value='[{"0": "stop", "1": "lane_follow", "2": "left_lane_change", "3": "right_lane_change"}, {"0": 0, "1": 4, "2": 8, "3": 12, "4": 16}]' />
-                          <ParameterAssignment parameterRef="Foucs_actors"
-                            value="Ego,npc1,npc2,soldier" />
                           <ParameterAssignment parameterRef="Add_action_mask" value="true" />
                           <ParameterAssignment parameterRef="Model_path"
                             value="srunner/examples/rl_models/Transport/Transport.Passthrough/checkpoint" />
@@ -262,10 +268,19 @@
               </Action>
               <StartTrigger>
                 <ConditionGroup>
-                  <Condition name="npc1_con1" delay="0" conditionEdge="none">
-                    <ByValueCondition>
-                      <SimulationTimeCondition value="3" rule="greaterThan" />
-                    </ByValueCondition>
+                  <Condition name="npc1_condition1" delay="0" conditionEdge="none">
+                    <ByEntityCondition>
+                      <TriggeringEntities triggeringEntitiesRule="any">
+                        <EntityRef entityRef="Ego" />
+                      </TriggeringEntities>
+                      <EntityCondition>
+                        <ReachPositionCondition tolerance="10.0">
+                          <Position>
+                            <LanePosition roadId="0" laneId="-1" s="$npc1_egoreach_region" />
+                          </Position>
+                        </ReachPositionCondition>
+                      </EntityCondition>
+                    </ByEntityCondition>
                   </Condition>
                 </ConditionGroup>
               </StartTrigger>
@@ -317,15 +332,16 @@
                         <ParameterAssignments>
                           <ParameterAssignment parameterRef="Type" value="vehicle_4w" />
                           <ParameterAssignment parameterRef="Target_speed" value="40" />
-                          <ParameterAssignment parameterRef="Init_speed" value="30" />
+                          <ParameterAssignment parameterRef="Init_speed" value="20" />
+                          <ParameterAssignment parameterRef="Collision_sensor" value="off" />
+                          <ParameterAssignment parameterRef="Enable_planner" value="true" />
+                          <ParameterAssignment parameterRef="End_pos" value="-583.21,-312.25,0.0" />
                           <ParameterAssignment parameterRef="Focus_actors"
                             value="Ego,npc1,npc2,soldier" />
                           <ParameterAssignment parameterRef="Action_type"
                             value="vehicle_atomic_action" />
                           <ParameterAssignment parameterRef="Discrete_action_set"
                             value='[{"0": "stop", "1": "lane_follow", "2": "left_lane_change", "3": "right_lane_change"}, {"0": 0, "1": 4, "2": 8, "3": 12, "4": 16}]' />
-                          <ParameterAssignment parameterRef="Foucs_actors"
-                            value="Ego,npc1,npc2,soldier" />
                           <ParameterAssignment parameterRef="Add_action_mask" value="true" />
                           <ParameterAssignment parameterRef="Model_path"
                             value="srunner/examples/rl_models/Transport/Transport.Passthrough/checkpoint" />
@@ -347,10 +363,19 @@
               </Action>
               <StartTrigger>
                 <ConditionGroup>
-                  <Condition name="npc2_con1" delay="0" conditionEdge="none">
-                    <ByValueCondition>
-                      <SimulationTimeCondition value="3" rule="greaterThan" />
-                    </ByValueCondition>
+                  <Condition name="npc2_condition1" delay="0" conditionEdge="none">
+                    <ByEntityCondition>
+                      <TriggeringEntities triggeringEntitiesRule="any">
+                        <EntityRef entityRef="Ego" />
+                      </TriggeringEntities>
+                      <EntityCondition>
+                        <ReachPositionCondition tolerance="10.0">
+                          <Position>
+                            <LanePosition roadId="0" laneId="-1" s="$npc1_egoreach_region" />
+                          </Position>
+                        </ReachPositionCondition>
+                      </EntityCondition>
+                    </ByEntityCondition>
                   </Condition>
                 </ConditionGroup>
               </StartTrigger>

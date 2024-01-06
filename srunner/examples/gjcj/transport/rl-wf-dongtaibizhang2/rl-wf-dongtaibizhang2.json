@@ -1,42 +1,40 @@
 {
-    "seed": 13,
-        "name": "ego",
-            "map": "Town05",
-                "agent": {
-        "opt": {
-            "ignore_traffic_lights": false,
-                "ignore_stop_signs": false,
-                    "ignore_vehicles": false
-        }
-    },
-    "init": {
-            "maneuver": {}
-    },
-    "destination": [
-        {"location": [-331.86, -59.34, 0.0]}
-    ],
-    "targets": {
-        "scout": [],
-        "strike": [],
-        "track": []
-    },
-    "taskarea": [
-        {"location": [830.0, 42.0, 0.0]},
-        {"location": [839.0, -669.0, 0.0]},
-        {"location": [-444.0, -139.0, 0.0]},
-        {"location": [-418.0, 33.0, 0.0]}
-    ],
-    "keypoints": [],
-    "team": {
-        "red": [], 
-        "blue": [],  
-        "neutrality": ["npc1", "npc2", "npc3", "npc5", "zjc1", "zjc2", "zjc3"]
-    },
-    "elementtype":{
-        "pedestrian": [], 
-        "dynamic": ["npc1", "npc2", "npc3"],     
-        "static": ["zjc1", "zjc2", "zjc3", "npc5"],    
-        "obstacle": [],  
-        "keypoints": []    
-    }  
+  "seed": 13,
+  "name": "ego",
+  "map": "Town05",
+  "agent": {
+    "opt": {
+      "ignore_traffic_lights": false,
+      "ignore_stop_signs": false,
+      "ignore_vehicles": false
+    }
+  },
+  "init": {
+    "maneuver": {}
+  },
+  "destination": [{ "location": [-331.86, -59.34, 0.0] }],
+  "targets": {
+    "scout": [],
+    "strike": [],
+    "track": []
+  },
+  "taskarea": [
+    { "location": [830.0, 42.0, 0.0] },
+    { "location": [839.0, -669.0, 0.0] },
+    { "location": [-444.0, -139.0, 0.0] },
+    { "location": [-418.0, 33.0, 0.0] }
+  ],
+  "keypoints": [],
+  "team": {
+    "red": [],
+    "blue": [],
+    "neutrality": ["npc1", "npc2", "npc3", "npc5", "zjc1", "zjc2", "zjc3"]
+  },
+  "elementtype": {
+    "pedestrian": [],
+    "dynamic": ["npc1", "npc2", "npc3"],
+    "static": ["zjc1", "zjc2", "zjc3", "npc5"],
+    "obstacle": [],
+    "keypoints": []
+  }
 }

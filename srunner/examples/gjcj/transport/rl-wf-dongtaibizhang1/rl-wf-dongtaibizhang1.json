@@ -1,46 +1,40 @@
 {
-    "seed": 13,
-    "name": "ego",
-    "map": "wf_afghanSceneRecnew",
-    "agent": {
-        "opt": {
-            "ignore_traffic_lights": false,
-            "ignore_stop_signs": false,
-            "ignore_vehicles": false
-        }
-    },
-    "init": {
-        "maneuver": {}
-
-    },
-    "destination": [
-        {"location": [-740.03, -604.34, 0.0]}
-    ],
-    "targets": {
-        "scout": [],
-        "strike": [],
-        "track": []
-    },
-    "taskarea": [
-        {"location": [658.0, -430.0, 0.0]},
-        {"location": [-776.0, -478.0, 0.0]},
-        {"location": [-793.0, -653.0, 0.0]},
-        {"location": [682.0, -511.0, 0.0]}
-    ],
-    "keypoints": [],
-    "team": {
-        "red": [], 
-        "blue": [],  
-        "neutrality": ["npc1", "npc2", "npc3", "npc5", "zjc1", "zjc2", "zjc3"]
-    },
-    "elementtype":{
-        "pedestrian": [], 
-        "dynamic": ["npc1", "npc2", "npc3"],     
-        "static": ["zjc1", "zjc2", "zjc3", "npc5"],    
-        "obstacle": [],  
-        "keypoints": []    
-    }  
+  "seed": 13,
+  "name": "ego",
+  "map": "wf_afghanSceneRecnew",
+  "agent": {
+    "opt": {
+      "ignore_traffic_lights": false,
+      "ignore_stop_signs": false,
+      "ignore_vehicles": false
+    }
+  },
+  "init": {
+    "maneuver": {}
+  },
+  "destination": [{ "location": [-89.98, -498.73, 0.0] }],
+  "targets": {
+    "scout": [],
+    "strike": [],
+    "track": []
+  },
+  "taskarea": [
+    { "location": [658.0, -430.0, 0.0] },
+    { "location": [-776.0, -478.0, 0.0] },
+    { "location": [-793.0, -653.0, 0.0] },
+    { "location": [682.0, -511.0, 0.0] }
+  ],
+  "keypoints": [],
+  "team": {
+    "red": [],
+    "blue": [],
+    "neutrality": ["npc1", "npc2", "npc3", "npc5", "zjc1", "zjc2", "zjc3"]
+  },
+  "elementtype": {
+    "pedestrian": [],
+    "dynamic": ["npc1", "npc2", "npc3"],
+    "static": ["zjc1", "zjc2", "zjc3", "npc5"],
+    "obstacle": [],
+    "keypoints": []
+  }
 }
-
-
-

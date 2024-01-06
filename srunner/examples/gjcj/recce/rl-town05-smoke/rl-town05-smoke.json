@@ -1,52 +1,80 @@
 {
-    "seed": 13,
-    "name": "ego",
-    "map": "Town05",
-    "agent": {
-        "opt": {
-            "ignore_traffic_lights": false,
-            "ignore_stop_signs": false,
-            "ignore_vehicles": false
+  "seed": 13,
+  "name": "ego",
+  "map": "Town05",
+  "agent": {
+    "opt": {
+      "ignore_traffic_lights": false,
+      "ignore_stop_signs": false,
+      "ignore_vehicles": false
+    }
+  },
+  "init": {
+    "maneuver": {},
+    "smoke": {
+      "smoke": [
+        {
+          "location": [-196.29, -74.81, 0],
+          "rotation": [0, 0, 0],
+          "spped": 0,
+          "priority": 0
+        },
+        {
+          "location": [-174.0, -80.2, 0],
+          "rotation": [0, 0, 0],
+          "spped": 0,
+          "priority": 1
+        },
+        {
+          "location": [-61.75, -96.54, 0],
+          "rotation": [0, 0, 0],
+          "spped": 0,
+          "priority": 2
+        },
+        {
+          "location": [-41.84, -73.76, 0],
+          "rotation": [0, 0, 0],
+          "spped": 0,
+          "priority": 3
+        },
+        {
+          "location": [-54.35, -48.94, 0],
+          "rotation": [0, 0, 0],
+          "spped": 0,
+          "priority": 4
+        },
+        {
+          "location": [-43.49, -30.91, 0],
+          "rotation": [0, 0, 0],
+          "spped": 0,
+          "priority": 5
         }
-    },
-    "init": {
-        "maneuver": {},
-        "smoke":{
-            "smoke":[
-                {"location": [ -196.29,-74.81,0],"rotation": [0, 0, 0], "spped": 0, "priority": 0 },
-                {"location": [ -174.0,-80.2,0],"rotation": [0, 0, 0], "spped": 0, "priority": 1 },
-                {"location": [ -61.75,-96.54,0],"rotation": [0, 0, 0], "spped": 0, "priority": 2 },
-                {"location": [ -41.84,-73.76,0],"rotation": [0, 0, 0], "spped": 0, "priority": 3 },
-                {"location": [ -54.35,-48.94,0],"rotation": [0, 0, 0], "spped": 0, "priority": 4 },
-                {"location": [ -43.49,-30.91,0],"rotation": [0, 0, 0], "spped": 0, "priority": 5 }
-            ]
-        }
-    },
-    "destination": [
-        {"location": [-187.72, -25.56, 0.0]}
-    ],
-    "targets": {
-        "scout": ["barrier1", "post1"],
-        "strike": [],
-        "track": []
-    },
-    "taskarea": [
-        {"location": [-36.1, -5.1, 0.0]},
-        {"location": [-211.0, -7.1, 0.0]},
-        {"location": [-209.9, -107.7, 0.0]},
-        {"location": [-31.8, -106, 0.0]}
-    ],
-    "keypoints": [],
-    "team": {
-        "red": [], 
-        "blue": ["rb1","rb2","rb3","rb4"],
-        "neutrality": ["barrier1","barrier2","post1","smoke"]
-    },
-    "elementtype":{
-        "pedestrian": [], 
-        "dynamic": ["rb1","rb2","rb3","rb4"],     
-        "static": [],    
-        "obstacle": ["barrier1","barrier2","post1","smoke"],  
-        "keypoints": []    
-    }  
+      ]
+    }
+  },
+  "destination": [{ "location": [-187.72, -25.56, 0.0] }],
+  "targets": {
+    "scout": ["barrier1", "post1"],
+    "strike": [],
+    "track": []
+  },
+  "taskarea": [
+    { "location": [-36.1, -5.1, 0.0] },
+    { "location": [-211.0, -7.1, 0.0] },
+    { "location": [-209.9, -107.7, 0.0] },
+    { "location": [-31.8, -106, 0.0] }
+  ],
+  "keypoints": [],
+  "team": {
+    "red": [],
+    "blue": ["rb1", "rb2", "rb3", "rb4"],
+    "neutrality": ["barrier1", "barrier2", "post1", "smoke"]
+  },
+  "elementtype": {
+    "pedestrian": [],
+    "dynamic": ["rb1", "rb2", "rb3", "rb4"],
+    "static": [],
+    "obstacle": ["barrier1", "barrier2", "post1", "smoke"],
+    "keypoints": []
+  }
 }
